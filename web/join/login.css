@@ -1,5 +1,5 @@
 body{
-    background-image: url("../WEB-PIC/regist.jpg");
+    background-image: url("../WEB-PIC/login.jpg");
 }
 
 #title-box {
@@ -7,13 +7,18 @@ body{
     color: #FFFFFF;
 }
 
-#title-box h4 {
-    /*中文字(让文字点亮你的生活)*/
-    font-family: 'jdlibianjian11e0a624501cc4a';
+#title-box h1{
+    font-size: 70px;
+    /*中文字(方方的)*/
+    font-family:'JetLinkMediumOl1204ab18a51cc4a';
 }
 
-#title-box h1 {
-    font-size: 50px;
+#title-box h3{
+    /*中文字(方方的)*/
+    font-family:'JetLinkMediumOl1204ab18a51cc4a';
+}
+
+#title-box h4 {
     /*英文字*/
     font-family: 'ChannelSlanted2';
 }

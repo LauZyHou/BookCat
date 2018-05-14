@@ -1,0 +1,31 @@
+/*注册页面的样式表*/
+#title-box {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#title-box h4 {
+    font-family: 'jdlibianjian11e0a624501cc4a';
+}
+
+#title-box h1 {
+    font-size: 50px;
+    font-family: 'ChannelSlanted2';
+}
+
+.container {
+    text-align: center;
+    width: 700px;
+    height: 420px;
+    margin: 0 auto;
+    background: rgba(230, 240, 240, 0.3);
+}
+
+.form-group {
+    width: 400px;
+    display: inline-block;
+}
+
+button {
+    display: inline-block;
+}

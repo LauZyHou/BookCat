@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-4.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <!-- 配置数据源(DB层),使用Apache的DBCP2数据源连接池 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+          destroy-method="close">
+        <!-- 指定连接数据库的驱动 -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <!-- 指定连接数据库的URL -->
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/TEST_HBNT?useSSL=true&amp;characterEncoding=utf8" />
+        <!-- 指定连接数据库的用户名 -->
+        <property name="username" value="root" />
+        <!-- 指定密码 -->
+        <property name="password" value="3838438" />
+    </bean>
+
+    <!-- 配置SessionFactory为LocalSessionFactoryBean -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <!-- 注入上面配置的数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <!-- 注入Hibernate设置(相当于hibernate.properties文件的功能) -->
+        <property name="hibernateProperties">
+            <props>
+                <!-- Hibernate方言类 -->
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+                <!-- 是否显示SQL -->
+                <prop key="hibernate.show_sql">
+                    true
+                </prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/test_hbnt</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>org.model.User</value>
+            </list>
+        </property>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:org/model/User.hbm.xml</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <!-- 配置HibernateDaoSupport子类(DAO层),可以用[单例模式] -->
+    <bean id="userDAOImp" class="org.dao.imp.UserDAOImp">
+        <!-- HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean -->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
+    <bean id="userServiceImp" class="org.service.imp.UserServiceImp">
+        <!-- 注入相应的DAO -->
+        <property name="usr_d" ref="userDAOImp"/>
+    </bean>
+
+    <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,需使用[原型模式] -->
+    <bean id="golog" class="org.action.LoginAction" scope="prototype">
+        <!-- 使用[设置注入]将业务逻辑类的对象注入给这个Action -->
+        <property name="us" ref="userServiceImp"/>
+    </bean>
+
+    <!-- 配置声明式事务 -->
+    <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <!-- 注入前面的LocalSessionFactoryBean -->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- 事务增强,引用前面配置的Hibernate事务管理器 -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="*" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 事务切面 -->
+    <aop:config>
+        <aop:pointcut expression="execution(* org.service.imp.*.*(..))"
+                      id="txMethod" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txMethod" />
+    </aop:config>
+</beans>

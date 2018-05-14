@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--文档字符编码为utf-8-->
+    <meta charset="utf-8">
+    <!--自定义渲染方式:当使用IE为内核的浏览器,会渲染至它支持的最高版本;当启用Chrome Frame,会被Chrome内核渲染-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--设定网页的布局:宽度为设备宽度,页面的初始缩放值为1-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--网页的关键字,目前似乎对SEO没有什么用了-->
+    <meta name="keywords" content="BookCat,注册,购书,买书,书籍,阅读,文字,读书">
+    <!--网页的描述-->
+    <meta name="description" content="BookCat购书系统是在J2EE课程的带领下完成的">
+    <!--Buttons CSS按钮样式库-->
+    <link href="../WEB-RELY/button.css" rel="stylesheet" type="text/css"/>
+    <!--BootStrap依赖-->
+    <link rel="stylesheet" href="../WEB-RELY/bootstrap.min.css">
+    <script src="../WEB-RELY/jquery.min.js"></script>
+    <script src="../WEB-RELY/popper.min.js"></script>
+    <script src="../WEB-RELY/bootstrap.min.js"></script>
+    <!--iCheck CSS复选框单选按钮库-->
+    <link href="../WEB-RELY/polaris.css" rel="stylesheet">
+    <script src="../WEB-RELY/icheck.min.js"></script>
+    <!--字体的CDN-->
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
+          rel='stylesheet' type='text/css'/>
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/45817/5af08133f629d8100cf43a20.css'
+          rel='stylesheet' type='text/css'/>
+    <!--FontAwesome图标库-->
+    <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--自定-->
+    <link rel="stylesheet" href="register.css">
+</head>
+<!---------------------------------------------------------------------------------------->
+<body style="background-image: url(../WEB-PIC/regist.jpg);">
+<br><br><br>
+<div id="title-box">
+    <h1>BookCat</h1>
+    <h4>让文字点亮你的生活</h4>
+</div>
+<div class="container">
+    <form class="form-signin" data-role="form">
+        <br><br><br>
+        <div class="form-group" id="email">
+            <input type="text" class="form-control" id="email" placeholder="常用邮箱">
+        </div>
+        <button class="button button-raised button-primary button-pill"><i class="fa fa-mobile"></i>&nbsp; 手机号码注册
+        </button>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" id="pwd" placeholder="密码">
+        </div>
+        <button class="button button-raised button-primary button-pill"><i class="fa fa-qq"></i>&nbsp;腾 讯QQ注册</button>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" id="pwd" placeholder="请再次输入密码">
+        </div>
+        <button class="button button-raised button-primary button-pill"><i class="fa fa-weibo"></i>&nbsp;新浪微博注册</button>
+        <br>
+        <div class="form-check">
+            <label class="form-check-label" style="color: #FFFFFF">
+                <input type="checkbox" checked>
+                我已经阅读<a>用户协议</a>
+            </label>
+        </div>
+        <a href="http://www.bootcss.com/" class="button button-3d button-caution"><i class="fa fa-book"></i> &nbsp;加入BookCat</a>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_polaris',
+            radioClass: 'iradio_polaris',
+            increaseArea: '-10' // optional
+        });
+    });
+</script>
+</body>
+
+
+</html>

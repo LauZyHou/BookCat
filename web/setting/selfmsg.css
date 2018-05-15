@@ -1,0 +1,92 @@
+/*为了让div的高度能使用页面的高度,html元素要设置100%的高度*/
+html {
+    height: 100%;
+}
+
+/*全体居中*/
+body {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+}
+
+/*容器高度为body的百分比*/
+.container {
+    height: 83%;
+}
+
+/*鼠标移动到一级导航*/
+.navbar-nav > .nav-item > a:hover {
+    background-color: #218838;
+}
+
+/*鼠标移动到下拉导航*/
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
+    background-color: #c3e6cb;
+}
+
+/*卡片*/
+.card {
+    width: 30%;
+    float: left;
+    height: 100%;
+}
+
+/*卡片里的头像*/
+.card > .card-img-top {
+    width: 100%;
+}
+
+/*bs4的超大屏幕*/
+.jumbotron {
+    width: 70%;
+    float: right;
+    height: 100%;
+}
+
+/*清除浮动*/
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+/*清除浮动*/
+.clearfloat {
+    zoom: 1
+}
+
+/*合成盒子*/
+.syn {
+    margin-bottom: 8px;
+}
+
+/*合成盒子下的h4才需要浮动*/
+.syn > h4 {
+    text-align: left;
+    float: left;
+    width: 30%;
+}
+
+/*用普通兄弟选择器指定这些元素浮动*/
+h4 ~ .form-control {
+    float: right;
+    width: 70%;
+}
+
+#form{
+    height: 70%;
+}
+
+/*单独设置读书宣言组的高度*/
+#areasyn {
+    height: 80%;
+}
+
+/*禁止调整读书宣言文本区高度*/
+#areasyn > #area {
+    height: 100%;
+    resize: none;
+}

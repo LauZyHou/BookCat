@@ -1,3 +1,12 @@
+
+/*分割线*/
+hr{
+    background-color: #000000;
+    height: 2px;
+    border: none;
+}
+
+/*背景图*/
 body{
     background-image: url("../WEB-PIC/login.jpg");
 }
@@ -7,13 +16,17 @@ body{
     color: #FFFFFF;
 }
 
+/*大标题*/
 #title-box h1{
     font-size: 70px;
     /*中文字(方方的)*/
     font-family:'JetLinkMediumOl1204ab18a51cc4a';
 }
 
-#title-box h3{
+/*小标题*/
+h3{
+    font-size: 30px;
+    color: #f2f2f2;
     /*中文字(方方的)*/
     font-family:'JetLinkMediumOl1204ab18a51cc4a';
 }
@@ -21,6 +34,11 @@ body{
 #title-box h4 {
     /*英文字*/
     font-family: 'ChannelSlanted2';
+}
+
+
+.form-check-label{
+    color: #155724;
 }
 
 .container {

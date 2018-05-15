@@ -39,38 +39,53 @@
 <!---------------------------------------------------------------------------------------->
 <body>
 <br>
-<!--英文标题下面是中文小标题-->
+<!--标题-->
 <div id="title-box">
     <h1>读书不觉已春深 一寸光阴一寸金</h1>
-    <h3>立即登录</h3>
 </div>
-<!--注册的交互表单放在这个盒子里-->
+<br><br>
+<!--登录的交互表单放在这个盒子里-->
 <div class="container">
+    <!--登录表单-->
     <form class="form-signin" data-role="form">
-        <br><br><br>
-        <div class="form-group" id="email">
-            <input type="text" class="form-control" id="email" placeholder="常用邮箱">
-        </div>
-        <button class="button button-raised button-primary button-pill"><i class="fa fa-mobile"></i>&nbsp; 手机号码注册
-        </button>
         <br>
+        <h3>立即登录</h3>
+        <br>
+        <!--账户名输入-->
         <div class="form-group">
-            <input type="password" class="form-control" id="pwd" placeholder="密码">
+            <input type="text" class="form-control" placeholder="BookCat账户名">
         </div>
-        <button class="button button-raised button-primary button-pill"><i class="fa fa-qq"></i>&nbsp;腾 讯QQ注册</button>
         <br>
+        <!--密码输入-->
         <div class="form-group">
-            <input type="password" class="form-control" id="pwd" placeholder="请再次输入密码">
+            <input type="password" class="form-control" placeholder="密码">
         </div>
-        <button class="button button-raised button-primary button-pill"><i class="fa fa-weibo"></i>&nbsp;新浪微博注册</button>
         <br>
+        <!--记住登录-->
         <div class="form-check">
-            <label class="form-check-label" style="color: #FFFFFF">
+            <label class="form-check-label">
                 <input type="checkbox" checked>
-                我已经阅读<a>用户协议</a>
+                记住我，下次自动登录
             </label>
         </div>
-        <a href="http://www.bootcss.com/" class="button button-3d button-caution"><i class="fa fa-book"></i> &nbsp;加入BookCat</a>
+        <!--模拟登录按钮-->
+        <a href="/join/login.html" class="button button-3d button-royal"><i class="fa fa-magic"></i> &nbsp;登录BookCat</a>
+        <!--去往注册-->
+        <a href="/join/register.html" class="button button-3d button-caution"><i class="fa fa-book"></i>
+            &nbsp;没有账号？注册</a>
+        <hr>
+        <!--手机号码登录-->
+        <button class="button button-highlight button-box button-giant button-longshadow-right"><i class="fa fa-mobile"></i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--微信登录-->
+        <button class="button button-action button-box button-giant button-longshadow-right"><i class="fa fa-weixin"></i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--腾讯QQ登录-->
+        <button class="button button-primary button-box button-giant button-longshadow-right"><i class="fa fa-qq"></i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--新浪微博登录-->
+        <button class="button button-caution button-box button-raised button-giant button-longshadow-right"><i class="fa fa-weibo"></i></button>
+        <br>
     </form>
 </div>
 </body>

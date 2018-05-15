@@ -1,20 +1,32 @@
+/*背景色*/
 body{
     background-image: url("../WEB-PIC/regist.jpg");
 }
 
+/*用户协议*/
+#usrPrtcl{
+    color:#fed04e;
+
+}
+
+/*标题*/
 #title-box {
     text-align: center;
     color: #FFFFFF;
 }
 
+.form-check-label{
+    color: #FFFFFF;
+}
+
+/*二级标题*/
 #title-box h4 {
-    /*中文字(让文字点亮你的生活)*/
     font-family: 'jdlibianjian11e0a624501cc4a';
 }
 
+/*一级标题*/
 #title-box h1 {
     font-size: 50px;
-    /*英文字*/
     font-family: 'ChannelSlanted2';
 }
 

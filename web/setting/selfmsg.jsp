@@ -39,14 +39,15 @@
 <!--导航栏部分-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <!--导航栏Logo-->
-    <a class="navbar-brand" href="#">BookCat</a>
+    <a class="navbar-brand" href="../main/main.jsp">BookCat</a>
     <!--导航栏表单-->
     <form class="form-inline">
         <div class="input-group">
             <!--在输入框前添加小标签-->
-            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <span class="input-group-addon">搜索</span>
             <!--输入框-->
             <input type="text" class="form-control" placeholder="搜索你想要的书籍">
+            <button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
     </form>
     <!--导航栏中的导航组-->
@@ -63,7 +64,7 @@
                 设置
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">个人资料</a>
+                <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
                 <a class="dropdown-item" href="#">收货地址</a>
                 <a class="dropdown-item" href="#">购买记录</a>
             </div>

@@ -1,14 +1,22 @@
-body{
-    margin:0 auto;
-    text-align:center;
+
+body {
+    margin: 0 auto;
+    text-align: center;
+    background-color: #abdde5;
+}
+
+/*轮播*/
+.carousel{
+    margin-top: 80px;
 }
 
 /*鼠标移动到一级导航*/
-.navbar-nav>.nav-item>a:hover{
+.navbar-nav > .nav-item > a:hover {
     background-color: #218838;
 }
 
+
 /*鼠标移动到下拉导航*/
-.navbar-nav>.nav-item>.dropdown-menu>a:hover{
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
     background-color: #c3e6cb;
 }

@@ -42,6 +42,7 @@ body {
     width: 70%;
     float: right;
     height: 100%;
+    background-color: #CCCCCC;
 }
 
 /*清除浮动*/
@@ -70,13 +71,14 @@ body {
     width: 30%;
 }
 
-/*用普通兄弟选择器指定这些元素浮动*/
-h4 ~ .form-control {
+/*用普通兄弟选择器指定右侧元素浮动*/
+.syn > h4 ~ * {
     float: right;
     width: 70%;
 }
 
-#form{
+/*表单*/
+#form {
     height: 70%;
 }
 
@@ -89,4 +91,20 @@ h4 ~ .form-control {
 #areasyn > #area {
     height: 100%;
     resize: none;
+}
+
+/*男女组共同*/
+#sex > * {
+    text-align: center;
+    width: 50%;
+}
+
+/*男组*/
+#sex > #mangrp {
+    float: left;
+}
+
+/*女组*/
+#sex > #womangrp {
+    float: right;
 }

@@ -17,7 +17,7 @@
     <script src="../WEB-RELY/popper.min.js"></script>
     <script src="../WEB-RELY/bootstrap.min.js"></script>
     <!--iCheck CSS复选框单选按钮库-->
-    <link href="../WEB-RELY/polaris.css" rel="stylesheet">
+    <link href="../WEB-RELY/iCheck/blue.css" rel="stylesheet">
     <script src="../WEB-RELY/icheck.min.js"></script>
     <!--字体的CDN-->
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
     <link rel="stylesheet" href="../setting/selfmsg.css">
+    <script type="text/javascript" src="../setting/selfmsg.js"></script>
     <!--标题-->
     <title>个人资料</title>
 </head>
@@ -78,15 +79,15 @@
         <div class="card-body">
             <h4 class="card-title">刘知昊</h4>
             <p class="card-text">作为一只小猫咪就只会喵喵喵喵喵，喵喵喵喵喵，喵喵喵。</p>
-            <a href="#" class="btn btn-primary">修改头像</a>
+            <a href="#" class="button button-3d button-primary button-rounded">修改头像</a>
         </div>
     </div>
     <!--bs4的超大屏幕-->
     <div class="jumbotron">
         <!--进度条:个人信息完善程度-->
-        <h4>个人信息完善度：</h4>
+        <h4>个人信息完善度</h4>
         <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%"></div>
         </div>
         <br>
         <%--表单--%>
@@ -96,8 +97,17 @@
                 <s:textfield name="" class="form-control" placeholder="用户昵称"/>
             </div>
             <div class="syn clearfloat">
-                <h4>密码：</h4>
-                <s:password name="" class="form-control" placeholder="密码"/>
+                <h4>性别：</h4>
+                <div id="sex">
+                    <div id="mangrp">
+                        <label for="man">男</label>
+                        <input type="radio" name="iCheck" id="man">
+                    </div>
+                    <div id="womangrp">
+                        <label for="woman">女</label>
+                        <input type="radio" name="iCheck" id="woman" checked>
+                    </div>
+                </div>
             </div>
             <div class="syn clearfloat" id="areasyn">
                 <h4>读书宣言：</h4>
@@ -105,7 +115,7 @@
             </div>
             <%--提交--%>
             <span class="button-wrap">
-                <s:submit class="button button-pill button-raised button-primary" value="保存"/>
+                <s:submit class="button button-pill button-raised button-royal" value="保存"/>
             </span>
             <%--重置--%>
             <span class="button-wrap">

@@ -2,11 +2,11 @@
 body {
     margin: 0 auto;
     text-align: center;
-    background-color: #abdde5;
+    background-image: url("../WEB-PIC/Background/timg.jpeg");
 }
 
 /*轮播*/
-.carousel{
+.carousel {
     margin-top: 80px;
 }
 
@@ -15,8 +15,91 @@ body {
     background-color: #218838;
 }
 
-
 /*鼠标移动到下拉导航*/
 .navbar-nav > .nav-item > .dropdown-menu > a:hover {
     background-color: #c3e6cb;
+}
+
+/*为所有容器设定外边距*/
+.container-fluid {
+    margin-top: 5px;
+}
+
+/*清除浮动*/
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+}
+
+/*清除浮动*/
+.clearfloat {
+    zoom: 1;
+    overflow: hidden;
+}
+
+/*超大屏幕和书籍排名*/
+#jum_but {
+    height: 300px;
+    margin-top: 10px;
+}
+
+/*超大屏幕:欢迎信息/提示登入*/
+.jumbotron {
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+/*超大屏幕旁的排名栏*/
+.ranking {
+    background-color: #b9e563;
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+
+/*放所有书的盒子*/
+#bookbox {
+    height: 700px;
+    width: 100%;
+}
+
+/*每一行书的盒子*/
+.rowbox {
+    /*overflow: hidden;*/
+    width: 100%;
+    height: 200px;
+    margin-top: 18.3px;
+}
+
+/*每个书的盒子*/
+.imgbox {
+    width: 200px;
+    height: 200px;
+    margin-right: 6.16px;
+    margin-left: 6.16px;
+    float: left;
+    background: #ffffff;
+    border: 3px solid #6666CC;
+    border-radius: 7px;
+}
+
+/*书内的图片,不能超过盒子*/
+.imgbox > img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*页脚*/
+footer{
+    margin-top: 10px;
+    height: 50px;
+    background-color: #979ea7;
+    /*清理左右浮动，让它不受上面的浮动的干扰*/
+    clear: both;
+    color: #f2f2f2;
 }

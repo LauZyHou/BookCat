@@ -18,9 +18,9 @@ body{
 
 /*大标题*/
 #title-box h1{
-    font-size: 70px;
-    /*中文字(方方的)*/
-    font-family:'JetLinkMediumOl1204ab18a51cc4a';
+    font-size: 50px;
+    margin-top: 30px;
+    font-family:'ChannelSlanted2';
 }
 
 /*小标题*/

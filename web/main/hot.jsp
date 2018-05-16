@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml1/DTD/xhtml1-trasitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <!--文档字符编码为utf-8-->
@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--设定网页的布局:宽度为设备宽度,页面的初始缩放值为1-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--网页的关键字,目前似乎对SEO没有什么用了-->
+    <meta name="keywords" content="BookCat,购书,买书,书籍,阅读,文字,读书">
+    <!--网页的描述-->
+    <meta name="description" content="BookCat购书系统是在J2EE课程的带领下完成的">
     <!--Buttons CSS按钮样式库-->
     <link href="../WEB-RELY/button.css" rel="stylesheet" type="text/css">
     <!--BootStrap依赖-->
@@ -17,22 +21,19 @@
     <script src="../WEB-RELY/popper.min.js"></script>
     <script src="../WEB-RELY/bootstrap.min.js"></script>
     <!--iCheck CSS复选框单选按钮库-->
-    <link href="../WEB-RELY/iCheck/blue.css" rel="stylesheet">
+    <link href="../WEB-RELY/polaris.css" rel="stylesheet">
     <script src="../WEB-RELY/icheck.min.js"></script>
     <!--字体的CDN-->
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
-          rel='stylesheet' type='text/css'>
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/46121/5af9bad5f629d910dce29d2c.css'
           rel='stylesheet' type='text/css'>
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/45817/5af08133f629d8100cf43a20.css'
           rel='stylesheet' type='text/css'>
     <!--FontAwesome图标库-->
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
-    <link rel="stylesheet" href="../setting/selfmsg.css">
-    <script type="text/javascript" src="../setting/selfmsg.js"></script>
+    <link rel="stylesheet" href="../main/hot.css">
     <!--标题-->
-    <title>个人资料</title>
+    <title>热门书籍</title>
 </head>
 <!---------------------------------------------------------------------------------------->
 <body>
@@ -71,59 +72,20 @@
         </li>
     </ul>
 </nav>
-<br><br><br>
-<!--信息放在响应式容器中,定义伪类以清除浮动-->
-<div class="container clearfloat">
-    <!--卡片-->
-    <div class="card">
-        <img class="card-img-top" src="http://static.runoob.com/images/mix/img_avatar.png" alt="Card image">
-        <div class="card-body">
-            <h4 class="card-title">刘知昊</h4>
-            <p class="card-text">作为一只小猫咪就只会喵喵喵喵喵，喵喵喵喵喵，喵喵喵。</p>
-            <a href="#" class="button button-3d button-primary button-rounded">修改头像</a>
-        </div>
+<article>
+    <%--脱离文档流的绝对定位--%>
+    <img src=""
+    <div class="bookbox">
+        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/1.jpg"></a>
     </div>
-    <!--bs4的超大屏幕-->
-    <div class="jumbotron">
-        <!--进度条:个人信息完善程度-->
-        <h4>个人信息完善度</h4>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%"></div>
-        </div>
-        <br>
-        <%--表单--%>
-        <s:form action="#" id="form">
-            <div class="syn clearfloat">
-                <h4>用户昵称：</h4>
-                <s:textfield name="" class="form-control" placeholder="用户昵称"/>
-            </div>
-            <div class="syn clearfloat">
-                <h4>性别：</h4>
-                <div id="sex">
-                    <div id="mangrp">
-                        <label for="man">男</label>
-                        <input type="radio" name="iCheck" id="man">
-                    </div>
-                    <div id="womangrp">
-                        <label for="woman">女</label>
-                        <input type="radio" name="iCheck" id="woman" checked>
-                    </div>
-                </div>
-            </div>
-            <div class="syn clearfloat" id="areasyn">
-                <h4>读书宣言：</h4>
-                <s:textarea name="" class="form-control" placeholder="读书宣言" id="area"/>
-            </div>
-            <%--提交--%>
-            <span class="button-wrap">
-                <s:submit class="button button-pill button-raised button-royal" value="保存"/>
-            </span>
-            <%--重置--%>
-            <span class="button-wrap">
-                <s:reset class="button button-pill" value="重置"/>
-            </span>
-        </s:form>
+    <div class="bookbox">
+
     </div>
-</div>
+</article>
+<!--页脚-->
+<footer>
+    BookCat-让文字点亮你的生活！<br>
+    关于我们 · 联系我们 · 加入我们 · 服务声明 · 友情链接 · 网站地图 · 移动应用
+</footer>
 </body>
 </html>

@@ -8,6 +8,7 @@ body {
     margin: 0 auto;
     text-align: center;
     height: 100%;
+    background-image: url("../WEB-PIC/Background/timg.jpeg");
 }
 
 /*容器高度为body的百分比*/
@@ -51,12 +52,12 @@ body {
     clear: both;
     content: "";
     visibility: hidden;
-    height: 0
+    height: 0;
 }
 
 /*清除浮动*/
 .clearfloat {
-    zoom: 1
+    zoom: 1;
 }
 
 /*合成盒子*/

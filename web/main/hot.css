@@ -1,0 +1,74 @@
+/*为了让div的高度能使用页面的高度,html元素要设置100%的高度*/
+html {
+    height: 100%;
+}
+
+/*全体居中*/
+body {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    background-image: url("../WEB-PIC/Background/timg.jpeg");
+}
+
+/*鼠标移动到一级导航*/
+.navbar-nav > .nav-item > a:hover {
+    background-color: #218838;
+}
+
+/*鼠标移动到下拉导航*/
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
+    background-color: #c3e6cb;
+}
+
+/*中央区域*/
+article {
+    background-color: #f8d7da;
+    width: 80%;
+    float: top;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    /*height: 1600px;*/
+    overflow: hidden;
+}
+
+/*页脚*/
+footer {
+    margin-top: 10px;
+    height: 50px;
+    background-color: #979ea7;
+    /*清理左右浮动，让它不受上面的浮动的干扰*/
+    clear: both;
+    color: #f2f2f2;
+}
+
+/*书籍盒子*/
+.bookbox {
+    width: 80%;
+    margin: 10px auto;
+    background-color: #f2f2f2;
+    height: 220px;
+    /*overflow: hidden;*/
+}
+
+/*每个书的盒子*/
+.imgbox {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    background: #ffffff;
+    border: 3px solid #6666CC;
+    border-radius: 7px;
+}
+
+/*书内的图片,不能超过盒子*/
+.imgbox > img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

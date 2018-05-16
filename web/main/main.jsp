@@ -49,14 +49,14 @@
             <!--在输入框前添加小标签-->
             <span class="input-group-addon">搜索</span>
             <!--输入框-->
-            <input type="text" class="form-control" placeholder="搜索你想要的书籍">
+            <input type="text" class="form-control" placeholder="用户/书籍/文章">
             <button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
     </form>
     <!--导航栏中的导航组-->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">热门</a>
+            <a class="nav-link" href="../main/hot.jsp">热门</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">分类</a>
@@ -104,31 +104,45 @@
     </a>
 </div>
 
-<!--测试-->
-<div class="container-fluid" style="margin-top:80px">
-    <h3>固定导航栏</h3>
-    <p>导航栏可以固定在头部或者底部。</p>
-    <h1>滚动页面查看效果。</h1>
+<%
+    //使用java访问session以确定是否登陆了
+%>
+<!--超大屏幕和书籍排名-->
+<div class="container clearfloat" id="jum_but">
+    <!--超大屏幕:提示登入/用户欢迎信息-->
+    <div class="jumbotron">
+        <h1>现在加入BookCat！</h1>
+        <h5>加入BookCat，和更多读书爱好者交流，获取最新的书籍动态，享受可靠实惠的购书渠道。</h5>
+        <br>
+        <a class="button button-glow button-border button-rounded button-royal" role="button"
+            href="../join/login.html">立即登入</a>
+    </div>
+    <!--书籍排名-->
+    <div class="ranking">
+        这里是书籍排名
+    </div>
 </div>
-<div class="container-fluid" style="margin-top:80px">
-    <h3>固定导航栏</h3>
-    <p>导航栏可以固定在头部或者底部。</p>
-    <h1>滚动页面查看效果。</h1>
+<!--主页上的一些书-->
+<div class="container" id="#bookbox">
+    <div class="rowbox clearfloat">
+<%
+    for(int i=1;i<=11;i++){
+%>
+        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
+<%
+        if(i%6==0){
+%>
+            </div><div class="rowbox clearfloat">
+<%
+        }
+    }
+%>
+    </div>
 </div>
-<div class="container-fluid" style="margin-top:80px">
-    <h3>固定导航栏</h3>
-    <p>导航栏可以固定在头部或者底部。</p>
-    <h1>滚动页面查看效果。</h1>
-</div>
-<div class="container-fluid" style="margin-top:80px">
-    <h3>固定导航栏</h3>
-    <p>导航栏可以固定在头部或者底部。</p>
-    <h1>滚动页面查看效果。</h1>
-</div>
-<div class="container-fluid" style="margin-top:80px">
-    <h3>固定导航栏</h3>
-    <p>导航栏可以固定在头部或者底部。</p>
-    <h1>滚动页面查看效果。</h1>
-</div>
+<!--页脚-->
+<footer>
+    BookCat-让文字点亮你的生活！<br>
+    关于我们 · 联系我们 · 加入我们 · 服务声明 · 友情链接 · 网站地图 · 移动应用
+</footer>
 </body>
 </html>

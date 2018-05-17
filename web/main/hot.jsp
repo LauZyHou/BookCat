@@ -82,17 +82,17 @@
 <%
     if(i==1){
 %>
-        <img src="../WEB-PIC/Icon/red.png" id="no1">
+        <img src="../WEB-PIC/Icon/red.svg" id="no1">
 <%
     }
     else if(i==2){
 %>
-        <img src="../WEB-PIC/Icon/blue.png" id="no2">
+        <img src="../WEB-PIC/Icon/blue.svg" id="no2">
 <%
     }
     else if(i==3){
 %>
-        <img src="../WEB-PIC/Icon/green.png" id="no3">
+        <img src="../WEB-PIC/Icon/green.svg" id="no3">
 <%
     }
 %>
@@ -100,6 +100,17 @@
         <div class="msgbox">
             <h3>Top.<%=i%></h3>
             <h4>Redis开发与运维</h4>
+            <div>
+                <span class="badge badge-primary">新书</span>
+<%
+            if(i%5==0 || i==1){
+                out.print("<span class=\"badge badge-danger\">售罄</span>");
+            }
+            else if(i==2){
+                out.print("<span class=\"badge badge-warning\">即将售罄</span>");
+            }
+%>
+            </div>
             本书全面讲解Redis基本功能及其应用，并结合线上开发与运维监控中的实际使用案例，深入分析并总结了实际开发运维中遇到的“陷阱”，以及背后的原因， 包含大规模集群开发与管理的场景、应用案例与开发技巧。
         </div>
     </div>
@@ -107,6 +118,8 @@
     }
 %>
 </article>
+<!--购物车-->
+<img src="../WEB-PIC/Icon/shopcar.svg" id="shopcar">
 <!--页脚-->
 <footer>
     BookCat-让文字点亮你的生活！<br>

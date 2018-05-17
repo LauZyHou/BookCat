@@ -112,8 +112,5 @@ footer {
 /*装分页的盒子*/
 #page{
     background-color: #117a8b;
-}
-
-/*分页插件*/
-#relpage{
+    margin-left: 30%;
 }

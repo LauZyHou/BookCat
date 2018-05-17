@@ -89,7 +89,7 @@
     <!--分类头-->
     <div id="taglist_hd">
         <h2>Ideal books,is the key to wisdom.</h2>
-        <a href="#" class="button button-action">Go</a>
+        <a href="#" class="button button-primary">Go</a>
         <a href="#" class="button">Go</a>
     </div>
     <!--分类主体-->

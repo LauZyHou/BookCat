@@ -83,29 +83,42 @@ footer {
     margin-right: 10px;
 }
 
+/*三种奖牌*/
+#no1,#no2,#no3{
+    width: 128px;
+    height: 128px;
+    left: 110px;
+}
+
 /*金牌*/
 #no1 {
     position: absolute;
     top: 128px;
-    left: 110px;
 }
 
 /*银牌*/
 #no2 {
     position: absolute;
     top: 358px; /*128+230*/
-    left: 110px;
 }
 
 /*铜牌*/
 #no3 {
     position: absolute;
     top: 588px;
-    left: 110px;
 }
 
 /*排名号*/
 .msgbox>h3{
     font-family: 'ChannelSlanted2';
     color: #dc0010;
+}
+
+/*购物车*/
+#shopcar{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 100px;
+    right: 30px;
 }

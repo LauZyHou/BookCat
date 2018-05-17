@@ -1,0 +1,119 @@
+/*为了让div的高度能使用页面的高度,html元素要设置100%的高度*/
+html {
+    height: 100%;
+}
+
+/*全体居中*/
+body {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    background-image: url("../WEB-PIC/Background/timg.jpeg");
+}
+
+/*鼠标移动到一级导航*/
+.navbar-nav > .nav-item > a:hover {
+    background-color: #218838;
+}
+
+/*鼠标移动到下拉导航*/
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
+    background-color: #c3e6cb;
+}
+
+/*中央区域*/
+article {
+    /*background-color: #f8d7da;*/
+    width: 80%;
+    float: top;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    overflow: hidden;
+    /*开发*/
+    background-color: #4cb0f9;
+    height: 1600px;
+}
+
+/*页脚*/
+footer {
+    margin-top: 10px;
+    height: 50px;
+    background-color: #979ea7;
+    /*清理左右浮动，让它不受上面的浮动的干扰*/
+    clear: both;
+    color: #f2f2f2;
+}
+
+/*装分类的盒子*/
+#taglist {
+    width: 100%;
+    height: 300px;
+    background-color: #329949;
+    overflow: hidden;
+}
+
+/*一级分类*/
+#taglist > .bigtype {
+    width: 17.6%;
+    height: 90%;
+    background-color: #9088ec;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+/*分类头:标题+2按钮*/
+#taglist_hd {
+    width: 100%;
+    height: 80px;
+    text-align: left;
+    background-color: #f8d7da;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/*标题文字*/
+#taglist_hd > h2 {
+    float: left;
+    font-family: 'ChannelSlanted2';
+
+}
+
+/*两个按钮*/
+#taglist_hd > a {
+    float: right;
+}
+
+/*购物车*/
+#carbox{
+    position: fixed;
+    background-color: #dc0010;
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    right: 50px;
+    color: #f8d7da;
+}
+
+/*装这一类书的主体盒子*/
+#taglist_bd{
+    /*margin: 30px auto;*/
+    background-color: #84b91f;
+    width: 80%;
+    text-align: center;
+    height: 70%;
+    margin-left: 10%;
+    margin-top: 3%;
+    float: bottom;
+}
+
+/*装分页的盒子*/
+#page{
+    background-color: #117a8b;
+}
+
+/*分页插件*/
+#relpage{
+}

@@ -56,7 +56,7 @@
             <a class="nav-link" href="../main/hot.jsp">热门</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">分类</a>
+            <a class="nav-link" href="../main/classify.jsp">分类</a>
         </li>
         <!--下拉组-->
         <li class="nav-item dropdown">

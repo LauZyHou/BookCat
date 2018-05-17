@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <!--文档字符编码为utf-8-->
     <meta charset="utf-8">
@@ -26,16 +26,14 @@
     <!--字体的CDN-->
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
           rel='stylesheet' type='text/css'>
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/46121/5af9bad5f629d910dce29d2c.css'
-          rel='stylesheet' type='text/css'>
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/45817/5af08133f629d8100cf43a20.css'
           rel='stylesheet' type='text/css'>
     <!--FontAwesome图标库-->
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
-    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="../main/classify.css">
     <!--标题-->
-    <title>BookCat首页</title>
+    <title>图书分类</title>
 </head>
 <!---------------------------------------------------------------------------------------->
 <body>
@@ -74,70 +72,44 @@
         </li>
     </ul>
 </nav>
-
-<!--轮播部分-->
-<div id="demo" class="carousel slide" data-ride="carousel">
-    <!-- 指示符 -->
-    <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-    </ul>
-    <!-- 轮播图片 -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="../WEB-PIC/Carousel/1.jpg">
-        </div>
-        <div class="carousel-item">
-            <img src="../WEB-PIC/Carousel/2.jpg">
-        </div>
-        <div class="carousel-item">
-            <img src="../WEB-PIC/Carousel/3.jpg">
-        </div>
-    </div>
-    <!-- 左右切换按钮 -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-</div>
-
+<!--主体-->
+<article>
+    <!--分类-->
+    <div id="taglist">
 <%
-    //使用java访问session以确定是否登陆了
+    for(int i=1;i<=5;i++){
 %>
-<!--超大屏幕和书籍排名-->
-<div class="container clearfloat" id="jum_but">
-    <!--超大屏幕:提示登入/用户欢迎信息-->
-    <div class="jumbotron">
-        <h1>现在加入BookCat！</h1>
-        <h5>加入BookCat，和更多读书爱好者交流，获取最新的书籍动态，享受可靠实惠的购书渠道。</h5>
-        <br>
-        <a class="button button-glow button-border button-rounded button-royal" role="button"
-            href="../join/login.html">立即登入</a>
-    </div>
-    <!--书籍排名-->
-    <div class="ranking">
-        这里是书籍排名
-    </div>
-</div>
-<!--主页上的一些书-->
-<div class="container" id="#bookbox">
-    <div class="rowbox clearfloat">
+        <div class="bigtype">
+            大的分类
+        </div>
 <%
-    for(int i=1;i<=14;i++){
-%>
-        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
-<%
-        if(i%5==0){
-%>
-            </div><div class="rowbox clearfloat">
-<%
-        }
     }
 %>
     </div>
+    <!--分类头-->
+    <div id="taglist_hd">
+        <h2>Ideal books,is the key to wisdom.</h2>
+        <a href="#" class="button button-action">Go</a>
+        <a href="#" class="button">Go</a>
+    </div>
+    <!--分类主体-->
+    <div id="taglist_bd">
+
+    </div>
+    <!--分页-->
+    <div id="page">
+        <ul class="pagination pagination-lg">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </div>
+</article>
+<!--购物车-->
+<div id="carbox">
+    购物车
 </div>
 <!--页脚-->
 <footer>

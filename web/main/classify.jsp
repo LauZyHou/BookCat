@@ -76,21 +76,84 @@
 <article>
     <!--分类-->
     <div id="taglist">
-<%
-    for(int i=1;i<=5;i++){
-%>
         <div class="bigtype">
-            大的分类
+            <h3>
+                科学
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                技术
+            </h3>
+            <hr>
+            <a href="#">计算机</a><br>
+            <a href="#">物理学</a><br>
+            <a href="#">生命科学</a><br>
+            <a href="#">数学</a><br>
+            <a href="#">电子/通信</a><br>
+            <a href="#">设计</a><br>
+            <a href="#">其它</a><br>
         </div>
-<%
-    }
-%>
+        <div class="bigtype">
+            <h3>
+                政治
+                <i class="fa fa-money" aria-hidden="true"></i>
+                经济
+            </h3>
+            <hr>
+            <a href="#">贸易</a><br>
+            <a href="#">国际/国家</a><br>
+            <a href="#">城市建设</a><br>
+            <a href="#">其它</a><br>
+        </div>
+        <div class="bigtype">
+            <h3>
+                文学
+                <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                艺术
+            </h3>
+            <hr>
+            <a href="#">行为艺术</a><br>
+            <a href="#">雕塑</a><br>
+            <a href="#">经典文学</a><br>
+            <a href="#">绘画</a><br>
+            <a href="#">艺术理论</a><br>
+            <a href="#">音乐</a><br>
+            <a href="#">其它</a><br>
+        </div>
+        <div class="bigtype">
+            <h3>
+                生活
+                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                情感
+            </h3>
+            <hr>
+            <a href="#">励志</a><br>
+            <a href="#">职业规划</a><br>
+            <a href="#">烹饪/美食</a><br>
+            <a href="#">室内装潢</a><br>
+            <a href="#">旅游</a><br>
+            <a href="#">爱情</a><br>
+            <a href="#">其它</a><br>
+        </div>
+        <div class="bigtype">
+            <h3>
+                教育
+                <i class="fa fa-linode" aria-hidden="true"></i>
+                考试
+            </h3>
+            <hr>
+            <a href="#">儿童教育</a><br>
+            <a href="#">小学</a><br>
+            <a href="#">中学</a><br>
+            <a href="#">竞赛教育</a><br>
+            <a href="#">考证</a><br>
+            <a href="#">特殊教育</a><br>
+            <a href="#">其它</a><br>
+        </div>
     </div>
     <!--分类头-->
     <div id="taglist_hd">
-        <h2>Ideal books,is the key to wisdom.</h2>
-        <a href="#" class="button button-primary">Go</a>
-        <a href="#" class="button">Go</a>
+        <h2>Advertising space! Call 18800201312.</h2>
+        <a href="#" class="button button-primary">按热度</a>
+        <a href="#" class="button">按价格</a>
     </div>
     <!--分类主体-->
     <div id="taglist_bd">
@@ -108,9 +171,9 @@
     </div>
 </article>
 <!--购物车-->
-<div id="carbox">
-    购物车
-</div>
+<img src="../WEB-PIC/Icon/shopcar.svg" id="shopcar">
+<!--购物车上的小圆点-->
+<button class="button button-raised button-action button-circle button-caution" id="circle">1</button>
 <!--页脚-->
 <footer>
     BookCat-让文字点亮你的生活！<br>

@@ -120,6 +120,8 @@
 </article>
 <!--购物车-->
 <img src="../WEB-PIC/Icon/shopcar.svg" id="shopcar">
+<!--购物车上的小圆点-->
+<button class="button button-raised button-action button-circle button-caution" id="circle">1</button>
 <!--页脚-->
 <footer>
     BookCat-让文字点亮你的生活！<br>

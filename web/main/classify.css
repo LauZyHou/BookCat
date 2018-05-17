@@ -50,15 +50,20 @@ footer {
 #taglist {
     width: 100%;
     height: 300px;
-    background-color: #329949;
+    background-color: #CCCCFF;
     overflow: hidden;
+}
+
+/*盒子里的文字*/
+#taglist>.bigtype>h3{
+    color: #062c33;
 }
 
 /*一级分类*/
 #taglist > .bigtype {
     width: 17.6%;
     height: 90%;
-    background-color: #9088ec;
+    background-color: #fff3cd;
     float: left;
     margin-left: 2%;
     margin-top: 1%;
@@ -86,16 +91,6 @@ footer {
     float: right;
 }
 
-/*购物车*/
-#carbox{
-    position: fixed;
-    background-color: #dc0010;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    right: 50px;
-    color: #f8d7da;
-}
 
 /*装这一类书的主体盒子*/
 #taglist_bd{
@@ -114,3 +109,22 @@ footer {
     background-color: #117a8b;
     margin-left: 30%;
 }
+
+
+/*购物车*/
+#shopcar{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 100px;
+    right: 30px;
+}
+
+/*购物车上的小圆点*/
+#circle{
+    /*脱离和位置*/
+    position: fixed;
+    top: 195px;
+    right: 55px;
+}
+

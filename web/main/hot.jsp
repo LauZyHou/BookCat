@@ -73,14 +73,38 @@
     </ul>
 </nav>
 <article>
-    <%--脱离文档流的绝对定位--%>
-    <img src=""
+<%
+    //前三名打上Icon
+    for(int i=1;i<=11;i++){
+%>
     <div class="bookbox">
-        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/1.jpg"></a>
+<%
+    if(i==1){
+%>
+        <img src="../WEB-PIC/Icon/red.png" id="no1">
+<%
+    }
+    else if(i==2){
+%>
+        <img src="../WEB-PIC/Icon/blue.png" id="no2">
+<%
+    }
+    else if(i==3){
+%>
+        <img src="../WEB-PIC/Icon/green.png" id="no3">
+<%
+    }
+%>
+        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
+        <div class="msgbox">
+            <h3>Top.<%=i%></h3>
+            <h4>Redis开发与运维</h4>
+            本书全面讲解Redis基本功能及其应用，并结合线上开发与运维监控中的实际使用案例，深入分析并总结了实际开发运维中遇到的“陷阱”，以及背后的原因， 包含大规模集群开发与管理的场景、应用案例与开发技巧。
+        </div>
     </div>
-    <div class="bookbox">
-
-    </div>
+<%
+    }
+%>
 </article>
 <!--页脚-->
 <footer>

@@ -4,15 +4,29 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="org.model.User" table="usertable" schema="test_hbnt">
-        <id name="id">
-            <column name="ID" sql-type="int(11)"/>
-        </id>
-        <property name="username">
-            <column name="USERNAME" sql-type="varchar(255)"/>
-        </property>
-        <property name="password">
-            <column name="PASSWORD" sql-type="varchar(255)"/>
-        </property>
+    <class name="org.model.User" table="user" schema="bookcatdb">
+        <id name="id" column="id"/>
+        <property name="name" column="name" unique="true"/>
+        <property name="sex" column="sex"/>
+        <property name="tel" column="tel"/>
+        <property name="address" column="address"/>
+        <property name="money" column="money"/>
+        <property name="motto" column="motto"/>
+        <property name="sale1" column="sale1"/>
+        <property name="sale2" column="sale2"/>
+        <property name="sale3" column="sale3"/>
+        <one-to-one name="loginById" class="org.model.Login"/>
+        <set name="leavesById" inverse="true">
+            <key>
+                <column name="userid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.model.Leave"/>
+        </set>
+        <set name="ordersById" inverse="true">
+            <key>
+                <column name="userid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.model.Order"/>
+        </set>
     </class>
 </hibernate-mapping>

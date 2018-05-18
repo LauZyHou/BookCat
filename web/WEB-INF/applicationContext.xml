@@ -21,7 +21,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <!-- 指定连接数据库的URL -->
         <property name="url"
-                  value="jdbc:mysql://localhost:3306/TEST_HBNT?useSSL=true&amp;characterEncoding=utf8" />
+                  value="jdbc:mysql://localhost:3306/bookcatdb?useSSL=true&amp;characterEncoding=utf8" />
         <!-- 指定连接数据库的用户名 -->
         <property name="username" value="root" />
         <!-- 指定密码 -->
@@ -44,17 +44,17 @@
                 <prop key="hibernate.show_sql">
                     true
                 </prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/test_hbnt</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/bookcatdb</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
-        <property name="annotatedClasses">
-            <list>
-                <value>org.model.User</value>
-            </list>
-        </property>
         <property name="mappingLocations">
             <list>
+                <value>classpath:org/model/BkOdr.hbm.xml</value>
+                <value>classpath:org/model/Book.hbm.xml</value>
+                <value>classpath:org/model/Leave.hbm.xml</value>
+                <value>classpath:org/model/Login.hbm.xml</value>
+                <value>classpath:org/model/Order.hbm.xml</value>
                 <value>classpath:org/model/User.hbm.xml</value>
             </list>
         </property>

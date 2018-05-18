@@ -69,14 +69,27 @@
     </ul>
 </nav>
 <!--主体-->
-<article id="tab">
+<article>
     <!--用容器限高-->
     <div class="container">
         <!--地址切换头-->
         <div class="tabList">
-            <h2>地址管理</h2>
-            <p>赶快去解锁特殊地址吧</p>
-            <ul class="nav nav-tabs">
+            <div class="title">
+                <h2>地址管理</h2>
+                <p>赶快去解锁特殊地址吧</p>
+            </div>
+            <div id="tab">
+                <h3 class="active">地址1</h3>
+                <h3>地址2</h3>
+                <h3>地址3</h3>
+                <h3>VIP1</h3>
+                <h3>VIP5</h3>
+                <h3>年费读者</h3>
+                <h3>认证作家</h3>
+                <h3>一代宗师</h3>
+            </div>
+            <%--
+            <ul class="nav nav-tabs" id="tabul">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">地址1</a>
                 </li>
@@ -99,12 +112,48 @@
                     <a class="nav-link" href="#">认证作家开启</a>
                 </li>
             </ul>
+            --%>
+        </div>
+        <!--内容切换盒子-->
+        <div id="tabBox">
+            <div style="display: block">地址1</div>
+            <div>地址2</div>
+            <div>地址3</div>
+            <div>VIP1</div>
+            <div>VIP5</div>
+            <div>年费读者</div>
+            <div>认证作家</div>
         </div>
     </div>
 </article>
 
 </body>
 <script>
-
+    window.onload=function () {
+        // 获取ul列表
+        var tabul=document.getElementById("tabul");
+        //获取列表中的li项数组
+        var tabli=tabul.getElementsByTagName("li");
+        //获取内容切换大盒子
+        var tabBox=document.getElementById("tabBox");
+        //获取大盒子中的子盒子数组
+        var tabdiv=tabBox.getElementsByTagName("div");
+        //对于ta头列表的每一项
+        for(var i=0;i<tabli.length;i++){
+            // 为其添加下标
+            tabli[i].index=i;
+            //为其添加点击事件
+            tabli[i].onClick=function () {
+                // 先将所有的都隐藏
+                for(var i=0;i<tabli.length;i++){
+                    tabli[i].className="";
+                    tabdiv[i].style.display="none";
+                }
+                //再将自己激活
+                this.className="active";
+                tabdiv[this.index].style.display="block";
+            }
+        }
+    }
 </script>
 </html>

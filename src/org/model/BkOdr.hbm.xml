@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.model.BkOdr" table="bk_odr" schema="bookcatdb">
+        <composite-id mapped="true" class="org.model.BkOdrPK">
+            <key-property name="orderid" column="orderid"/>
+            <key-property name="bookid" column="bookid"/>
+        </composite-id>
+        <property name="num" column="num"/>
+        <many-to-one name="orderByOrderid" class="org.model.Order">
+            <column name="orderid"/>
+        </many-to-one>
+        <many-to-one name="bookByBookid" class="org.model.Book">
+            <column name="bookid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

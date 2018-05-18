@@ -1,8 +1,14 @@
 package org.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import org.model.User;
 import org.service.UserService;
 
+import java.util.Map;
+
+@SuppressWarnings("all")
 public class LoginAction extends ActionSupport {
     // 这两个信息通过Struts2框架属性注入
     private String usrname;
@@ -16,8 +22,15 @@ public class LoginAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        if (null != us.login(usrname, password))
+        //调用Service层的方法尝试登录以获取User对象
+        User usr=us.login(usrname,password);
+        //登录成功时
+        if (null != usr){
+            //将这个User存在Session里
+            Map sssn=ActionContext.getContext().getSession();
+            sssn.put("usr", usr);
             message = "欢迎你" + usrname;
+        }
         else
             message = "登录失败";
         return INDEX;

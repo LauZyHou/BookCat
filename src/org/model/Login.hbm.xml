@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.model.Login" table="login" schema="bookcatdb">
+        <id name="id" column="id"/>
+        <property name="name" column="name" unique="true"/>
+        <property name="password" column="password"/>
+        <one-to-one name="userById" class="org.model.User"/>
+    </class>
+</hibernate-mapping>

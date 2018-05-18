@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.model.Book" table="book" schema="bookcatdb">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
+        <property name="msg" column="msg"/>
+        <property name="price" column="price"/>
+        <property name="category" column="category"/>
+        <property name="num" column="num"/>
+        <property name="time" column="time"/>
+        <property name="hotnum" column="hotnum"/>
+        <set name="bkOdrsById" inverse="true">
+            <key>
+                <column name="bookid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.model.BkOdr"/>
+        </set>
+        <set name="leavesById" inverse="true">
+            <key>
+                <column name="bookid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.model.Leave"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -66,7 +66,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
-                <a class="dropdown-item" href="#">收货地址</a>
+                <a class="dropdown-item" href="../setting/address.jsp">收货地址</a>
                 <a class="dropdown-item" href="#">购买记录</a>
             </div>
         </li>
@@ -157,7 +157,23 @@
     </div>
     <!--分类主体-->
     <div id="taglist_bd">
-
+        <div class="rowbox clearfloat">
+<%
+            for(int i=1;i<=14;i++){
+%>
+                <a class="imgbox" href="#">
+                    <img src="../WEB-PIC/Exhibition/<%=i%>.jpg">
+                </a>
+<%
+                if(i%4==0){
+%>
+        </div>
+        <div class="rowbox clearfloat">
+<%
+                }
+            }
+%>
+        </div>
     </div>
     <!--分页-->
     <div id="page">

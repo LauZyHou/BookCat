@@ -1,0 +1,40 @@
+/*为了让div的高度能使用页面的高度,html元素要设置100%的高度*/
+html {
+    height: 100%;
+}
+
+/*全体居中*/
+body {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    background-image: url("../WEB-PIC/Background/timg.jpeg");
+}
+
+/*容器高度为body的百分比*/
+.container {
+    height: 83%;
+}
+
+/*鼠标移动到一级导航*/
+.navbar-nav > .nav-item > a:hover {
+    background-color: #218838;
+}
+
+/*鼠标移动到下拉导航*/
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
+    background-color: #c3e6cb;
+}
+
+/*主体区域*/
+article{
+    width: 80%;
+    float: top;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    overflow: hidden;
+    background-color: #fff3cd;
+    height: auto;
+}

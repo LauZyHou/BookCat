@@ -32,8 +32,8 @@ article {
     margin-top: 70px;
     overflow: hidden;
     /*开发*/
-    background-color: #4cb0f9;
-    height: 1600px;
+    background-color: #6699CC;
+    height: auto;
 }
 
 /*页脚*/
@@ -95,12 +95,14 @@ footer {
 /*装这一类书的主体盒子*/
 #taglist_bd{
     /*margin: 30px auto;*/
-    background-color: #84b91f;
+    background-color: #f2f2f2;
+    /*background-image: url("../WEB-PIC/Background/timg.jpeg");*/
     width: 80%;
     text-align: center;
-    height: 70%;
+    /*height: 70%;*/
     margin-left: 10%;
     margin-top: 3%;
+    padding-top: 2px;
     float: bottom;
 }
 
@@ -108,6 +110,7 @@ footer {
 #page{
     background-color: #117a8b;
     margin-left: 30%;
+    margin-top: 2%;
 }
 
 
@@ -128,3 +131,31 @@ footer {
     right: 55px;
 }
 
+/*每一行书的盒子*/
+.rowbox {
+    /*overflow: hidden;*/
+    width: 100%;
+    height: auto;
+    margin-top: 18.3px;
+    /*background-color: #CCCCFF;*/
+    overflow: hidden;
+}
+
+/*每个书的盒子*/
+.imgbox {
+    width: 200px;
+    height: 200px;
+    margin-left: 12.67px;
+    float: left;
+    background: #ffffff;
+    border: 3px solid #6666CC;
+    border-radius: 7px;
+}
+
+/*书内的图片,不能超过盒子*/
+.imgbox > img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

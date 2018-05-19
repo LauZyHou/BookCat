@@ -47,11 +47,14 @@
 <!--注册的交互表单放在这个盒子里-->
 <div class="container">
     <!--注册表单-->
-    <s:form class="form-signin" data-role="form" action="login" id="myform" method="post">
+    <s:form class="form-signin" data-role="form" action="register" id="myform" method="post" theme="simple">
         <br><br><br>
-        <!--账户名使用邮箱-->
+        <!--账户名(昵称)-->
         <div class="form-group">
-            <s:textfield name="usrname" class="form-control" placeholder="昵称"/>
+            <s:textfield name="name" class="form-control" placeholder="昵称"/>
+            <div id="fv_name">
+                <s:fielderror fieldName="name"/>
+            </div>
         </div>
         <!--手机注册-->
         <button class="button button-raised button-primary button-pill"><i class="fa fa-mobile"></i>&nbsp; 手机号码注册
@@ -60,17 +63,28 @@
         <!--密码-->
         <div class="form-group">
             <s:password name="password" class="form-control" placeholder="密码"/>
+            <div id="fv_password">
+                <s:fielderror fieldName="password"/>
+            </div>
         </div>
         <!--QQ注册-->
         <button class="button button-raised button-primary button-pill"><i class="fa fa-qq"></i>&nbsp;腾 讯QQ注册</button>
         <br>
         <!--再次输入密码-->
         <div class="form-group">
-            <s:password type="password" class="form-control" placeholder="请再次输入密码"/>
+            <s:password name="password2" class="form-control" placeholder="请再次输入密码"/>
+            <div id="fv_password2">
+                <s:fielderror fieldName="password2"/>
+            </div>
         </div>
         <!--微博注册-->
         <button class="button button-raised button-primary button-pill"><i class="fa fa-weibo"></i>&nbsp;新浪微博注册</button>
         <br><br>
+        <!--两次密码不一致时的信息框-->
+        <div class="alert alert-danger alert-dismissable fade show" id="unsame">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>两次密码不一致!</strong>
+        </div>
         <!--复选框+阅读并遵守用户协议-->
         <div class="form-check">
             <label class="form-check-label">
@@ -79,7 +93,7 @@
                 <a href="#" id="usrPrtcl">
                     用户协议
                 </a>
-                ,遵守约定。
+                ,并遵守约定。
             </label>
         </div>
         <br>
@@ -89,7 +103,7 @@
         <a href="../join/login.jsp" class="button button-3d button-royal"><i class="fa fa-magic"></i> &nbsp;已有账号？登录</a>
     </s:form>
     <!--用户协议要弹出的模态框-->
-    <div class="modal fade" id="modal" style="top: 60px">
+    <div class="modal fade" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- 模态框头部 -->
@@ -123,6 +137,45 @@
             </div>
         </div>
     </div>
+    <!--注册失败要弹出的模态框-->
+    <div class="modal fade" id="modal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">用户已被注册</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    您尝试注册的用户名已经被注册。
+                    <br>
+                    如是您已有账号，请转至登录页面，使用该账号进行登录。
+                    <br>
+                    否则，请更换其它用户名，重新进行注册。
+                </div>
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">重新注册</button>
+                    <a class="btn btn-secondary" href="../join/login.jsp">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+$(document).ready(function () {
+    //状态判断
+    var status='<%=request.getParameter("status")%>';
+    //登录失败提示
+    if('failed'===status){
+        $('#modal2').modal();
+    }
+    //两次密码不一致提示
+    else if('unsame'===status){
+        document.getElementById('unsame').style.display="";
+    }
+});
+</script>
 </body>
 </html>

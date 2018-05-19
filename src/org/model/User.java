@@ -4,19 +4,19 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class User {
-    private int id;
-    private String name;
-    private boolean sex;
-    private String tel;
-    private String address;
-    private Integer money;
-    private String motto;
-    private Short sale1;
-    private Short sale2;
-    private Short sale3;
-    private Collection<Leave> leavesById;
-    private Login loginById;
-    private Collection<Order> ordersById;
+    private int id;//用户编号
+    private String name;//用户名
+    private boolean sex;//性别
+    private String tel;//电话号码
+    private String address;//收货地址
+    private Integer money;//氪金数目
+    private String motto;//读书宣言
+    private Short sale1;//1型优惠券数目
+    private Short sale2;//2型优惠券数目
+    private Short sale3;//3型优惠券数目
+    private Collection<Leave> leavesById;//该用户的留言
+    private Login loginById;//对应的Login对象
+    private Collection<Orders> ordersById;//该用户的订单
 
     public int getId() {
         return id;
@@ -137,11 +137,11 @@ public class User {
         this.loginById = loginById;
     }
 
-    public Collection<Order> getOrdersById() {
+    public Collection<Orders> getOrdersById() {
         return ordersById;
     }
 
-    public void setOrdersById(Collection<Order> ordersById) {
+    public void setOrdersById(Collection<Orders> ordersById) {
         this.ordersById = ordersById;
     }
 }

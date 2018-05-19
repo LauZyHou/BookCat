@@ -1,0 +1,26 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>用户名不能为空!</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="requiredstring">
+            <message key="密码不能为空!" />
+        </field-validator>
+        <field-validator type="regex">
+            <!--2.3.15前的版本使用expression参数-->
+            <param name="regexExpression"><![CDATA[([a-zA-Z0-9]{6,16})]]></param>
+            <message>密码必须是6到16位的字母或数字!</message>
+        </field-validator>
+    </field>
+    <field name="password2">
+        <field-validator type="requiredstring">
+            <message key="密码不能为空!" />
+        </field-validator>
+    </field>
+</validators>

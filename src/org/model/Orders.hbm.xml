@@ -4,17 +4,27 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="org.model.Order" table="order" schema="bookcatdb">
-        <id name="id" column="id"/>
+    <class name="org.model.Orders" table="orders" schema="bookcatdb">
+        <!--主键在该表中自动生成,共享给BkOdr使用-->
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <!--生成时出现了多余,删去-->
+        <!--<property name="userid" column="userid"/>-->
         <property name="sum" column="sum"/>
         <property name="time" column="time"/>
+        <!--多个订单对应一个用户-->
         <many-to-one name="userByUserid" class="org.model.User">
             <column name="userid"/>
         </many-to-one>
+        <!--1个Order对应N个BkOdr,反转由BkOdr来维护两者关联-->
+        <!--(使用BkOdr的setOrderByOrderid方法并持久化BkOdr)-->
         <set name="bkOdrsById" inverse="true">
+            <!--指出N方表中外键的字段名-->
             <key>
                 <column name="orderid"/>
             </key>
+            <!--指出所关联的N方所在的POJO类-->
             <one-to-many not-found="ignore" class="org.model.BkOdr"/>
         </set>
     </class>

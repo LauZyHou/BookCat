@@ -6,7 +6,7 @@ public class BkOdr {
     private int orderid;
     private int bookid;
     private short num;
-    private Order orderByOrderid;
+    private Orders ordersByOrderid;
     private Book bookByBookid;
 
     public int getOrderid() {
@@ -49,12 +49,12 @@ public class BkOdr {
         return Objects.hash(orderid, bookid, num);
     }
 
-    public Order getOrderByOrderid() {
-        return orderByOrderid;
+    public Orders getOrdersByOrderid() {
+        return ordersByOrderid;
     }
 
-    public void setOrderByOrderid(Order orderByOrderid) {
-        this.orderByOrderid = orderByOrderid;
+    public void setOrdersByOrderid(Orders ordersByOrderid) {
+        this.ordersByOrderid = ordersByOrderid;
     }
 
     public Book getBookByBookid() {

@@ -5,9 +5,16 @@
 <hibernate-mapping>
 
     <class name="org.model.Login" table="login" schema="bookcatdb">
-        <id name="id" column="id"/>
-        <property name="name" column="name" unique="true"/>
+        <id name="id" column="id">
+            <!--生成器策略写foreign,表示将通过关联的持久化对象为主键赋值-->
+            <generator class="foreign">
+                <!--将组合的属性(对方对象)名写进来,表示使用的是它的主键-->
+                <param name="property">userById</param>
+            </generator>
+        </id>
+        <property name="name" column="name"/>
         <property name="password" column="password"/>
-        <one-to-one name="userById" class="org.model.User"/>
+        <!--1:1映射,组合的对方对象属性名,实现类名,是否通过外键引用对主键约束-->
+        <one-to-one name="userById" class="org.model.User" constrained="true"/>
     </class>
 </hibernate-mapping>

@@ -5,16 +5,16 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class Book {
-    private int id;
-    private String name;
-    private String msg;
-    private Short price;
-    private Short category;
-    private Short num;
-    private Timestamp time;
-    private Integer hotnum;
-    private Collection<BkOdr> bkOdrsById;
-    private Collection<Leave> leavesById;
+    private int id;//书编号
+    private String name;//数目
+    private String msg;//简介
+    private Short price;//价格
+    private Short category;//类型号
+    private Short num;//库存数
+    private Timestamp time;//上架时间
+    private Integer hotnum;//热度指数
+    private Collection<BkOdr> bkOdrsById;//一本书可对应多个[订单-书]组
+    private Collection<Leave> leavesById;//一本书可对应多条留言
 
     public int getId() {
         return id;

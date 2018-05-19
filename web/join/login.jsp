@@ -121,5 +121,20 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        //登录失败提示
+        var status='<%=request.getParameter("status")%>';
+        if('failed'===status){
+            $('#modal').modal();
+        }
+        //iCheck样式变化
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_polaris',
+            radioClass: 'iradio_polaris',
+            increaseArea: '-10' // optional
+        });
+    });
+</script>
 </body>
 </html>

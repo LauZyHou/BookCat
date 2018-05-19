@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Leave {
-    private int userid;
-    private int bookid;
-    private String comments;
-    private Timestamp time;
-    private User userByUserid;
-    private Book bookByBookid;
+    private int userid;//留言用户id
+    private int bookid;//留言基于的书的id
+    private String comments;//留言内容
+    private Timestamp time;//留言时间
+    private User userByUserid;//留下该留言的用户
+    private Book bookByBookid;//该留言基于的书
 
     public int getUserid() {
         return userid;

@@ -45,3 +45,41 @@ body{
 button {
     display: inline-block;
 }
+
+/*拦截信息样式*/
+.form-group>div{
+    color: #dc0010;
+    position: absolute;
+    width: 300px;
+    right: 580px;
+    text-align: left;
+}
+
+#fv_name{
+    top:248px;
+}
+
+#fv_password{
+    top:303px;
+}
+
+#fv_password2{
+    top:358px;
+}
+
+/*模态框*/
+#modal{
+    top:60px;
+}
+
+#modal2{
+    top: 110px;
+}
+
+/*两次密码不一致提示框*/
+#unsame{
+    position: absolute;
+    top:340px;
+    left: 600px;
+    display: none;
+}

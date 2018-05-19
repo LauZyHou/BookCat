@@ -5,8 +5,11 @@
 <hibernate-mapping>
 
     <class name="org.model.User" table="user" schema="bookcatdb">
-        <id name="id" column="id"/>
-        <property name="name" column="name" unique="true"/>
+        <!--主键在该表中自动生成,共享给Login,Orders,Leave使用-->
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" column="name"/>
         <property name="sex" column="sex"/>
         <property name="tel" column="tel"/>
         <property name="address" column="address"/>
@@ -15,18 +18,24 @@
         <property name="sale1" column="sale1"/>
         <property name="sale2" column="sale2"/>
         <property name="sale3" column="sale3"/>
-        <one-to-one name="loginById" class="org.model.Login"/>
+        <!--1:1映射(1个用户对应1个Login对象),组合的对方对象属性名,实现类名-->
+        <!--注意因为另一表的外键使用了本主键,所以可以在这个1:1映射上配置级联策略-->
+        <one-to-one name="loginById" class="org.model.Login" cascade="all"/>
+        <!--1个User对应N个Leave,反转由Leave来维护两者关联-->
+        <!--(使用Leave的setUserByUserid方法并持久化Leave)-->
         <set name="leavesById" inverse="true">
             <key>
                 <column name="userid"/>
             </key>
             <one-to-many not-found="ignore" class="org.model.Leave"/>
         </set>
+        <!--1个User对应N个Orders,反转由Order来维护两者关联-->
+        <!--(使用Order的setUserByUserid方法并持久化Order)-->
         <set name="ordersById" inverse="true">
             <key>
                 <column name="userid"/>
             </key>
-            <one-to-many not-found="ignore" class="org.model.Order"/>
+            <one-to-many not-found="ignore" class="org.model.Orders"/>
         </set>
     </class>
 </hibernate-mapping>

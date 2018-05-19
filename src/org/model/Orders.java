@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
 
-public class Order {
+public class Orders {
     private int id;
     private int userid;
     private short sum;
@@ -48,11 +48,11 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return id == order.id &&
-                userid == order.userid &&
-                sum == order.sum &&
-                Objects.equals(time, order.time);
+        Orders orders = (Orders) o;
+        return id == orders.id &&
+                userid == orders.userid &&
+                sum == orders.sum &&
+                Objects.equals(time, orders.time);
     }
 
     @Override

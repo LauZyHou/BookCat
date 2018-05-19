@@ -54,8 +54,8 @@
                 <value>classpath:org/model/Book.hbm.xml</value>
                 <value>classpath:org/model/Leave.hbm.xml</value>
                 <value>classpath:org/model/Login.hbm.xml</value>
-                <value>classpath:org/model/Order.hbm.xml</value>
                 <value>classpath:org/model/User.hbm.xml</value>
+                <value>classpath:org/model/Orders.hbm.xml</value>
             </list>
         </property>
 
@@ -76,6 +76,9 @@
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,需使用[原型模式] -->
     <bean id="golog" class="org.action.LoginAction" scope="prototype">
         <!-- 使用[设置注入]将业务逻辑类的对象注入给这个Action -->
+        <property name="us" ref="userServiceImp"/>
+    </bean>
+    <bean id="goregist" class="org.action.RegisterAction" scope="prototype">
         <property name="us" ref="userServiceImp"/>
     </bean>
 

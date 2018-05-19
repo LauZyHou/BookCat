@@ -3,10 +3,10 @@ package org.model;
 import java.util.Objects;
 
 public class Login {
-    private int id;
-    private String name;
-    private String password;
-    private User userById;
+    private int id;//用户的编号(来自User)
+    private String name;//用户名(DB层面上来自User)
+    private String password;//密码
+    private User userById;//对应的User对象
 
     public int getId() {
         return id;

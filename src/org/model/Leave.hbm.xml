@@ -5,15 +5,20 @@
 <hibernate-mapping>
 
     <class name="org.model.Leave" table="leave" schema="bookcatdb">
+        <!--使用User和Book的主键建立联合主键-->
         <composite-id mapped="true" class="org.model.LeavePK">
             <key-property name="userid" column="userid"/>
             <key-property name="bookid" column="bookid"/>
         </composite-id>
+        <!--留言内容-->
         <property name="comments" column="comments"/>
+        <!--留言时间-->
         <property name="time" column="time"/>
+        <!--多个留言可对应同一个用户-->
         <many-to-one name="userByUserid" class="org.model.User">
             <column name="userid"/>
         </many-to-one>
+        <!--多个留言可对应同一本书-->
         <many-to-one name="bookByBookid" class="org.model.Book">
             <column name="bookid"/>
         </many-to-one>

@@ -5,11 +5,31 @@
 <struts>
     <!-- 默认包,/命名空间 -->
     <package name="default" extends="struts-default" namespace="/">
+        <!--拦截器配置之处-->
+        <interceptors>
+            <!-- 拦截器名,实现类 -->
+            <interceptor name="rgstIntrcptr" class="org.interceptor.RegisterInterceptor"/>
+        </interceptors>
+        <default-interceptor-ref name=""/>
+
+
         <!-- 这里的class需要去写Spring所配置的bean的id,而不是实现类 -->
         <action name="login" class="golog">
             <result name="success">/main/main.jsp</result>
             <result name="error">/join/login.jsp?status=failed</result>
             <result name="input">/join/login.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <action name="register" class="goregist">
+            <result name="success">/main/main.jsp</result>
+            <result name="error">/join/register.jsp?status=failed</result>
+            <result name="input">/join/register.jsp</result>
+            <result name="passwordunsame">/join/register.jsp?status=unsame</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+            <!--使用自定的mainIntrcptr拦截器 -->
+            <interceptor-ref name="rgstIntrcptr"/>
         </action>
     </package>
 </struts>

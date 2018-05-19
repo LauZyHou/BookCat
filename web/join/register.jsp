@@ -173,7 +173,7 @@ $(document).ready(function () {
     }
     //两次密码不一致提示
     else if('unsame'===status){
-        document.getElementById('unsame').style.display="";
+        document.getElementById('unsame').style.display="block";
     }
 });
 </script>

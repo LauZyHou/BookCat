@@ -24,6 +24,19 @@ public class UserServiceImp implements UserService {
         return null;
     }
 
+    //注册业务
+    @Override
+    public boolean regist(String name, String password) {
+        //按传入的用户名查询Login对象,因为login表字段更少,但同时也能标识用户
+        Login lgn=usr_d.findLoginByName(name);
+        //如果查询结果不为空,说明该用户名已经被占用
+        if(null!=lgn)
+            return false;
+        //至此,要对用户进行注册
+        // TODO
+    }
+
+
     public UserDAO getUsr_d() {
         return usr_d;
     }

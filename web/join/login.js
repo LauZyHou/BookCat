@@ -14,13 +14,10 @@ function tosubmit(){
     return false;
 }
 
-//页面加载好之后
-$(document).ready(function(){
-    //用户协议的显示样式
-    $('[data-toggle="tooltip"]').tooltip();
-    //点击查看用户协议
-    $('#usrPrtcl').click(function () {
+//登录失败提示
+$(document).ready(function () {
+    var status='<%=request.getParameter("status")%>';
+    if('failed'===status){
         $('#modal').modal();
-    });
+    }
 });
-

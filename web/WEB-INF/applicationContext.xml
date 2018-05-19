@@ -95,7 +95,7 @@
         </tx:attributes>
     </tx:advice>
 
-    <!-- 事务切面 -->
+    <!--事务切面,AOP的方式配置事务,决定哪些类使用事务-->
     <aop:config>
         <aop:pointcut expression="execution(* org.service.imp.*.*(..))"
                       id="txMethod" />

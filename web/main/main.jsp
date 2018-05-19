@@ -115,7 +115,7 @@
         <h5>加入BookCat，和更多读书爱好者交流，获取最新的书籍动态，享受可靠实惠的购书渠道。</h5>
         <br>
         <a class="button button-glow button-border button-rounded button-royal" role="button"
-            href="../join/login.html">立即登入</a>
+            href="../join/login.jsp">立即登入</a>
     </div>
     <!--书籍排名-->
     <div class="ranking">

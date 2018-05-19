@@ -7,7 +7,9 @@
     <package name="default" extends="struts-default" namespace="/">
         <!-- 这里的class需要去写Spring所配置的bean的id,而不是实现类 -->
         <action name="login" class="golog">
-            <result name="index">/index.jsp</result>
+            <result name="success">/main/main.jsp</result>
+            <result name="error">/join/login.jsp?status=failed</result>
+            <result name="input">/join/login.jsp</result>
         </action>
     </package>
 </struts>

@@ -57,3 +57,20 @@ h3{
 button {
     display: inline-block;
 }
+
+/*拦截信息样式*/
+.form-group>div{
+    color: #dc0010;
+    position: absolute;
+    width: 160px;
+    right: 335px;
+    text-align: left;
+}
+
+#fv_name{
+    top:260px;
+}
+
+#fv_password{
+    top:315px;
+}

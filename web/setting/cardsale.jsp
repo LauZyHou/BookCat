@@ -55,15 +55,19 @@
         <li class="nav-item">
             <a class="nav-link" href="../main/classify.jsp">分类</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../main/pay.jsp">付款</a>
+        </li>
         <!--下拉组-->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                设置
+                我的
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
                 <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
-                <a class="dropdown-item" href="#">购买记录</a>
+                <a class="dropdown-item" href="../other/history.jsp">购买记录</a>
+                <a class="dropdown-item" href="../other/leave.jsp">我的留言</a>
             </div>
         </li>
     </ul>

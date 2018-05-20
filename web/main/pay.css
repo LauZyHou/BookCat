@@ -1,3 +1,7 @@
+body{
+    background-color: white;
+}
+
 /*图片总是尽量占满*/
 img{
     width: auto;
@@ -28,13 +32,13 @@ header{
 
 /*页脚*/
 footer{
-    margin-top: 10px;
     text-align: center;
     height: 50px;
     background-color: #979ea7;
     /*清理左右浮动，让它不受上面的浮动的干扰*/
     clear: both;
     color: #f2f2f2;
+    overflow: hidden;
 }
 
 /*左上角图标和字*/
@@ -102,34 +106,95 @@ footer{
 
 /*中央区域*/
 article{
-    height: 500px;
     /*background-color: #abdde5;*/
 }
 
-/*收货地址大盒子*/
-#addressbox{
+/*自定的样式大盒子,给[收货地址]和[优惠券选择]使用*/
+.mybox{
     width: 80%;
-    margin: 0 auto;
-    height: 300px;
+    margin: 0 auto 10px;
+    height: auto;
     border: solid #f6a456 3px;
     /*background-color: #9088ec;*/
-}
-
-/*里面的文字盒子*/
-#addressbox>div{
-    width: 100%;
-    margin: 10px;
     overflow: hidden;
 }
 
+/*里面的文字盒子*/
+.mybox>div{
+    width: 100%;
+    margin: 10px;
+    overflow: hidden;
+    /*为了让子盒子相对自己定位*/
+    position: relative;
+}
+
 /*里面的确认*/
-#addressbox>div>h4{
+.mybox>div>h4{
     float: left;
 }
 
 /*里面的管理*/
-#addressbox>div>a{
+.mybox>div>a{
     float: left;
     margin-left: 11px;
-    margin-top: 3px;
+    margin-top: 4px;
+}
+
+/*具体的收货地址*/
+.mybox>h4{
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+/*确认按钮*/
+.mybox>button{
+    float: right;
+    margin-right: 200px;
+    margin-bottom: 3px;
+}
+
+/*(3)装商品图片的盒子*/
+.picbox{
+    width: 200px;
+    height: 200px;
+    left: 20px;
+    float: left;
+    border: solid 2px #fff3cd;
+}
+
+/*(3)执行盒子*/
+.dobox{
+    width: 8%;
+    height: 200px;
+    float: left;
+    margin-left: 8.5px;
+    border: solid 2px #fff3cd;
+    text-align: center;
+}
+/*(3)右边的文字盒子*/
+.wordbox{
+    width: 70%;
+    height: 200px;
+    margin-right: 20px;
+    float: right;
+    border: solid 2px #fff3cd;
+}
+
+/*按钮用绝对(相对relative父级)定位*/
+.flybtn{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*书的书名居中*/
+.wordbox>h4{
+    text-align: center;
+}
+
+/*订单盒子一旦出现即为绿色字底*/
+#orderbox>h4{
+    background-color: #b9e563;
+    color: black;
 }

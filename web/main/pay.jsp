@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,7 @@
     <script src="../WEB-RELY/bootstrap.min.js"></script>
     <!--iCheck CSS复选框单选按钮库-->
     <link href="../WEB-RELY/polaris.css" rel="stylesheet">
+    <link href="../WEB-RELY/iCheck/blue.css" rel="stylesheet">
     <script src="../WEB-RELY/icheck.min.js"></script>
     <!--字体的CDN-->
     <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
@@ -33,8 +35,10 @@
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
     <link rel="stylesheet" href="../main/pay.css">
+    <script src="../main/pay.js"></script>
     <title>付款</title>
 </head>
+<!---------------------------------------------------------------------------------------->
 <body>
 <!--导航栏部分-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -95,14 +99,68 @@
     <hr id="tophr">
 </header>
 <article>
-    <!--收货地址-->
-    <div id="addressbox">
+    <!--(1)确认收货地址-->
+    <div class="mybox" id="addressbox">
         <div>
-            <h4>确认收货地址</h4>
-            <a href="#"><h5>管理收货地址</h5></a>
+            <h4>1.确认收货信息</h4>
+            <a href="#"><h5>修改收货信息</h5></a>
         </div>
+        <h4>上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
+        <h4>18800201312</h4>
+        <button class="btn btn-primary">信息无误</button>
     </div>
-商品
+    <!--(2)使用优惠券-->
+    <div class="mybox" id="salebox">
+        <div>
+            <h4>2.选择优惠券</h4>
+            <a href="#"><h5>选择优惠券</h5></a>
+        </div>
+        <h4>一张简单有效的的[风吹草动卡]</h4>
+        <button class="btn btn-primary">确认使用</button>
+    </div>
+    <!--(3)从购物车中选择要购买的商品-->
+    <s:form>
+    <div class="mybox" id="bookbox">
+        <div>
+            <h4>3.从购物车中选择商品</h4>
+            <a href="#"><h5>全选</h5></a>
+            <a href="#"><h5>反选</h5></a>
+        </div>
+<%
+    for(int i=1;i<7;i++){
+%>
+        <div>
+            <button class="button button-caution button-square flybtn"><i class="fa fa-remove"></i></button>
+            <div class="picbox">
+                <img src="../WEB-PIC/Exhibition/<%=i%>.jpg">
+            </div>
+            <div class="dobox">
+                <br><br>
+                <h4>5本</h4>
+                <br>
+                <label for="<%=i%>">选择</label>
+                <input type="checkbox" name="iCheck" id="<%=i%>">
+            </div>
+            <div class="wordbox">
+                <h4>道德情操论</h4>
+                <h5>&nbsp;&nbsp;在该书中，斯密用同情的基本原理来阐释正义、仁慈、克己等一切道德情操产生的根源，说明道德评价的性质、原则以及各种美德的特征，并对各种道德哲学学说进行了介绍和评价，进而揭示出人类社会赖以维系、和谐发展的基础以及人的行为应遵循的一般道德准则。</h5>
+            </div>
+        </div>
+<%
+    }
+%>
+        <button class="btn btn-primary">确认选择</button>
+    </div>
+    </s:form>
+    <!--(4)生成订单-->
+    <div class="mybox" id="orderbox">
+        <div>
+            <h4>4.生成订单</h4>
+            <a href="#"><h5>我还有反悔的余地吗?</h5></a>
+        </div>
+        <h4>[订单编号]17</h4>
+        <button class="btn btn-success">立即付款</button>
+    </div>
 </article>
 <!--页脚-->
 <footer>

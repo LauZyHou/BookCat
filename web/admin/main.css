@@ -1,0 +1,50 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+header,article,footer{
+    width: 100%;
+}
+header,footer{
+    height: 10%;
+    text-align: center;
+}
+/*内容大盒子*/
+article{
+    background-color: #ffeeba;
+    height: 80%;
+    overflow: hidden;
+}
+header{
+    background-color: #CCCCCC;
+}
+footer{
+    background-color: #f8d7da;
+}
+
+/*切换标题*/
+header>h1{
+    margin: 0;
+    float: left;
+    text-align: center;
+    width: 25%;
+    height: 100%;
+    background-color: #101010;
+    color: white;
+}
+
+/*标题激活状态*/
+header .active{
+    background-color: #ffeeba;
+    color: black;
+}
+
+/*内容里的切换盒子*/
+article>.tabdiv{
+    clear: both;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    /*先全隐藏,为第一个盒子覆写显示*/
+    display: none;
+}

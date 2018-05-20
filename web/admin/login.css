@@ -1,0 +1,22 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+header,article,footer{
+    width: 100%;
+}
+header,footer{
+    height: 10%;
+    text-align: center;
+}
+article{
+    background-color: #ffeeba;
+    height: 80%;
+    padding-top: 8%;
+}
+header{
+    background-color: #CCCCCC;
+}
+footer{
+    background-color: #f8d7da;
+}

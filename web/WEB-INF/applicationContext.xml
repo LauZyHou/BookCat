@@ -73,14 +73,18 @@
         <property name="usr_d" ref="userDAOImp"/>
     </bean>
 
-    <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,需使用[原型模式] -->
+    <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
+    <!--[用户登录]-->
     <bean id="golog" class="org.action.LoginAction" scope="prototype">
         <!-- 使用[设置注入]将业务逻辑类的对象注入给这个Action -->
         <property name="us" ref="userServiceImp"/>
     </bean>
+    <!--[用户注册]-->
     <bean id="goregist" class="org.action.RegisterAction" scope="prototype">
         <property name="us" ref="userServiceImp"/>
     </bean>
+    <!--[管理员登录]-->
+    <bean id="adlog" class="org.action.AdminLoginAction"/>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

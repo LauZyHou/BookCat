@@ -14,6 +14,7 @@
 
 
         <!-- 这里的class需要去写Spring所配置的bean的id,而不是实现类 -->
+        <!--[用户登录]-->
         <action name="login" class="golog">
             <result name="success">/main/main.jsp</result>
             <result name="error">/join/login.jsp?status=failed</result>
@@ -21,6 +22,7 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[用户注册]-->
         <action name="register" class="goregist">
             <result name="success">/main/main.jsp</result>
             <result name="error">/join/register.jsp?status=failed</result>
@@ -30,6 +32,13 @@
             <interceptor-ref name="defaultStack"/>
             <!--使用自定的mainIntrcptr拦截器 -->
             <interceptor-ref name="rgstIntrcptr"/>
+        </action>
+        <!--[管理员登录]-->
+        <action name="adminlogin" class="adlog">
+            <result name="success">/admin/main.jsp</result>
+            <result name="error">/admin/login.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

@@ -68,7 +68,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
-                <a class="dropdown-item" href="#">收货地址</a>
+                <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
                 <a class="dropdown-item" href="#">购买记录</a>
             </div>
         </li>

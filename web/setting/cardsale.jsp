@@ -27,7 +27,7 @@
     <!--FontAwesome图标库-->
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
-    <link rel="stylesheet" href="../setting/address.css">
+    <link rel="stylesheet" href="../setting/cardsale.css">
     <!--标题-->
     <title>收货地址</title>
 </head>
@@ -62,7 +62,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
-                <a class="dropdown-item" href="../setting/address.jsp">收货地址</a>
+                <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
                 <a class="dropdown-item" href="#">购买记录</a>
             </div>
         </li>
@@ -75,54 +75,70 @@
         <!--地址切换头-->
         <div class="tabList">
             <div class="title">
-                <h2>地址管理</h2>
-                <p>赶快去解锁特殊地址吧</p>
+                <h2>优惠卡管理</h2>
+                <p>赶快去获取高级优惠卡吧</p>
             </div>
             <div id="tab">
-                <h3 class="active">地址1</h3>
-                <h3>地址2</h3>
-                <h3>地址3</h3>
-                <h3>VIP1</h3>
-                <h3>VIP5</h3>
-                <h3>年费读者</h3>
-                <h3>认证作家</h3>
-                <h3>一代宗师</h3>
+                <h3 class="active">风吹草动卡</h3>
+                <h3>排山倒海卡</h3>
+                <h3>宇宙星河卡</h3>
+                <h3>卡牌合成</h3>
             </div>
-            <%--
-            <ul class="nav nav-tabs" id="tabul">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">地址1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">地址2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">地址3</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">VIP1开启</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">VIP3开启</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">年费读者开启</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">认证作家开启</a>
-                </li>
-            </ul>
-            --%>
         </div>
         <!--内容切换盒子-->
         <div id="tabBox">
-            <div style="display: block">地址1</div>
-            <div>地址2</div>
-            <div>地址3</div>
-            <div>VIP1</div>
-            <div>VIP5</div>
-            <div>年费读者</div>
-            <div>认证作家</div>
+            <div class="tabdiv" style="display: block">
+                <div class="picdiv">
+                    <img src="../WEB-PIC/Coupons/1.jpg">
+                </div>
+                <div class="describe">
+                    <h4>卡牌描述</h4>
+                    平淡无奇的卡牌，似乎隐约散发着一些微小的力量。
+                    <hr>
+                    <h4>卡牌效果</h4>
+                    生成订单时使用该卡牌，能稳定打9.9折，取消订单归还卡牌。
+                    <hr>
+                    <h4>卡牌获取</h4>
+                    可以通过签到、活动获取风吹草动卡。
+                    <br>
+                    您目前拥有48张风吹草动卡。
+                </div>
+            </div>
+            <div class="tabdiv">
+                <div class="picdiv">
+                    <img src="../WEB-PIC/Coupons/2.jpg">
+                </div>
+                <div class="describe">
+                    <h4>卡牌描述</h4>
+                    充盈着力量的卡牌，周遭的一切都变得不安了起来。
+                    <hr>
+                    <h4>卡牌效果</h4>
+                    生成订单时使用该卡牌，能稳定打9折，取消订单归还卡牌。
+                    <hr>
+                    <h4>卡牌获取</h4>
+                    可以通过合成、活动获取排山倒海卡。
+                    <br>
+                    您目前拥有0张排山倒海卡。
+                </div>
+            </div>
+            <div class="tabdiv">
+                <div class="picdiv">
+                    <img src="../WEB-PIC/Coupons/3.jpg">
+                </div>
+                <div class="describe">
+                    <h4>卡牌描述</h4>
+                    这卡的来历早已无从考究，上古时期挑战该卡的斗圣强者都已纷纷陨落。
+                    <hr>
+                    <h4>卡牌效果</h4>
+                    生成订单时使用该卡牌，随机打7~9折，取消订单将使该卡破裂为2张风吹草动卡。
+                    <hr>
+                    <h4>卡牌获取</h4>
+                    可以通过合成、活动获取宇宙星河卡。
+                    <br>
+                    您目前拥有0张宇宙星河卡。
+                </div>
+            </div>
+            <div class="tabdiv">卡牌合成</div>
         </div>
     </div>
 </article>
@@ -130,30 +146,30 @@
 </body>
 <script>
     window.onload=function () {
-        // 获取ul列表
-        var tabul=document.getElementById("tabul");
-        //获取列表中的li项数组
-        var tabli=tabul.getElementsByTagName("li");
+        // 获取tab头的列表
+        var tab_ttl=document.getElementById("tab");
+        //获取列表中的h3项数组
+        var tab_lst=tab_ttl.getElementsByTagName("h3");
         //获取内容切换大盒子
         var tabBox=document.getElementById("tabBox");
         //获取大盒子中的子盒子数组
-        var tabdiv=tabBox.getElementsByTagName("div");
+        var tabdiv=tabBox.getElementsByClassName("tabdiv");
         //对于ta头列表的每一项
-        for(var i=0;i<tabli.length;i++){
+        for(var i=0;i<tab_lst.length;i++){
             // 为其添加下标
-            tabli[i].index=i;
+            tab_lst[i].index=i;
             //为其添加点击事件
-            tabli[i].onClick=function () {
+            tab_lst[i].onclick=function () {
                 // 先将所有的都隐藏
-                for(var i=0;i<tabli.length;i++){
-                    tabli[i].className="";
-                    tabdiv[i].style.display="none";
+                for(var j=0;j<tab_lst.length;j++){
+                    tab_lst[j].className="";
+                    tabdiv[j].style.display="none";
                 }
                 //再将自己激活
                 this.className="active";
                 tabdiv[this.index].style.display="block";
-            }
+            };
         }
-    }
+    };
 </script>
 </html>

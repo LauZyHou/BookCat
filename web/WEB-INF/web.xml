@@ -40,6 +40,6 @@
 
     <!-- 起始页面 -->
     <welcome-file-list>
-        <welcome-file>main/main.jsp</welcome-file>
+        <welcome-file>setting/cardsale.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -1,0 +1,135 @@
+/*图片总是尽量占满*/
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/*鼠标移动到一级导航*/
+.navbar-nav > .nav-item > a:hover {
+    background-color: #218838;
+}
+
+/*鼠标移动到下拉导航*/
+.navbar-nav > .nav-item > .dropdown-menu > a:hover {
+    background-color: #c3e6cb;
+}
+
+/*头部:放地址*/
+header{
+    margin-top: 60px;
+    /*background-color: #abdde5;*/
+    width: 100%;
+    height: 150px;
+    padding: 5px;
+}
+
+/*页脚*/
+footer{
+    margin-top: 10px;
+    text-align: center;
+    height: 50px;
+    background-color: #979ea7;
+    /*清理左右浮动，让它不受上面的浮动的干扰*/
+    clear: both;
+    color: #f2f2f2;
+}
+
+/*左上角图标和字*/
+#logandword{
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+}
+
+/*左上角图标和字里的logo盒子*/
+#logandword>.logobox{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+/*左上角图标盒子里的字盒子*/
+#logandword>.nextbox{
+    color: #e59345;
+    width: 200px;
+    height: 100px;
+    float: left;
+    text-align: center;
+    border-right: solid 2px #e59345;
+}
+
+/*字往下一些*/
+#logandword>.nextbox>h2{
+    margin-top: 15px;
+}
+
+/*确认订单信息的盒子*/
+#logandword>.thirdbox{
+    width: 200px;
+    height: 100%;
+    color: #444444;
+    text-align: center;
+    padding-top: 30px;
+    float: left;
+}
+
+/*最右边免费服务热线*/
+#logandword>.rgtbox{
+    padding-top: 25px;
+    float: right;
+    margin-right: 20px;
+}
+
+/*右上角字*/
+#logandword>.rgtbox>h4{
+    color: #444444;
+}
+
+/*具体电话*/
+#logandword>.rgtbox>h3{
+    color: #e59345;
+}
+
+
+/*顶部水平线*/
+#tophr{
+    background-color: #e59345;
+    height: 2px;
+}
+
+/*中央区域*/
+article{
+    height: 500px;
+    /*background-color: #abdde5;*/
+}
+
+/*收货地址大盒子*/
+#addressbox{
+    width: 80%;
+    margin: 0 auto;
+    height: 300px;
+    border: solid #f6a456 3px;
+    /*background-color: #9088ec;*/
+}
+
+/*里面的文字盒子*/
+#addressbox>div{
+    width: 100%;
+    margin: 10px;
+    overflow: hidden;
+}
+
+/*里面的确认*/
+#addressbox>div>h4{
+    float: left;
+}
+
+/*里面的管理*/
+#addressbox>div>a{
+    float: left;
+    margin-left: 11px;
+    margin-top: 3px;
+}

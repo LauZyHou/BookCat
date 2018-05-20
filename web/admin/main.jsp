@@ -224,7 +224,8 @@
 <footer>
     管理员，欢迎您。
     <br>
-    我的资料 · 联系老板 · 上班打卡 · 申请调休 · 公司内网 · 越级举报 · 我要辞职
+    我的资料 · 联系老板 · 上班打卡 · 申请调休 · 公司内网 · 越级举报 ·
+    <a href="../admin/login.jsp">我要辞职</a>
 </footer>
 <script>
     window.onload=function () {

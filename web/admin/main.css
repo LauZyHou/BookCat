@@ -20,6 +20,15 @@ header{
 }
 footer{
     background-color: #f8d7da;
+    font-size: 20px;
+}
+
+/*图片公共样式*/
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*切换标题*/
@@ -47,4 +56,109 @@ article>.tabdiv{
     margin: 0 auto;
     /*先全隐藏,为第一个盒子覆写显示*/
     display: none;
+    padding: 3%;
+    overflow: hidden;
+}
+
+/*[1]左侧盒子:上传图书和显示图书的位置*/
+.leftdiv{
+    background-color: #CCCCFF;
+    width: 30%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+/*[1]右侧盒子:其它信息*/
+.rightdiv{
+    background-color: #80bdff;
+    width: 65%;
+    height: 100%;
+    float: right;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/*[1]右侧行盒子宽度限制*/
+.rightdiv>div{
+    width: 100%;
+    height: 20%;
+    overflow: hidden;
+}
+
+/*[1]行盒子内盒子摆放*/
+/*[1]行内左*/
+.rightdiv>div>.lft{
+    float: left;
+    width: 45%;
+}
+/*[1]行内右*/
+.rightdiv>div>.rgt{
+    float: right;
+    width: 45%;
+}
+
+
+/*[1]图片盒子*/
+.picbox{
+    width: 300px;
+    height: 300px;
+    margin: 2% auto 5% auto;
+    background-color: white;
+}
+
+/*为表单打上布局,防止其影响布局*/
+form{
+    width: 100%;
+    height: 100%;
+}
+
+/*文本区域*/
+textarea{
+    width: 100%;
+    height: 47%;
+}
+
+/*[1]页面的按钮*/
+#sub1{
+    position: absolute;
+    top: 16.5%;
+    left: 31%;
+    width: 5%;
+    height: 67%;
+}
+
+/*[4]放跑路地图的盒子*/
+.map{
+    width: 1193px;
+    height: 386px;
+    margin: 0 auto;
+}
+
+/*[4]如果tabdiv下直接跟着某子标题,一定居中*/
+.tabdiv>h3{
+    text-align: center;
+}
+
+/*[2]用户盒子*/
+.userdiv{
+    background-color: #abdde5;
+    width: 47.5%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+/*[2]书籍盒子*/
+.bookdiv{
+    background-color: #abdde5;
+    width: 47.5%;
+    height: 100%;
+    float: right;
+    text-align: center;
+}
+
+/*表头居中*/
+th{
+    text-align: center;
 }

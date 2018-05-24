@@ -9,6 +9,7 @@ import org.service.UserService;
 
 import java.util.Map;
 
+//用户注册
 @SuppressWarnings("all")
 public class RegisterAction extends ActionSupport implements ModelDriven<Login> {
     //表单注入用户名和密码

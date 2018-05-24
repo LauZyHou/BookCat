@@ -44,19 +44,19 @@
     <!--导航栏Logo-->
     <a class="navbar-brand" href="../main/main.jsp">BookCat</a>
     <!--导航栏表单-->
-    <form class="form-inline">
+    <s:form class="form-inline" action="/search" id="srch">
         <div class="input-group">
             <!--在输入框前添加小标签-->
             <span class="input-group-addon">搜索</span>
             <!--输入框-->
-            <input type="text" class="form-control" placeholder="用户/书籍/文章">
-            <button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <input type="text" class="form-control" placeholder="用户/书籍/文章" name="name">
+            <a class="btn btn-primary" href="#" onclick="tosubmit()"><i class="fa fa-search" aria-hidden="true"></i></a>
         </div>
-    </form>
+    </s:form>
     <!--导航栏中的导航组-->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="../main/hot.jsp">热门</a>
+            <a class="nav-link" href="hot">热门</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../main/classify.jsp">分类</a>

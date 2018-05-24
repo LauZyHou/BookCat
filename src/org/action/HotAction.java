@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+//热门排序
 public class HotAction extends ActionSupport {
     private BookService bs;
     public String execute() throws Exception {

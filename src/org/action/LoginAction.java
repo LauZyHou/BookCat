@@ -9,6 +9,7 @@ import org.service.UserService;
 
 import java.util.Map;
 
+//用户登录
 //实现ModelDriven(模型驱动)的接口,为其泛型指定这个对象的实现类
 @SuppressWarnings("all")
 public class LoginAction extends ActionSupport implements ModelDriven<Login> {

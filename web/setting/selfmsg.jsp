@@ -1,5 +1,9 @@
+<%@ page import="org.model.User" %>
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
+<%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml1/DTD/xhtml1-trasitional.dtd">
 <html>
 <head>
@@ -58,31 +62,28 @@
         <li class="nav-item">
             <a class="nav-link" href="../main/classify.jsp">分类</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../main/pay.jsp">付款</a>
-        </li>
         <!--下拉组-->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                我的
+                设置
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
+                <a class="dropdown-item" href="selfmsg">个人资料</a>
                 <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
-                <a class="dropdown-item" href="../other/history.jsp">购买记录</a>
-                <a class="dropdown-item" href="../other/leave.jsp">我的留言</a>
+                <a class="dropdown-item" href="#">购买记录</a>
             </div>
         </li>
     </ul>
 </nav>
 <br><br><br>
+
 <!--信息放在响应式容器中,定义伪类以清除浮动-->
 <div class="container clearfloat">
     <!--卡片-->
     <div class="card">
         <img class="card-img-top" src="http://static.runoob.com/images/mix/img_avatar.png" alt="Card image">
         <div class="card-body">
-            <h4 class="card-title">刘知昊</h4>
+            <h4 class="card-title">${sessionScope.usr.name}</h4>
             <p class="card-text">作为一只小猫咪就只会喵喵喵喵喵，喵喵喵喵喵，喵喵喵。</p>
             <a href="#" class="button button-3d button-primary button-rounded">修改头像</a>
         </div>
@@ -91,32 +92,46 @@
     <div class="jumbotron">
         <!--进度条:个人信息完善程度-->
         <h4>个人信息完善度</h4>
+        <!--嵌入java代码来判断完成度-->
+        <%! int precentage=40;%>
+        <%
+            Map map=ActionContext.getContext().getSession();
+            User user=(User)map.get("usr");
+            String name=user.getName();
+            String motto=user.getMotto();
+            boolean sex=user.isSex();
+            if(name==null||name.equals("")||motto==null||motto.equals(""))
+                precentage=40;
+            else
+                precentage=100;
+        %>
+
         <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:<%=precentage%>%"></div>
         </div>
         <br>
         <%--表单--%>
         <s:form action="#" id="form">
             <div class="syn clearfloat">
                 <h4>用户昵称：</h4>
-                <s:textfield name="" class="form-control" placeholder="用户昵称"/>
+                <s:textfield name="" value="%{#session.usr.name}" class="form-control" placeholder="用户昵称"/>
             </div>
             <div class="syn clearfloat">
                 <h4>性别：</h4>
                 <div id="sex">
                     <div id="mangrp">
                         <label for="man">男</label>
-                        <input type="radio" name="iCheck" id="man">
+                        <input type="radio" name="iCheck" id="man" ${usr.sex==true?'checked':''}>
                     </div>
                     <div id="womangrp">
                         <label for="woman">女</label>
-                        <input type="radio" name="iCheck" id="woman" checked>
+                        <input type="radio" name="iCheck" id="woman" ${usr.sex==false?'checked':''}>
                     </div>
                 </div>
             </div>
             <div class="syn clearfloat" id="areasyn">
                 <h4>读书宣言：</h4>
-                <s:textarea name="" class="form-control" placeholder="读书宣言" id="area"/>
+                <s:textarea name="" value="%{#session.usr.motto}" class="form-control" placeholder="读书宣言" id="area"/>
             </div>
             <%--提交--%>
             <span class="button-wrap">

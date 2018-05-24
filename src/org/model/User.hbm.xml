@@ -20,7 +20,7 @@
         <property name="sale3" column="sale3"/>
         <!--1:1映射(1个用户对应1个Login对象),组合的对方对象属性名,实现类名-->
         <!--注意因为另一表的外键使用了本主键,所以可以在这个1:1映射上配置级联策略-->
-        <one-to-one name="loginById" class="org.model.Login" cascade="all"/>
+        <one-to-one name="loginById" class="org.model.Login" cascade="all" lazy="false"/>
         <!--1个User对应N个Leave,反转由Leave来维护两者关联-->
         <!--(使用Leave的setUserByUserid方法并持久化Leave)-->
         <set name="leavesById" inverse="true">

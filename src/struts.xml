@@ -53,6 +53,13 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[进入个人资料]-->
+        <action name="selfmsg" class="goselfmsg">
+            <result name="success">/setting/selfmsg.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
 
     </package>
 </struts>

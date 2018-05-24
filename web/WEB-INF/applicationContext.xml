@@ -108,6 +108,8 @@
         <!--使用[设置注入]将业务逻辑类的对象注入给这个Action-->
         <property name="sear" ref="searchServiceImp"/>
     </bean>
+    <!--[进入个人资料]-->
+    <bean id="goselfmsg" class="org.action.SelfMsgAction" scope="prototype"/>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

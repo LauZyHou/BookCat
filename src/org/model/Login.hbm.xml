@@ -15,6 +15,6 @@
         <property name="name" column="name"/>
         <property name="password" column="password"/>
         <!--1:1映射,组合的对方对象属性名,实现类名,是否通过外键引用对主键约束-->
-        <one-to-one name="userById" class="org.model.User" constrained="true"/>
+        <one-to-one name="userById" class="org.model.User" constrained="true" lazy="false"/>
     </class>
 </hibernate-mapping>

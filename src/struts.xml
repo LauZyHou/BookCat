@@ -46,6 +46,13 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[查询书籍]-->
+        <action name="search" class="searbook">
+            <result name="success">/other/srchrslt.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
 
     </package>
 </struts>

@@ -82,6 +82,10 @@
     <bean id="bookServiceImp" class="org.service.imp.BookServiceImp">
         <property name="book_d" ref="bookDAOImp"/>
     </bean>
+    <!--书籍查询服务-->
+    <bean id="searchServiceImp" class="org.service.imp.SearchServiceImp">
+        <property name="book_d" ref="bookDAOImp"/>
+    </bean>
 
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
     <!--[用户登录]-->
@@ -98,6 +102,11 @@
     <!--[热门排序]-->
     <bean id="hot" class="org.action.HotAction">
         <property name="bs" ref="bookServiceImp"/>
+    </bean>
+    <!--[搜索书名]-->
+    <bean id="searbook" class="org.action.SearchAction" scope="prototype">
+        <!--使用[设置注入]将业务逻辑类的对象注入给这个Action-->
+        <property name="sear" ref="searchServiceImp"/>
     </bean>
 
     <!-- 配置声明式事务 -->

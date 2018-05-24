@@ -40,5 +40,12 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[热门书籍查询]-->
+        <action name="hot" class="hot">
+            <result name="success">/main/hot.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
     </package>
 </struts>

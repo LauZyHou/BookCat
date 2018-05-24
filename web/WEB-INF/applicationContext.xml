@@ -44,7 +44,7 @@
                 <prop key="hibernate.show_sql">
                     true
                 </prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/bookcatdb</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/test</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
@@ -62,15 +62,25 @@
     </bean>
 
     <!-- 配置HibernateDaoSupport子类(DAO层),可以用[单例模式] -->
+    <!--用户DAO-->
     <bean id="userDAOImp" class="org.dao.imp.UserDAOImp">
-        <!-- HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean -->
+        <!--HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean-->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!--书籍DAO-->
+    <bean id="bookDAOImp" class="org.dao.imp.BookDAOImp">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
     <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
+    <!--服务用户-->
     <bean id="userServiceImp" class="org.service.imp.UserServiceImp">
-        <!-- 注入相应的DAO -->
+        <!--注入相应的DAO-->
         <property name="usr_d" ref="userDAOImp"/>
+    </bean>
+    <!--服务书籍-->
+    <bean id="bookServiceImp" class="org.service.imp.BookServiceImp">
+        <property name="book_d" ref="bookDAOImp"/>
     </bean>
 
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
@@ -85,6 +95,10 @@
     </bean>
     <!--[管理员登录]-->
     <bean id="adlog" class="org.action.AdminLoginAction"/>
+    <!--[热门排序]-->
+    <bean id="hot" class="org.action.HotAction">
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

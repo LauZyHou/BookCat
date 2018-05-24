@@ -59,7 +59,7 @@
     <!--导航栏中的导航组-->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="../main/hot.jsp">热门</a>
+            <a class="nav-link" href="hot">热门</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../main/classify.jsp">分类</a>

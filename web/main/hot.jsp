@@ -1,3 +1,7 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="org.model.Book" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
@@ -79,45 +83,62 @@
 <!--主体-->
 <article>
 <%
+    //获取当前时间
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String t = df.format(new java.util.Date());
+    Timestamp ts = Timestamp.valueOf(t);
+    Long tc=ts.getTime();
+    List<Book> ht=(List<Book>) session.getAttribute("hbooks");
     //前三名打上Icon
-    for(int i=1;i<=14;i++){
+    for(int i=0;i<14;i++){
 %>
-    <div class="bookbox">
+
+    <s:iterator value="#session.hbooks" id="book" status="st">
+        <div class="bookbox">
 <%
-    if(i==1){
+        if(i==1){
 %>
-        <img src="../WEB-PIC/Icon/red.svg" id="no1">
+            <img src="../WEB-PIC/Icon/red.svg" id="no1">
 <%
-    }
-    else if(i==2){
+        } else if(i==2){
 %>
-        <img src="../WEB-PIC/Icon/blue.svg" id="no2">
+            <img src="../WEB-PIC/Icon/blue.svg" id="no2">
 <%
-    }
-    else if(i==3){
-%>
-        <img src="../WEB-PIC/Icon/green.svg" id="no3">
+        } else if(i==3){
+ %>
+            <img src="../WEB-PIC/Icon/green.svg" id="no3">
 <%
-    }
+        }
 %>
-        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
-        <div class="msgbox">
-            <h3>Top.<%=i%></h3>
-            <h4>Redis开发与运维</h4>
+            <a class="imgbox" href="#">
+                <img src="../WEB-PIC/Exhibition/<s:property value="#book.id"/>.jpg">
+            </a>
+            <div class="msgbox">
+                <h3>Top.<%=i+1%></h3>
+                <h4><s:property value="#book.name"/></h4>
             <div>
-                <span class="badge badge-primary">新书</span>
 <%
-            if(i%5==0 || i==1){
-                out.print("<span class=\"badge badge-danger\">售罄</span>");
-            }
-            else if(i==2){
-                out.print("<span class=\"badge badge-warning\">即将售罄</span>");
-            }
+        //上架30天之内是新书
+        if(((ts.getTime()/(1000*60*60*24))-(ht.get(i).getTime().getTime()/(1000*60*60*24)))<30){
+            out.print(("<span class=\"badge badge-primary\">新书<br></span>"));
+        } else{
+            out.print(("<span class=\"badge badge-secondary\">经典<br></span>"));
+        }
 %>
-            </div>
-            本书全面讲解Redis基本功能及其应用，并结合线上开发与运维监控中的实际使用案例，深入分析并总结了实际开发运维中遇到的“陷阱”，以及背后的原因， 包含大规模集群开发与管理的场景、应用案例与开发技巧。
+        <s:if test="#book.num==0">
+            <span class="badge badge-danger">售罄</span>
+        </s:if>
+        <s:elseif test="#book.num<35">
+            <span class="badge badge-warning">即将售罄</span>
+        </s:elseif>
+<%
+        i++;
+%>
         </div>
-    </div>
+            <p><s:property value="#book.msg"/></p>
+        </div>
+        </div>
+    </s:iterator>
 <%
     }
 %>

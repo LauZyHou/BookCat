@@ -10,16 +10,6 @@ body {
     margin-top: 80px;
 }
 
-/*鼠标移动到一级导航*/
-.navbar-nav > .nav-item > a:hover {
-    background-color: #218838;
-}
-
-/*鼠标移动到下拉导航*/
-.navbar-nav > .nav-item > .dropdown-menu > a:hover {
-    background-color: #c3e6cb;
-}
-
 /*为所有容器设定外边距*/
 .container-fluid {
     margin-top: 5px;

@@ -40,6 +40,6 @@
 
     <!-- 起始页面 -->
     <welcome-file-list>
-        <welcome-file>other/history.jsp</welcome-file>
+        <welcome-file>detail/book.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

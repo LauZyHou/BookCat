@@ -10,17 +10,6 @@ img{
     max-height: 100%;
 }
 
-
-/*鼠标移动到一级导航*/
-.navbar-nav > .nav-item > a:hover {
-    background-color: #218838;
-}
-
-/*鼠标移动到下拉导航*/
-.navbar-nav > .nav-item > .dropdown-menu > a:hover {
-    background-color: #c3e6cb;
-}
-
 /*头部:放地址*/
 header{
     margin-top: 60px;

@@ -3,36 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--文档字符编码为utf-8-->
-    <meta charset="utf-8">
-    <!--自定义渲染方式:当使用IE为内核的浏览器,会渲染至它支持的最高版本;当启用Chrome Frame,会被Chrome内核渲染-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <!--设定网页的布局:宽度为设备宽度,页面的初始缩放值为1-->
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!--网页的关键字,目前似乎对SEO没有什么用了-->
-    <meta name="keywords" content="BookCat,购书,买书,书籍,阅读,文字,读书">
-    <!--网页的描述-->
-    <meta name="description" content="BookCat购书系统是在J2EE课程的带领下完成的">
-    <!--Buttons CSS按钮样式库-->
-    <link href="../WEB-RELY/button.css" rel="stylesheet" type="text/css">
-    <!--BootStrap依赖-->
-    <link rel="stylesheet" href="../WEB-RELY/bootstrap.min.css">
-    <script src="../WEB-RELY/jquery.min.js"></script>
-    <script src="../WEB-RELY/popper.min.js"></script>
-    <script src="../WEB-RELY/bootstrap.min.js"></script>
-    <!--iCheck CSS复选框单选按钮库-->
-    <link href="../WEB-RELY/polaris.css" rel="stylesheet">
-    <link href="../WEB-RELY/iCheck/blue.css" rel="stylesheet">
-    <script src="../WEB-RELY/icheck.min.js"></script>
-    <!--字体的CDN-->
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/19650/5af08244f629d8100cf43a22.css'
-          rel='stylesheet' type='text/css'>
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/46121/5af9bad5f629d910dce29d2c.css'
-          rel='stylesheet' type='text/css'>
-    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/117834/45817/5af08133f629d8100cf43a20.css'
-          rel='stylesheet' type='text/css'>
-    <!--FontAwesome图标库-->
-    <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--外部共用-->
+    <s:include value="../sharing/extern.jsp"/>
+    <script src="../sharing/icheckblue.js"></script>
+    <!--导航栏样式和动作-->
+    <link rel="stylesheet" href="../sharing/navbar.css">
+    <script src="../sharing/navbar.js"></script>
     <!--自定-->
     <link rel="stylesheet" href="../main/pay.css">
     <script src="../main/pay.js"></script>
@@ -40,45 +16,8 @@
 </head>
 <!---------------------------------------------------------------------------------------->
 <body>
-<!--导航栏部分-->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <!--导航栏Logo-->
-    <a class="navbar-brand" href="../main/main.jsp">BookCat</a>
-    <!--导航栏表单-->
-    <form class="form-inline">
-        <div class="input-group">
-            <!--在输入框前添加小标签-->
-            <span class="input-group-addon">搜索</span>
-            <!--输入框-->
-            <input type="text" class="form-control" placeholder="用户/书籍/文章">
-            <button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-    </form>
-    <!--导航栏中的导航组-->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="../main/hot.jsp">热门</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../main/classify.jsp">分类</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../main/pay.jsp">付款</a>
-        </li>
-        <!--下拉组-->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                我的
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="../setting/selfmsg.jsp">个人资料</a>
-                <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
-                <a class="dropdown-item" href="../other/history.jsp">购买记录</a>
-                <a class="dropdown-item" href="../other/leave.jsp">我的留言</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+<!--导航栏-->
+<s:include value="../sharing/navbar.jsp"/>
 <header>
     <!--左上角图标和字-->
     <div id="logandword">
@@ -103,28 +42,28 @@
     <!--(1)确认收货地址-->
     <div class="mybox" id="addressbox">
         <div>
-            <h4>1.确认收货信息</h4>
-            <a href="#"><h5>修改收货信息</h5></a>
+            <h4 id="ttl1">1.确认收货信息</h4>
+            <a href="#" id="a1"><h5>修改收货信息</h5></a>
         </div>
-        <h4>上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
-        <h4>18800201312</h4>
-        <button class="btn btn-primary">信息无误</button>
+        <h4 class="step1">上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
+        <h4 class="step1">18800201312</h4>
+        <button class="btn btn-primary" id="btn1" onclick="msgOk()">信息无误</button>
     </div>
     <!--(2)使用优惠券-->
     <div class="mybox" id="salebox">
         <div>
-            <h4>2.选择优惠券</h4>
-            <a href="#"><h5>选择优惠券</h5></a>
+            <h4 id="ttl2">2.选择优惠券</h4>
+            <a href="#" id="a2"><h5>选择优惠券</h5></a>
         </div>
-        <h4>一张简单有效的的[风吹草动卡]</h4>
-        <button class="btn btn-primary">确认使用</button>
+        <h4 id="step2">一张简单有效的的[风吹草动卡]</h4>
+        <button class="btn btn-primary" id="btn2" onclick="saleOk()">确认使用</button>
     </div>
     <!--(3)从购物车中选择要购买的商品-->
     <s:form>
     <div class="mybox" id="bookbox">
         <div>
             <h4>3.从购物车中选择商品</h4>
-            <a href="#"><h5>全选</h5></a>
+            <a href="#" onclick="chkall()"><h5>全选</h5></a>
             <a href="#"><h5>反选</h5></a>
         </div>
 <%
@@ -150,7 +89,7 @@
 <%
     }
 %>
-        <button class="btn btn-primary">确认选择</button>
+    <button class="btn btn-primary">确认选择</button>
     </div>
     </s:form>
     <!--(4)生成订单-->

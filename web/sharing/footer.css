@@ -1,0 +1,10 @@
+/*页脚*/
+footer{
+    text-align: center;
+    height: 50px;
+    background-color: #979ea7;
+    /*清理左右浮动，让它不受上面的浮动的干扰*/
+    clear: both;
+    color: #f2f2f2;
+    overflow: hidden;
+}

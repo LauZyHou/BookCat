@@ -1,0 +1,104 @@
+/*顶部*/
+header{
+    width: 100%;
+    height: 400px;
+    margin-top: 4%;
+    background-color: #b9e563;
+}
+
+header>div{
+    overflow: hidden;
+}
+
+/*添加和试读按钮*/
+header>div>a{
+    width: 40px;
+    height: 250px;
+    margin-top: 25px;
+    margin-left: 13px;
+    float: left;
+}
+/*按钮里的文字*/
+header>div>a>p{
+    margin: 70px auto 0 auto;
+}
+
+/*标题盒子*/
+#ttlbox{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: #abdde5;
+    font-size: 60px;
+}
+
+/*图片盒子*/
+#picbox{
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+    border: 4px solid royalblue;
+    /*transform: rotate(30deg);*/
+    /*transform: skewX(-30deg);*/
+}
+
+/*书内的图片,不能超过盒子*/
+#picbox > img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*书籍的描述盒子*/
+#wordbox{
+    width: 70%;
+    height: 250px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    background-color: #80bdff;
+    font-size: 30px;
+}
+
+article{
+    width: 100%;
+    background-color: #9088ec;
+}
+
+/*留言盒子*/
+#leave{
+    width: 90%;
+    margin-left: 5%;
+    height: 400px;
+    background-color: #80bdff;
+}
+
+/*提交表单*/
+#leave>form{
+    width: 100%;
+    height: 100%;
+}
+
+/*文本区域*/
+#leave>form>textarea{
+    width: 90%;
+    margin-left: 5%;
+    height: 80%;
+}
+
+/*按钮盒子*/
+#leave>form>div{
+    overflow: hidden;
+    margin: 10px 0;
+    padding-right: 170px;
+}
+
+/*盒子里的按钮*/
+#leave>form>div>input{
+    float: right;
+    margin-right: 20px;
+}

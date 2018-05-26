@@ -37,9 +37,20 @@
             /WEB-INF/applicationContext.xml
         </param-value>
     </context-param>
-
+    
     <!-- 起始页面 -->
     <welcome-file-list>
-        <welcome-file>detail/book.jsp</welcome-file>
+        <welcome-file>main/main.jsp</welcome-file>
     </welcome-file-list>
+
+    <!--一些Servlet,用于Ajax-->
+    <!--添加到购物车-->
+    <servlet>
+        <servlet-name>addToCar</servlet-name>
+        <servlet-class>org.ajax.AddToCarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addToCar</servlet-name>
+        <url-pattern>/addToCar.servlet</url-pattern>
+    </servlet-mapping>
 </web-app>

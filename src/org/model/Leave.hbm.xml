@@ -9,11 +9,10 @@
         <composite-id mapped="true" class="org.model.LeavePK">
             <key-property name="userid" column="userid"/>
             <key-property name="bookid" column="bookid"/>
+            <key-property name="time" column="time"/>
         </composite-id>
         <!--留言内容-->
         <property name="comments" column="comments"/>
-        <!--留言时间-->
-        <property name="time" column="time"/>
         <!--多个留言可对应同一个用户-->
         <many-to-one name="userByUserid" class="org.model.User">
             <column name="userid"/>

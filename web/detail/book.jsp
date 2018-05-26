@@ -36,22 +36,40 @@
     </div>
 </header>
 <article>
+    <!--回形针-->
+    <img src="../WEB-PIC/Icon/clip.svg" id="clip"/>
+    <!--目录-->
+    <div id="catalog">
+        <s:include value="../temporary/catalog.jsp"/>
+    </div>
     <!--已经存在的留言-->
     <div class="exist exist-A">
+        <div class="namebox">
+            刘知昊
+        </div>
         <div class="usrpicbox">
             <img src="../WEB-PIC/User/1.jpg"/>
         </div>
+        <div class="lybox">
+            <span>“</span>这本书很好看的喵<span>”</span>
+        </div>
     </div>
     <div class="exist exist-B">
+        <div class="namebox">
+            蔡坤
+        </div>
         <div class="usrpicbox">
-            <img src="../WEB-PIC/User/2.jpg"/>
+            <img src="../WEB-PIC/User/8.jpg"/>
+        </div>
+        <div class="lybox">
+            <span>“</span>喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵<span>”</span>
         </div>
     </div>
     <!--留言相关-->
     <div id="leave">
         <!--提交留言表单-->
         <s:form>
-            <s:textarea/>
+            <s:textarea placeholder="在这里添加您的评论..."/>
             <div>
                 <s:reset class="btn btn-secondary" name="" value="重置"/>
                 <s:submit class="btn btn-primary" name="ok" value="提交"/>

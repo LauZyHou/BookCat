@@ -15,7 +15,7 @@ header{
     margin: 4% auto 0 auto;
     height: 400px;
     /*margin-top: 4%;*/
-    background-color: #b9e563;
+    background-color: #99CC99;
 }
 
 header>div{
@@ -40,7 +40,8 @@ header>div>a>p{
     width: 100%;
     height: 100px;
     text-align: center;
-    background-color: #abdde5;
+    background-color: #003366;
+    color: wheat;
     font-size: 60px;
 }
 
@@ -78,9 +79,29 @@ header>div>a>p{
 
 article{
     width: 100%;
-    background-color: #9088ec;
+    /*background-color: #9088ec;*/
     text-align: center;
 }
+
+/*回形针*/
+#clip{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 375px;
+    left: 30px;
+}
+
+
+/*目录盒子*/
+article>#catalog{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0 20px 200px;
+    text-align: left;
+    background-color: #fff3cd;
+}
+
 
 /*留言盒子*/
 article>#leave{
@@ -102,6 +123,7 @@ article>#leave{
     width: 90%;
     margin: 20px auto 0 auto;
     height: 80%;
+    font-size: 50px;
 }
 
 /*按钮盒子*/
@@ -120,30 +142,41 @@ article>#leave{
 /*已经存在的留言*/
 article>.exist{
     width: 90%;
-    margin: 0 auto;
+    margin: 7px auto 7px auto;
     height: 240px;
     background-color: #f8d7da;
     overflow: hidden;
     border: 2px solid #9088ec;
 }
 
-/*用户头像盒子(共)*/
+/*用户昵称盒子(both)*/
+article>.exist>.namebox{
+    min-width: 14%;
+    width: auto;
+    height: 60px;
+    background-color: #009966;
+    color: white;
+    font-size: 35px;
+    margin-top: 40px;
+}
+
+/*任何A类盒子*/
+article>.exist-A>*{
+    float: right;
+}
+
+/*任何B类盒子*/
+article>.exist-B>*{
+    float: left;
+}
+
+/*用户头像盒子(both)*/
 article>.exist>.usrpicbox{
     width: 200px;
     height: 200px;
     margin-top: 20px;
-}
-
-/*用户头像盒子(A类)*/
-article>.exist-B>.usrpicbox{
-    float: left;
-    margin-left: 180px;
-}
-
-/*用户头像盒子(B类)*/
-article>.exist-A>.usrpicbox{
-    float: right;
-    margin-right: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 /*用户头像图片*/
@@ -153,4 +186,18 @@ article>.exist>.usrpicbox>img{
     max-width: 100%;
     max-height: 100%;
     border-radius:50%;
+}
+
+/*用户留言盒子(both)*/
+article>.exist>.lybox{
+    width: 50%;
+    height: 200px;
+    margin-top: 20px;
+    background-color: #FFFFCC;
+    font-size: 30px;
+}
+
+/*加大双引号(both)*/
+article>.exist>.lybox>span{
+    font-size: 50px;
 }

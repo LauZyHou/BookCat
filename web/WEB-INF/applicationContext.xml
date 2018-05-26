@@ -110,6 +110,10 @@
     </bean>
     <!--[进入个人资料]-->
     <bean id="goselfmsg" class="org.action.SelfMsgAction" scope="prototype"/>
+    <!--[获取特定id的书籍信息]-->
+    <bean id="bookmsg" class="org.action.BookMsgAction" scope="prototype">
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

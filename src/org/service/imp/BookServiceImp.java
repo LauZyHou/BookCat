@@ -16,6 +16,12 @@ public class BookServiceImp implements BookService {
         return hot_b;
     }
 
+    //获取指定书业务
+    @Override
+    public Book getBookById(int id) {
+        return book_d.findBookById(id);
+    }
+
     public void setBook_d(BookDAO book_d) {
         this.book_d = book_d;
     }

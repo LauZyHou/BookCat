@@ -52,7 +52,7 @@
 <%
         }
 %>
-            <a class="imgbox" href="#">
+            <a class="imgbox" href="bkmsg?id=<s:property value="#book.id"/>" target="_blank">
                 <img src="../WEB-PIC/Exhibition/<s:property value="#book.id"/>.jpg">
             </a>
             <div class="msgbox">

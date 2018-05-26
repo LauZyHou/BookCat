@@ -11,6 +11,8 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import java.util.List;
 
+
+@SuppressWarnings("all")
 public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
     //获取热门书籍
     public List<Book> getHotBook() {
@@ -66,4 +68,19 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
         // 返回查询结果
         return (null == ls_book || ls_book.isEmpty()) ? null : ls_book;
     }
+
+    //根据id查找书籍
+    @Override
+    public Book findBookById(int id) {
+        // 书写hql语句
+        String hql = "from Book where id=?";
+        // 获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 传入hql语句和'?'代换列表以做查询
+        List<Book> ls_book = (List<Book>) ht.find(hql, id);
+        // 返回查询结果
+        return (null == ls_book || ls_book.isEmpty()) ? null : ls_book.get(0);
+    }
+
+
 }

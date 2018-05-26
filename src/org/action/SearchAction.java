@@ -13,7 +13,7 @@ import java.util.Map;
 //查询书籍
 public class SearchAction extends ActionSupport implements ModelDriven<Book> {
     private Book searchByForm=null;
-    // 组合一个处理用户登录的业务逻辑类的对象,该对象将由Spring单例模式注入
+    //查询业务对象
     private SearchService sear;
 
     @Override

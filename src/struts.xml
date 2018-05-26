@@ -60,6 +60,11 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
-
+        <!--[获取特定id的书籍信息]-->
+        <action name="bkmsg" class="bookmsg">
+            <result name="success">/detail/book.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
     </package>
 </struts>

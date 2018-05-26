@@ -70,7 +70,7 @@
 <%
     for(int i=1;i<=14;i++){
 %>
-        <a class="imgbox" href="#"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
+        <a class="imgbox" href="bkmsg?id=<%=i%>" target="_blank"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
 <%
         if(i%5==0){
 %>

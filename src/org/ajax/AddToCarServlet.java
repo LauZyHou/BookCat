@@ -73,10 +73,6 @@ public class AddToCarServlet extends HttpServlet {
         usr_hs.put(id_i,usr_hs.get(id_i)+1);
         //将记录后的购物车写回Application作用域
         app.setAttribute("usrid"+usr.getId(),usr_hs);
-        //成功执行,返回给客户端状态码1
-        out.print(1);
-        out.flush();
-        out.close();
 
         //(重新统计并记录总数)--------------------------------------------
         //因为Session客户端关闭就没了,所以不妨重新统计
@@ -87,7 +83,12 @@ public class AddToCarServlet extends HttpServlet {
         }
         //存进Session里
         sssn.setAttribute("sum",sum);
-        System.out.println("添加购物车完成");
+
+        //成功执行,返回给客户端状态码sum
+        out.print(sum);
+        out.flush();
+        out.close();
+        //System.out.println("添加购物车完成,sum="+sum);
     }
 
     @Override

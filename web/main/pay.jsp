@@ -11,6 +11,7 @@
     <script src="../sharing/navbar.js"></script>
     <!--自定-->
     <link rel="stylesheet" href="../main/pay.css">
+    <link rel="stylesheet" href="../main/paymodal.css">
     <script src="../main/pay.js"></script>
     <title>付款</title>
 </head>
@@ -25,7 +26,7 @@
             <img src="../WEB-PIC/Icon/cat1.svg">
         </div>
         <div class="nextbox">
-            <h2>书猫商城</h2>
+            <h2>书猫社区</h2>
             <h4>www.bookcat.com</h4>
         </div>
         <div class="thirdbox">
@@ -43,7 +44,7 @@
     <div class="mybox" id="addressbox">
         <div>
             <h4 id="ttl1">1.确认收货信息</h4>
-            <a href="#" id="a1"><h5>修改收货信息</h5></a>
+            <a href="javascript:void(0);" onclick="getModal1()" id="a1"><h5>修改收货信息</h5></a>
         </div>
         <h4 class="step1">上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
         <h4 class="step1">18800201312</h4>
@@ -53,7 +54,7 @@
     <div class="mybox" id="salebox">
         <div>
             <h4 id="ttl2">2.选择优惠券</h4>
-            <a href="#" id="a2"><h5>选择优惠券</h5></a>
+            <a href="javascript:void(0);" id="a2" onclick="getModal2()"><h5>选择优惠券</h5></a>
         </div>
         <h4 id="step2">一张简单有效的的[风吹草动卡]</h4>
         <button class="btn btn-primary" id="btn2" onclick="saleOk()" disabled>确认使用</button>
@@ -96,7 +97,7 @@
     <div class="mybox" id="orderbox" style="display: none;">
         <div>
             <h4>4.生成订单</h4>
-            <a href="#"><h5>我还有反悔的余地吗?</h5></a>
+            <a href="javascript:void(0);" onclick="window.alert('没有');"><h5>我还有反悔的余地吗?</h5></a>
         </div>
         <h4>[订单编号]15121856</h4>
         <button class="btn btn-success">立即付款</button>
@@ -107,5 +108,7 @@
     BookCat-让文字点亮你的生活！<br>
     关于我们 · 联系我们 · 加入我们 · 服务声明 · 友情链接 · 网站地图 · 移动应用
 </footer>
+<!--模态框-->
+<s:include value="../main/paymodal.jsp"/>
 </body>
 </html>

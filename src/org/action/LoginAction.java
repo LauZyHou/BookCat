@@ -30,7 +30,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<Login> {
             //将这个User存在Session里
             Map sssn=ActionContext.getContext().getSession();
             sssn.put("usr", usr);
-            sssn.put("sum",3);
+            sssn.put("sum",null==sssn.get("sum")?0:sssn.get("sum"));
             return SUCCESS;
         }
         return ERROR;

@@ -127,12 +127,11 @@ function addCarProcessor(){
         }else if(responseContext=='-1'){
             window.alert('请先登录');
         }
-        else if(responseContext=='1'){
+        else{
+            //更新购物车上的数字部分,返回的状态码即是sum
+            //如果取session,取到的总是页面加载时的
+            $("#circle").text(responseContext);
             window.alert('添加成功');
-            //更新数字部分 TODO
-            $('#circle').text(${sessionScope.sum});
-        }else {
-            window.alert('未知的返回码');
         }
     }
 }

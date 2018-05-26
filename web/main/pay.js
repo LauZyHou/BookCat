@@ -126,3 +126,13 @@ function chckrsrv() {
     //     $(this).iCheck('check');
     // });
 }
+
+// [管理收货信息]
+function getModal1(){
+    $('#modal1').modal();
+}
+
+// [选择优惠券]
+function getModal2(){
+    $('#modal2').modal();
+}

@@ -56,15 +56,15 @@
             <a href="#" id="a2"><h5>选择优惠券</h5></a>
         </div>
         <h4 id="step2">一张简单有效的的[风吹草动卡]</h4>
-        <button class="btn btn-primary" id="btn2" onclick="saleOk()">确认使用</button>
+        <button class="btn btn-primary" id="btn2" onclick="saleOk()" disabled>确认使用</button>
     </div>
     <!--(3)从购物车中选择要购买的商品-->
-    <s:form>
+    <%--<s:form action="">--%>
     <div class="mybox" id="bookbox">
         <div>
             <h4>3.从购物车中选择商品</h4>
-            <a href="#" onclick="chkall()"><h5>全选</h5></a>
-            <a href="#"><h5>反选</h5></a>
+            <a href="javascript:void(0);" onclick="chckall()" id="chckall"><h5>全选</h5></a>
+            <a href="javascript:void(0);" onclick="chckrsrv()" id="chckrsrv"><h5>反选</h5></a>
         </div>
 <%
     for(int i=1;i<7;i++){
@@ -79,7 +79,7 @@
                 <h4>5本</h4>
                 <br>
                 <label for="<%=i%>">选择</label>
-                <input type="checkbox" name="iCheck" id="<%=i%>">
+                <input type="checkbox" name="iCheck" id="<%=i%>" class="chckbx">
             </div>
             <div class="wordbox">
                 <h4>道德情操论</h4>
@@ -89,16 +89,16 @@
 <%
     }
 %>
-    <button class="btn btn-primary">确认选择</button>
+    <button class="btn btn-primary" onclick="bookOk()" id="btn3" disabled>确认选择</button>
     </div>
-    </s:form>
+    <%--</s:form>--%>
     <!--(4)生成订单-->
-    <div class="mybox" id="orderbox">
+    <div class="mybox" id="orderbox" style="display: none;">
         <div>
             <h4>4.生成订单</h4>
             <a href="#"><h5>我还有反悔的余地吗?</h5></a>
         </div>
-        <h4>[订单编号]17</h4>
+        <h4>[订单编号]15121856</h4>
         <button class="btn btn-success">立即付款</button>
     </div>
 </article>

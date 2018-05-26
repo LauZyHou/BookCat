@@ -1,0 +1,16 @@
+/*购物车*/
+#shopcar{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 100px;
+    right: 30px;
+}
+
+/*购物车上的小圆点*/
+#circle{
+    /*脱离和位置*/
+    position: fixed;
+    top: 195px;
+    right: 55px;
+}

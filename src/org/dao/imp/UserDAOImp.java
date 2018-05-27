@@ -119,4 +119,37 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         // 在外部类中做判读并返回
         return (null == ls_lgn || ls_lgn.isEmpty()) ? null : ls_lgn.get(0);
     }
+
+    @Override
+    public List<User> findAllUser() {
+        // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
+        final String hql = "from User order by money desc";
+        // 获取HibernateTemplate对象
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 执行execute方法,传入HibernateCallback<T>接口
+        List<User> ls_htk = (List<User>) ht
+                .execute(new HibernateCallback<List<User>>() {
+                    // 覆写其中的<T> doInHibernate方法,Session通过形参注入
+                    @Override
+                    public List<User> doInHibernate(Session sssn)
+                            throws HibernateException {
+                        // 用hql建立Query对象
+                        Query qry = sssn.createQuery(hql);
+                        // 设定?参数值(JPA方式设定参数要给数字加双引号)
+                        //qry.setParameter("1", name);
+                        qry.setFirstResult(0);
+                        qry.setMaxResults(100);
+
+                        // 查询并返回结果,不用考虑Session的开关
+                        return qry.list();
+                    }
+                });
+        if (ls_htk == null) {
+            System.out.print("查询结果为空");
+            return null;
+        } else {
+            System.out.print("查询不为空");
+            return ls_htk;
+        }
+    }
 }

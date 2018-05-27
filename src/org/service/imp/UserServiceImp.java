@@ -5,6 +5,8 @@ import org.model.Login;
 import org.model.User;
 import org.service.UserService;
 
+import java.util.List;
+
 public class UserServiceImp implements UserService {
     // 需要组合用户的UserDAO以使用
     private UserDAO usr_d;
@@ -62,6 +64,12 @@ public class UserServiceImp implements UserService {
     //重置用户密码为123456
     public void updPsw(int id){
         usr_d.updatePsw(id);
+    }
+
+    @Override
+    public List<User> findall() {
+        List<User> allusers=usr_d.findAllUser();
+        return allusers;
     }
 
     public UserDAO getUsr_d() {

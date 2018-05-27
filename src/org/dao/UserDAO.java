@@ -3,6 +3,8 @@ package org.dao;
 import org.model.Login;
 import org.model.User;
 
+import java.util.List;
+
 public interface UserDAO {
     //根据给定的name查询用户Login对象
     Login findLoginByName(String name);
@@ -21,4 +23,7 @@ public interface UserDAO {
 
     //根据给定的ID查询用户Login对象
     Login findLoginById(int id);
+
+    //李喆雯
+    List<User> findAllUser();
 }

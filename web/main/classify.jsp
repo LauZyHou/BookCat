@@ -1,3 +1,5 @@
+<%@ page import="org.model.Book" %>
+<%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
@@ -29,13 +31,13 @@
                 技术
             </h3>
             <hr>
-            <a href="#">计算机</a><br>
-            <a href="#">物理学</a><br>
-            <a href="#">生命科学</a><br>
-            <a href="#">数学</a><br>
-            <a href="#">电子/通信</a><br>
-            <a href="#">设计</a><br>
-            <a href="#">其它</a><br>
+            <a href="classify?category=1">计算机</a><br>
+            <a href="classify?category=2">物理学</a><br>
+            <a href="classify?category=3">生命科学</a><br>
+            <a href="classify?category=4">数学</a><br>
+            <a href="classify?category=5">电子/通信</a><br>
+            <a href="classify?category=6">设计</a><br>
+            <a href="classify?category=7">其它</a><br>
         </div>
         <div class="bigtype">
             <h3>
@@ -44,10 +46,10 @@
                 经济
             </h3>
             <hr>
-            <a href="#">贸易</a><br>
-            <a href="#">国际/国家</a><br>
-            <a href="#">城市建设</a><br>
-            <a href="#">其它</a><br>
+            <a href="classify?category=8">贸易</a><br>
+            <a href="classify?category=9">国际/国家</a><br>
+            <a href="classify?category=10">城市建设</a><br>
+            <a href="classify?category=11">其它</a><br>
         </div>
         <div class="bigtype">
             <h3>
@@ -56,13 +58,13 @@
                 艺术
             </h3>
             <hr>
-            <a href="#">行为艺术</a><br>
-            <a href="#">雕塑</a><br>
-            <a href="#">经典文学</a><br>
-            <a href="#">绘画</a><br>
-            <a href="#">艺术理论</a><br>
-            <a href="#">音乐</a><br>
-            <a href="#">其它</a><br>
+            <a href="classify?category=12">行为艺术</a><br>
+            <a href="classify?category=13">雕塑</a><br>
+            <a href="classify?category=14">经典文学</a><br>
+            <a href="classify?category=15">绘画</a><br>
+            <a href="classify?category=16">艺术理论</a><br>
+            <a href="classify?category=17">音乐</a><br>
+            <a href="classify?category=18">其它</a><br>
         </div>
         <div class="bigtype">
             <h3>
@@ -71,13 +73,13 @@
                 情感
             </h3>
             <hr>
-            <a href="#">励志</a><br>
-            <a href="#">职业规划</a><br>
-            <a href="#">烹饪/美食</a><br>
-            <a href="#">室内装潢</a><br>
-            <a href="#">旅游</a><br>
-            <a href="#">爱情</a><br>
-            <a href="#">其它</a><br>
+            <a href="classify?category=19">励志</a><br>
+            <a href="classify?category=20">职业规划</a><br>
+            <a href="classify?category=21">烹饪/美食</a><br>
+            <a href="classify?category=22">室内装潢</a><br>
+            <a href="classify?category=23">旅游</a><br>
+            <a href="classify?category=24">爱情</a><br>
+            <a href="classify?category=25">其它</a><br>
         </div>
         <div class="bigtype">
             <h3>
@@ -86,49 +88,81 @@
                 考试
             </h3>
             <hr>
-            <a href="#">儿童教育</a><br>
-            <a href="#">小学</a><br>
-            <a href="#">中学</a><br>
-            <a href="#">竞赛教育</a><br>
-            <a href="#">考证</a><br>
-            <a href="#">特殊教育</a><br>
-            <a href="#">其它</a><br>
+            <a href="classify?category=26">儿童教育</a><br>
+            <a href="classify?category=27">小学</a><br>
+            <a href="classify?category=28">中学</a><br>
+            <a href="classify?category=29">竞赛教育</a><br>
+            <a href="classify?category=30">考证</a><br>
+            <a href="classify?category=31">特殊教育</a><br>
+            <a href="classify?category=32">其它</a><br>
         </div>
     </div>
+
     <!--分类头-->
     <div id="taglist_hd">
         <h2>Advertising space! Call 18800201312.</h2>
-        <a href="#" class="button button-primary">按热度</a>
-        <a href="#" class="button">按价格</a>
+        <a href="choice?choicevalue=0" class="button button-primary">按热度</a>
+        <a href="choice?choicevalue=1" class="button">按价格</a>
     </div>
     <!--分类主体-->
     <div id="taglist_bd">
         <div class="rowbox clearfloat">
-<%
-            for(int i=1;i<=14;i++){
-%>
-                <a class="imgbox" href="#">
-                    <img src="../WEB-PIC/Exhibition/<%=i%>.jpg">
-                </a>
-<%
-                if(i%4==0){
-%>
+            <%
+                int i = 0;
+                int maxp = 4;//****
+                int pagenumber = 1;
+                if (request.getParameter("pagenumber") != null) {
+                    pagenumber = Integer.parseInt(request.getParameter("pagenumber"));
+                }
+                List<Book> bkclist = (List<Book>) session.getAttribute("bkclist");
+                int bksize = 0;
+                if (bkclist == null) {
+                    bksize = 0;
+                } else {
+                    bksize = bkclist.size();
+                }
+                if (pagenumber <= 0) {
+                    pagenumber = 1;
+                }
+                System.out.print((bksize / maxp) + 1);
+                if (pagenumber > (bksize / maxp) + 1) {
+                    pagenumber = (bksize / maxp) + 1;
+                }
+
+
+                if (bkclist != null) {
+                    for (int j = 0; j < maxp; j++) {
+                        if ((pagenumber - 1) * maxp + j < bksize) {
+            %>
+
+            <a class="imgbox" href="#">
+                <img src="../WEB-PIC/Exhibition/<%=bkclist.get((pagenumber-1)*maxp+j).getId()%>.jpg"/>
+            </a>
+            <%
+                    }
+                }
+                i++;
+                if (i == maxp)
+                    if (i % 3 == 0) {
+            %>
         </div>
         <div class="rowbox clearfloat">
-<%
+            <%
+                        }
                 }
-            }
-%>
+            %>
         </div>
     </div>
     <!--分页-->
     <div id="page">
         <ul class="pagination pagination-lg">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item"><a class="page-link" href="../main/classify.jsp?pagenumber=1">首页</a></li>
+            <li class="page-item"><a class="page-link" href="../main/classify.jsp?pagenumber=<%=pagenumber-1%>">上一页</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="../main/classify.jsp?pagenumber=<%=pagenumber+1%>">下一页</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                                     href="../main/classify.jsp?pagenumber=<%=(bksize/maxp)+1%>">尾页</a></li>
         </ul>
     </div>
 </article>

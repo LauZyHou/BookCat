@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*"%>
+<%@ page import="org.model.Book" %>
+<%@ page import="org.model.User" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,25 +173,23 @@
                     <th>充值程度</th>
                 </tr>
                 <%
-                    int[] userid = {4, 1, 6, 9, 8, 7, -1, -2};
-                    String[] username = {"吴瑟晞", "刘知昊", "马家俊", "李喆雯", "蔡坤", "辛翌菲", "虚拟猫咪1", "虚拟猫咪2"};
-                    int[] userval = {82, 62, 51, 40, 32, 20, 10, 2};
-                    for (int i = 0; i < userid.length; i++) {
+                    @SuppressWarnings("unchecked")
+                    List<User> userslist=(List<User>) session.getAttribute("userslist");
+                    if(userslist!=null){
+                        for(User ur : userslist){
                 %>
                 <tr>
-                    <td><%=userid[i]%>
-                    </td>
-                    <td><%=username[i]%>
-                    </td>
+                    <td><%=ur.getId()%></td>
+                    <td><%=ur.getName()%></td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=userval[i]>80?"success":userval[i]>50?"primary":userval[i]>30?"warning":"danger"%>"
-                                 style="width:<%=userval[i]%>%">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=ur.getMoney()>1000?"success":ur.getMoney()>400?"primary":ur.getMoney()>30?"warning":"danger"%>" style="width:<%=ur.getMoney()%>%">
                             </div>
                         </div>
                     </td>
                 </tr>
                 <%
+                        }
                     }
                 %>
             </table>
@@ -203,25 +203,23 @@
                     <th>热度</th>
                 </tr>
                 <%
-                    int[] bookid = {1, 8, 2, 9, 8, 7, -1, -2};
-                    String[] bookname = {"Redis开发与运维", "c++ primer", "RabbitMQ实战指南", "Kafka入门与实践", "算法竞赛入门经典", "道德情操论", "MongoDB权威指南", "Spring Boot实战"};
-                    int[] bookval = {90, 62, 51, 40, 32, 20, 10, 2};
-                    for (int i = 0; i < bookid.length; i++) {
+                    @SuppressWarnings("unchecked")
+                    List<Book> bkhlist=(List<Book>)session.getAttribute("bkhlist");
+                    if(bkhlist!=null){
+                        for(Book b:bkhlist){
                 %>
                 <tr>
-                    <td><%=bookid[i]%>
-                    </td>
-                    <td><%=bookname[i]%>
-                    </td>
+                    <td><%=b.getId()%></td>
+                    <td><%=b.getName()%></td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=bookval[i]>80?"success":bookval[i]>50?"primary":bookval[i]>30?"warning":"danger"%>"
-                                 style="width:<%=bookval[i]%>%">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=b.getHotnum()>80?"success":b.getHotnum()>50?"primary":b.getHotnum()>30?"warning":"danger"%>" style=" width:<%=b.getHotnum()%>%">
                             </div>
                         </div>
                     </td>
                 </tr>
                 <%
+                        }
                     }
                 %>
             </table>

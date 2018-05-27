@@ -105,5 +105,20 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[分类排序]-->
+        <action name="classify" class="classify">
+            <result name="success">/main/classify.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <!--[分类选择]-->
+        <action name="choice" class="choice">
+            <result name="success">/main/classify.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
     </package>
 </struts>

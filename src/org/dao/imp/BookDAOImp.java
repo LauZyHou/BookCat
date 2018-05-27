@@ -40,8 +40,13 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
                         return qry.list();
                     }
                 });
-        if(ls_htk==null){System.out.print("查询结果为空");return null;}
-        else {System.out.print("查询不为空");return ls_htk;}
+        if (ls_htk == null) {
+            System.out.print("查询结果为空");
+            return null;
+        } else {
+            System.out.print("查询不为空");
+            return ls_htk;
+        }
     }
 
     //根据书名查找书籍
@@ -61,7 +66,7 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
                         // 用hql建立Query对象
                         Query qry = sssn.createQuery(hql);
                         // 设定?参数值(JPA方式设定参数要给数字加双引号)
-                        qry.setParameter("name", "%"+name+"%");
+                        qry.setParameter("name", "%" + name + "%");
                         // 查询并返回结果,不用考虑Session的开关
                         return qry.list();
                     }
@@ -89,8 +94,8 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
     @Override
     public Book createBook(Book bk) {
         //建立对象
-        Date date=new Date();
-        int hot=10;
+        Date date = new Date();
+        int hot = 10;
         Timestamp df = new Timestamp(date.getTime());
         bk.setTime(df);
         bk.setHotnum(hot);
@@ -99,6 +104,73 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
         //保存持久化对象到数据库
         ht.save(bk);
         return bk;
+    }
+
+    @Override
+    public List<Book> getHotnumBook() {
+        // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
+        final String hql = "from Book order by hotnum desc";
+        // 获取HibernateTemplate对象
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 执行execute方法,传入HibernateCallback<T>接口
+
+        List<Book> ls_htk = (List<Book>) ht
+                .execute(new HibernateCallback<List<Book>>() {
+                    // 覆写其中的<T> doInHibernate方法,Session通过形参注入
+                    @Override
+                    public List<Book> doInHibernate(Session sssn)
+                            throws HibernateException {
+                        // 用hql建立Query对象
+                        Query qry = sssn.createQuery(hql);
+                        // 设定?参数值(JPA方式设定参数要给数字加双引号)
+                        //qry.setParameter("1", name);
+                        qry.setFirstResult(0);
+                        qry.setMaxResults(17);
+
+                        // 查询并返回结果,不用考虑Session的开关
+                        return qry.list();
+                    }
+                });
+        if (ls_htk == null) {
+            System.out.print("查询结果为空");
+            return null;
+        } else {
+            System.out.print("查询不为空");
+            return ls_htk;
+        }
+    }
+
+    @Override
+    public List<Book> getCategoryBook(short category) {
+        // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
+        final String hql = "from Book where category=?1";
+        // 获取HibernateTemplate对象
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 执行execute方法,传入HibernateCallback<T>接口
+        List<Book> ls_htk = (List<Book>) ht
+                .execute(new HibernateCallback<List<Book>>() {
+                    // 覆写其中的<T> doInHibernate方法,Session通过形参注入
+                    @Override
+                    public List<Book> doInHibernate(Session sssn)
+                            throws HibernateException {
+                        // 用hql建立Query对象
+                        Query qry = sssn.createQuery(hql);
+                        // 设定?参数值(JPA方式设定参数要给数字加双引号)
+                        qry.setParameter("1", category);
+                        qry.setFirstResult(0);
+                        qry.setMaxResults(18);
+
+                        // 查询并返回结果,不用考虑Session的开关
+                        return qry.list();
+                    }
+                });
+        if (ls_htk == null) {
+            System.out.print("查询结果为空");
+            return null;
+        } else {
+            System.out.print("查询不为空");
+            return ls_htk;
+        }
     }
 
 

@@ -29,6 +29,21 @@ public class BookServiceImp implements BookService {
         return book_d.createBook(bk);
     }
 
+    @Override
+    public List<Book> getHotnumBook() {
+        System.out.print("测试service");
+        List<Book> hotnum_b=book_d.getHotnumBook();
+        return hotnum_b;
+    }
+
+    @Override
+    public List<Book> getCategoryBook(short category) {
+        System.out.print("测试service");
+        List<Book> cate_b=book_d.getCategoryBook(category);
+        System.out.println(category);
+        return cate_b;
+    }
+
     public void setBook_d(BookDAO book_d) {
         this.book_d = book_d;
     }

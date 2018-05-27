@@ -13,4 +13,7 @@ public interface BookDAO {
     Book findBookById(int id);
     //持久化Book,返回脱管Book
     Book createBook(Book bk);
+    //李喆雯
+    List<Book> getHotnumBook();
+    List<Book> getCategoryBook(short category);
 }

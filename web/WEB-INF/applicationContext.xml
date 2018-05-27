@@ -63,6 +63,8 @@
 
     </bean>
 
+    <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
+
     <!-- 配置HibernateDaoSupport子类(DAO层),可以用[单例模式] -->
     <!--用户DAO-->
     <bean id="userDAOImp" class="org.dao.imp.UserDAOImp">
@@ -132,7 +134,10 @@
         <property name="us" ref="userServiceImp"/>
     </bean>
     <!--[管理员登录]-->
-    <bean id="adlog" class="org.action.AdminLoginAction"/>
+    <bean id="adlog" class="org.action.AdminLoginAction">
+        <property name="bs" ref="bookServiceImp"/>
+        <property name="us" ref="userServiceImp"/>
+    </bean>
     <!--[热门排序]-->
     <bean id="hot" class="org.action.HotAction">
         <property name="bs" ref="bookServiceImp"/>
@@ -158,7 +163,6 @@
     </bean>
     <!--[添加书名]-->
     <bean id="goaddbk" class="org.action.AddBookAction" scope="prototype">
-        <!-- 使用[设置注入]将业务逻辑类的对象注入给这个Action -->
         <property name="bs" ref="bookServiceImp"/>
     </bean>
     <!--[用户留言查询]-->
@@ -171,6 +175,16 @@
     <bean id="pay" class="org.action.PayAction" scope="prototype">
         <property name="bs" ref="bookServiceImp"/>
     </bean>
+    <!--[分类排序]-->
+    <bean id="classify" class="org.action.ClassifyAction">
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
+    <!--[分类选择]-->
+    <bean id="choice" class="org.action.ChoiceAction">
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
+
+    <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

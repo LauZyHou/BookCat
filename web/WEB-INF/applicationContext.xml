@@ -151,6 +151,8 @@
     <bean id="leave" class="org.action.LeaveAction">
         <property name="ls" ref="leaveServiceImp"/>
     </bean>
+    <!--[用户注销]-->
+    <bean id="goodbye" class="org.action.GoodByeAction"/>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

@@ -115,7 +115,7 @@ function addToCar() {
     console.log("结束");
 }
 
-//添加到购物车的处理函数,用于绑定给状态触发器
+//[!]添加到购物车的处理函数,用于绑定给状态触发器
 function addCarProcessor(){
     var responseContext;
     //如果返回成功并取得了响应内容

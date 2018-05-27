@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
+//添加至购物车
 @SuppressWarnings("all")
 public class AddToCarServlet extends HttpServlet {
 

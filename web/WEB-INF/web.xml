@@ -53,4 +53,13 @@
         <servlet-name>addToCar</servlet-name>
         <url-pattern>/addToCar.servlet</url-pattern>
     </servlet-mapping>
+    <!--用户修改收货信息-->
+    <servlet>
+        <servlet-name>msgOk</servlet-name>
+        <servlet-class>org.ajax.MsgOkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>msgOk</servlet-name>
+        <url-pattern>/msgOk.servlet</url-pattern>
+    </servlet-mapping>
 </web-app>

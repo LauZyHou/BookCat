@@ -10,4 +10,6 @@ public interface UserService {
     User regist(String name,String password);
     //用户个人信息更新
     User update(User relusr);
+    //用户更新自己的地址和电话
+    User updateAddressAndTel(User usr,String address,String tel);
 }

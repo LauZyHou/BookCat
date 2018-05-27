@@ -110,5 +110,93 @@
 </footer>
 <!--模态框-->
 <s:include value="../main/paymodal.jsp"/>
+<script>
+// AJAX回调函数
+var xmlhttp;
+function loadXMLDoc(url,cfunc)
+{
+    console.log("load开始");
+    if (window.XMLHttpRequest)
+    {
+        // IE7+,Firefox,Chrome,Opera,Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6,IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // 将状态触发器绑定到指定的处理函数
+    xmlhttp.onreadystatechange=cfunc;
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+    console.log("load结束");
+}
+
+
+// [1]收货信息确认按下时
+function msgOk()
+{
+    console.log('按下');
+    //用EL表达式向ajax后端传值
+    loadXMLDoc("/msgOk.servlet?address="+$('#stp1_1').text()+"&tel="+$('#stp1_2').text(),msgOKProcessor);
+    console.log("结束");
+}
+
+//[1][!]收货信息确认的处理函数,用于绑定给触发器
+function msgOKProcessor() {
+    var responseContext;
+    console.log('状态改变为'+xmlhttp.readyState+','+xmlhttp.status);
+    //如果返回成功并取得了响应内容
+    if(4===xmlhttp.readyState && 200===xmlhttp.status){
+        console.log('完毕');
+        responseContext=xmlhttp.responseText;
+        if(responseContext=='-1'){
+            window.alert('请先登录');
+        }
+        else{
+            //结束后的js操作
+            //颜色变化
+            console.log('啊啊啊');
+            var h_lst=document.getElementsByClassName("step1");
+            for(var i=0;i<h_lst.length;i++){
+                h_lst[i].style.backgroundColor="#b9e563";
+                h_lst[i].style.color="#000000";
+            }
+            // 按钮不可用
+            document.getElementById("btn1").disabled=true;
+            document.getElementById("btn1").innerText="-已确认-";
+            // 超链接移除
+            var a1=document.getElementById("a1");
+            a1.parentNode.removeChild(a1);
+            document.getElementById("ttl1").innerText="1.确认收货信息(已确认)";
+            // 屏幕缓动
+            var h=$('header').height();
+            $('html,body').animate({scrollTop: h}, 800);
+            // 优惠券确认按钮可用
+            $('#btn2').attr('disabled',false);
+        }
+    }
+}
+
+
+// [2]优惠券确认按下时
+function saleOk() {
+    document.getElementById("stp2_1").style.backgroundColor="#b9e563";
+    document.getElementById("stp2_1").style.color="#000000";
+    // 按钮不可用
+    document.getElementById("btn2").disabled=true;
+    document.getElementById("btn2").innerText="-已选择-";
+    // 超链接移除
+    var a2=document.getElementById("a2");
+    a2.parentNode.removeChild(a2);
+    document.getElementById("ttl2").innerText="2.选择优惠券(已选择)";
+    // 屏幕缓动
+    var h=$('header').height()+$('#addressbox').height();
+    $('html,body').animate({scrollTop: h}, 800);
+    // 购物车确认可用
+    $('#btn3').attr('disabled',false);
+}
+</script>
 </body>
 </html>

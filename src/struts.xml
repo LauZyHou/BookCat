@@ -92,5 +92,11 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[用户注销]-->
+        <action name="goodbye" class="goodbye">
+            <result name="success">/main/main.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
     </package>
 </struts>

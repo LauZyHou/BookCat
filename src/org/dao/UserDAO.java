@@ -14,5 +14,5 @@ public interface UserDAO {
     void createUserAndLogin(String name,String password);
 
     //更新数据库中的表
-    void updateUser(User relusr);
+    User updateUser(User relusr);
 }

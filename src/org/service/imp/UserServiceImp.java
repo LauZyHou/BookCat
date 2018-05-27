@@ -51,6 +51,13 @@ public class UserServiceImp implements UserService {
         return relusr;
     }
 
+    //用户更新自己的地址和电话
+    @Override
+    public User updateAddressAndTel(User usr, String address, String tel) {
+        usr.setAddress(address);
+        usr.setTel(tel);
+        return usr_d.updateUser(usr);
+    }
 
     public UserDAO getUsr_d() {
         return usr_d;

@@ -59,6 +59,11 @@ public class UserServiceImp implements UserService {
         return usr_d.updateUser(usr);
     }
 
+    //重置用户密码为123456
+    public void updPsw(int id){
+        usr_d.updatePsw(id);
+    }
+
     public UserDAO getUsr_d() {
         return usr_d;
     }

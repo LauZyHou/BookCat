@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
+
 <!--导航栏部分-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <!--导航栏Logo-->
@@ -16,7 +17,7 @@
         </div>
     </s:form>
     <!--导航栏中的导航组-->
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" id="nav_ul">
         <li class="nav-item">
             <a class="nav-link" href="hot">热门</a>
         </li>
@@ -24,7 +25,7 @@
             <a class="nav-link" href="../main/classify.jsp">分类</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../main/pay.jsp">付款</a>
+            <a class="nav-link" href="pay">付款</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="goodbye">注销</a>
@@ -42,4 +43,18 @@
             </div>
         </li>
     </ul>
+    <!--用户头像-->
+    <div id="nvb_hdbx">
+<%
+    if(null==session.getAttribute("usr")){
+%>
+        <img src="../WEB-PIC/User/0.jpg">
+<%
+    }else{
+%>
+        <img src="../WEB-PIC/User/<s:property value="#session.usr.id"/>.jpg">
+<%
+    }
+%>
+    </div>
 </nav>

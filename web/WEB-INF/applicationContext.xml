@@ -82,6 +82,13 @@
         <!-- HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean -->
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    <!--管理员DAO-->
+    <bean id="adminDAOImp" class="org.dao.imp.AdminDAOImp">
+        <!--HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean-->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
     <!--服务用户-->
@@ -106,6 +113,13 @@
         <!--注入相应的DAO-->
         <property name="leave_d" ref="leaveDAOImp"/>
     </bean>
+    <!--管理员服务-->
+    <bean id="adminServiceImp" class="org.service.imp.AdminServiceImp">
+        <property name="ad_d" ref="adminDAOImp"/>
+    </bean>
+
+
+    <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
     <!--[用户登录]-->
@@ -153,6 +167,10 @@
     </bean>
     <!--[用户注销]-->
     <bean id="goodbye" class="org.action.GoodByeAction"/>
+    <!--[付款]-->
+    <bean id="pay" class="org.action.PayAction" scope="prototype">
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
 
     <!-- 配置声明式事务 -->
     <!-- 配置Hibernate事务管理器(HibernateTransactionManager) -->

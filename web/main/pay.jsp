@@ -1,3 +1,8 @@
+<%@ page import="org.model.User" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="org.model.Book" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -39,6 +44,7 @@
     </div>
     <hr id="tophr">
 </header>
+<!---------------------------------------------------------------------------------------->
 <article>
     <!--(1)确认收货地址-->
     <div class="mybox" id="addressbox">
@@ -67,29 +73,38 @@
             <a href="javascript:void(0);" onclick="chckall()" id="chckall"><h5>全选</h5></a>
             <a href="javascript:void(0);" onclick="chckrsrv()" id="chckrsrv"><h5>反选</h5></a>
         </div>
+<!---------------------------------------------------------------------------------------->
 <%
-    for(int i=1;i<7;i++){
+        User user=(User)session.getAttribute("usr");
+        Map map=(Map)application.getAttribute("usrid"+user.getId());
+        Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
+        List<Book> book_l=(List<Book>)session.getAttribute("book_l");
+        int i=0;
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Integer> entry = entries.next();
 %>
         <div>
             <button class="button button-caution button-square flybtn"><i class="fa fa-remove"></i></button>
             <div class="picbox">
-                <img src="../WEB-PIC/Exhibition/<%=i%>.jpg">
+                <img src="../WEB-PIC/Exhibition/<%=entry.getKey()%>.jpg">
             </div>
             <div class="dobox">
                 <br><br>
-                <h4>5本</h4>
+                <h4><%=entry.getValue()%></h4>
                 <br>
-                <label for="<%=i%>">选择</label>
-                <input type="checkbox" name="iCheck" id="<%=i%>" class="chckbx">
+                <label for="<%=entry.getKey()%>">选择</label>
+                <input type="checkbox" name="iCheck" id="<%=entry.getKey()%>" class="chckbx">
             </div>
             <div class="wordbox">
-                <h4>道德情操论</h4>
-                <h5>&nbsp;&nbsp;在该书中，斯密用同情的基本原理来阐释正义、仁慈、克己等一切道德情操产生的根源，说明道德评价的性质、原则以及各种美德的特征，并对各种道德哲学学说进行了介绍和评价，进而揭示出人类社会赖以维系、和谐发展的基础以及人的行为应遵循的一般道德准则。</h5>
+                <h4><%=book_l.get(i).getName()%></h4>
+                <h5>&nbsp;&nbsp;<%=book_l.get(i).getMsg()%></h5>
             </div>
         </div>
 <%
-    }
+            i++;
+        }
 %>
+<!---------------------------------------------------------------------------------------->
     <button class="btn btn-primary" onclick="bookOk()" id="btn3" disabled>确认选择</button>
     </div>
     <%--</s:form>--%>

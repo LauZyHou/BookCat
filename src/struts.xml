@@ -98,5 +98,12 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
+        <!--[请求付款]-->
+        <action name="pay" class="pay">
+            <result name="success">/main/pay.jsp</result>
+            <result name="error" type="redirect">${valPage}</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
     </package>
 </struts>

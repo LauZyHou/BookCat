@@ -58,10 +58,10 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
     @Override
     public void createUserAndLogin(String name, String password) {
         //建立对象
-        Login lgn=new Login();
+        Login lgn = new Login();
         lgn.setName(name);
         lgn.setPassword(password);
-        User usr=new User();
+        User usr = new User();
         usr.setSex(false);
         usr.setName(name);
         //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
@@ -74,15 +74,49 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
 
     //修改用户信息
     @Override
-    public User updateUser(User relusr){
+    public User updateUser(User relusr) {
         //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
         HibernateTemplate ht = this.getHibernateTemplate();
         //保存持久化对象到数据库
         ht.update(relusr);
-        Login lgn=relusr.getLoginById();
+        Login lgn = relusr.getLoginById();
         lgn.setName(relusr.getName());
         ht.flush();
         return relusr;
     }
 
+    //修改用户密码
+    public void updatePsw(int id) {
+        Login lg = findLoginById(id);
+        lg.setPassword("123456");
+        //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
+        HibernateTemplate ht = this.getHibernateTemplate();
+        //保存持久化对象到数据库
+        ht.update(lg);
+    }
+
+    @Override
+    public Login findLoginById(int id) {
+        // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
+        final String hql = "from Login where id=?1";
+        // 获取HibernateTemplate对象
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 执行execute方法,传入HibernateCallback<T>接口
+        List<Login> ls_lgn = (List<Login>) ht
+                .execute(new HibernateCallback<List<Login>>() {
+                    // 覆写其中的<T> doInHibernate方法,Session通过形参注入
+                    @Override
+                    public List<Login> doInHibernate(Session sssn)
+                            throws HibernateException {
+                        // 用hql建立Query对象
+                        Query qry = sssn.createQuery(hql);
+                        // 设定?参数值(JPA方式设定参数要给数字加双引号)
+                        qry.setParameter("1", id);
+                        // 查询并返回结果,不用考虑Session的开关
+                        return qry.list();
+                    }
+                });
+        // 在外部类中做判读并返回
+        return (null == ls_lgn || ls_lgn.isEmpty()) ? null : ls_lgn.get(0);
+    }
 }

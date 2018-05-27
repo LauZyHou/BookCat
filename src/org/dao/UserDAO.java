@@ -15,4 +15,10 @@ public interface UserDAO {
 
     //更新数据库中的表
     User updateUser(User relusr);
+
+    //修改用户密码
+    void updatePsw(int id);
+
+    //根据给定的ID查询用户Login对象
+    Login findLoginById(int id);
 }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../WEB-RELY/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--自定-->
     <link rel="stylesheet" href="../admin/main.css">
+    <script src="../admin/main.js"></script>
     <title>管理员界面</title>
 </head>
 <body>
@@ -74,7 +75,7 @@
     <div class="tabdiv">
         <%--用户--%>
         <div class="userdiv">
-            <s:form>
+            <s:form name="form1">
                 <table class="table table-hover table-primary">
                     <tr>
                         <th>字段</th>
@@ -83,33 +84,33 @@
                     </tr>
                     <tr>
                         <td>用户id</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-success">查询</a></td>
+                        <td><s:textfield class="form-control" value="%{#session.usr.userId}" onkeyup="check(this);" id="userId"/></td>
+                        <td><a class="btn btn-success"  onclick="findUsr()">查询</a></td>
                     </tr>
                     <tr>
                         <td>用户名</td>
-                        <td><h4>刘知昊</h4></td>
-                        <td><a class="btn btn-danger">移除</a></td>
+                        <td><h4 value="%{#username}" id="username"></h4></td>
+                        <td><a class="btn btn-danger"  onclick="delUsr()">移除</a></td>
                     </tr>
                     <tr>
                         <td>密码</td>
                         <td>为保护用户隐私和权益，密码不可见也不可被定向修改</td>
-                        <td><a class="btn btn-warning">重置</a></td>
+                        <td><a class="btn btn-warning" onclick="updPs()" >重置</a></td>
                     </tr>
                     <tr>
                         <td>低级卡券</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><s:textfield class="form-control" id="sale1" value="%{#session.usr.sale1}" onkeyup="check(this);">${sessionScope.sale1}</s:textfield></td>
+                        <td><a class="btn btn-primary" onclick="UpdS1()" >修改</a></td>
                     </tr>
                     <tr>
                         <td>中级卡券</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><s:textfield class="form-control" id="sale2"  value="%{#session.usr.sale2}" onkeyup="check(this);"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdS2()">修改</a></td>
                     </tr>
                     <tr>
                         <td>高级卡券</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><s:textfield class="form-control" id="sale3"  value="%{#session.usr.sale3}" onkeyup="check(this);"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdS3()">修改</a></td>
                     </tr>
                 </table>
             </s:form>
@@ -125,35 +126,35 @@
                     </tr>
                     <tr>
                         <td>图书id</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-success">查询</a></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="bookId"/></td>
+                        <td><a class="btn btn-success" onclick="findBk()">查询</a></td>
                     </tr>
                     <tr>
                         <td>图书名</td>
-                        <td><h4>MySQL从删库到跑路</h4></td>
-                        <td><a class="btn btn-danger">下架</a></td>
+                        <td><h4 value="%{#bookname}" id="bookname"></h4></td>
+                        <td><a class="btn btn-danger" onclick="delBk()">下架</a></td>
                     </tr>
                     <tr>
                         <td>库存数</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">更新</a></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="booknum"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdNum()">更新</a></td>
                     </tr>
                     <tr>
                         <td>热度</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="hotnum"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdHotnum()">修改</a></td>
                     </tr>
                     <tr>
                         <td>定价</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="price"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdPri()">修改</a></td>
                     </tr>
                     <tr>
                         <td>图书分类</td>
                         <td>
-                            <s:select class="ComboType" list="#{'1':'WiFi','2':'移动网络','3':'无网络'}"/>
+                            <s:select class="ComboType" list="#{'1':'WiFi','2':'移动网络','3':'无网络','24':'生活情感'}" id="category"/>
                         </td>
-                        <td><a class="btn btn-primary">修改</a></td>
+                        <td><a class="btn btn-primary" onclick="UpdCate()">修改</a></td>
                     </tr>
                 </table>
             </s:form>
@@ -241,6 +242,29 @@
     <a href="../admin/login.jsp">我要辞职</a>
 </footer>
 <script>
+    // AJAX回调函数
+    var xmlhttp;
+    function loadXMLDoc(url,cfunc)
+    {
+        console.log("load开始");
+        if (window.XMLHttpRequest)
+        {
+            // IE7+,Firefox,Chrome,Opera,Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6,IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 将状态触发器绑定到指定的处理函数
+        xmlhttp.onreadystatechange=cfunc;
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+        console.log("load结束");
+    }
+
     window.onload = function () {
         // 获取tab头的列表
         var tab_ttl = document.getElementById("header");
@@ -279,6 +303,43 @@
     //刷新当前页面 TODO
     function flushPage() {
         window.location.reload();
+    }
+
+    //+++
+    //处理函数,用于绑定给状态触发器
+    function adminUserProcessor() {
+        var responseContext;
+        //如果返回成功并取得了响应内容
+        if (4 === xmlhttp.readyState && 200 === xmlhttp.status) {
+            console.log('完毕');
+            responseContext = xmlhttp.responseText;
+            //更新购物车上的数字部分,返回的状态码即是sum
+            if (responseContext == '-1') {
+                window.alert('没有提交ID');
+            }
+            else if (responseContext == '-2') {
+                window.alert('请先登录');
+            }
+            else {
+                console.log(responseContext);
+                var words = responseContext.split(' ');
+                console.log(words);
+                //如果取session,取到的总是页面加载时的
+                //FIXME
+                $("#userId").text(words[0]);
+                $("#username").text(words[1]);
+                $("#sale1").text(words[2]);
+                $("#sale2").text(words[3]);
+                $("#sale3").text(words[4]);
+            }
+        }
+    }
+
+    //根据ID查找用户信息
+    function findUsr() {
+        var usrId=$("#userId").val();
+        console.log(usrId);
+        loadXMLDoc("/adFind.servlet?userid="+usrId,adminUserProcessor);
     }
 </script>
 </body>

@@ -12,4 +12,6 @@ public interface UserService {
     User update(User relusr);
     //用户更新自己的地址和电话
     User updateAddressAndTel(User usr,String address,String tel);
+    //重置用户密码为123456
+    void updPsw(int id);
 }

@@ -46,6 +46,8 @@
                 </prop>
                 <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/bookcatdb</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <!--防止数据未写入 -->
+                <prop key="hibernate.connection.autocommit">true</prop>
             </props>
         </property>
         <property name="mappingLocations">
@@ -75,6 +77,11 @@
     <bean id="ordersDAOImp" class="org.dao.imp.OrdersDAOImp">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    <!--留言DAO-->
+    <bean id="leaveDAOImp" class="org.dao.imp.LeaveDAOImp">
+        <!-- HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean -->
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 
     <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
     <!--服务用户-->
@@ -93,6 +100,11 @@
     <!--历史订单服务查询-->
     <bean id="historyServiceImp" class="org.service.imp.HistoryServiceImp">
         <property name="order_d" ref="ordersDAOImp"/>
+    </bean>
+    <!--留言服务查询-->
+    <bean id="leaveServiceImp" class="org.service.imp.LeaveServiceImp">
+        <!--注入相应的DAO-->
+        <property name="leave_d" ref="leaveDAOImp"/>
     </bean>
 
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
@@ -125,6 +137,19 @@
     <!--[进入历史订单]-->
     <bean id="gohisorders" class="org.action.HistoryAction" scope="prototype">
         <property name="hs" ref="historyServiceImp"/>
+    </bean>
+    <!--[修改个人资料]-->
+    <bean id="updselfmsg" class="org.action.SelfMsgUpdateAction" scope="prototype">
+        <property name="us" ref="userServiceImp"/>
+    </bean>
+    <!--[添加书名]-->
+    <bean id="goaddbk" class="org.action.AddBookAction" scope="prototype">
+        <!-- 使用[设置注入]将业务逻辑类的对象注入给这个Action -->
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
+    <!--[用户留言查询]-->
+    <bean id="leave" class="org.action.LeaveAction">
+        <property name="ls" ref="leaveServiceImp"/>
     </bean>
 
     <!-- 配置声明式事务 -->

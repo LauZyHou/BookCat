@@ -24,6 +24,7 @@
 </header>
 <article>
     <s:form>
+
         <table class="table table-hover table-primary">
             <tr>
                 <th>留言编号</th>
@@ -31,21 +32,30 @@
                 <th>留言时间</th>
                 <th>明细</th>
             </tr>
+
             <%
                 Date day=new Date();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                for(int i=1;i<10;i++){
+//                for(int i=1;i<10;i++){
+                int i=0;
             %>
+            <s:iterator value="#session.uleaves" id="leave" status="st">
             <tr>
-                <td>00<%=i%></td>
-                <td>这本书非常有趣,欢迎大家...</td>
-                <td><%=df.format(day).toString()%></td>
+                <td>00<%=i+1%></td>
+                <td>
+                    <s:property value="#leave.comments"/>
+                </td>
+                <td><s:property value="#leave.time"/></td>
                 <td><a class="btn btn-primary" href="#">明细</a></td>
             </tr>
+
             <%
-                }
+                i++;
+//                }
             %>
+            </s:iterator>
         </table>
+
     </s:form>
 </article>
 <!--页脚-->

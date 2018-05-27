@@ -46,8 +46,8 @@
             <h4 id="ttl1">1.确认收货信息</h4>
             <a href="javascript:void(0);" onclick="getModal1()" id="a1"><h5>修改收货信息</h5></a>
         </div>
-        <h4 class="step1">上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
-        <h4 class="step1">18800201312</h4>
+        <h4 class="step1" id="stp1_1">上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
+        <h4 class="step1" id="stp1_2">18800201312</h4>
         <button class="btn btn-primary" id="btn1" onclick="msgOk()">信息无误</button>
     </div>
     <!--(2)使用优惠券-->
@@ -56,7 +56,7 @@
             <h4 id="ttl2">2.选择优惠券</h4>
             <a href="javascript:void(0);" id="a2" onclick="getModal2()"><h5>选择优惠券</h5></a>
         </div>
-        <h4 id="step2">一张简单有效的的[风吹草动卡]</h4>
+        <h4 id="stp2_1">一张简单有效的的[风吹草动卡]</h4>
         <button class="btn btn-primary" id="btn2" onclick="saleOk()" disabled>确认使用</button>
     </div>
     <!--(3)从购物车中选择要购买的商品-->

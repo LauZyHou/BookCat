@@ -71,4 +71,17 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         //保存持久化对象到数据库
         ht.save(lgn);
     }
+
+    //修改用户信息
+    @Override
+    public void updateUser(User relusr){
+        //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
+        HibernateTemplate ht = this.getHibernateTemplate();
+        //保存持久化对象到数据库
+        ht.update(relusr);
+        Login lgn=relusr.getLoginById();
+        lgn.setName(relusr.getName());
+        ht.flush();
+    }
+
 }

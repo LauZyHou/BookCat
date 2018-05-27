@@ -58,27 +58,27 @@
         </div>
         <br>
         <%--表单--%>
-        <s:form action="#" id="form">
+        <s:form action="update" id="form">
             <div class="syn clearfloat">
                 <h4>用户昵称：</h4>
-                <s:textfield name="" value="%{#session.usr.name}" class="form-control" placeholder="用户昵称"/>
+                <s:textfield name="name" value="%{#session.usr.name}" class="form-control" placeholder="用户昵称"/>
             </div>
             <div class="syn clearfloat">
                 <h4>性别：</h4>
                 <div id="sex">
                     <div id="mangrp">
                         <label for="man">男</label>
-                        <input type="radio" name="iCheck" id="man" ${usr.sex==true?'checked':''}>
+                        <input type="radio" name="sex" value="true"id="man" ${usr.sex==true?'checked':''}>
                     </div>
                     <div id="womangrp">
                         <label for="woman">女</label>
-                        <input type="radio" name="iCheck" id="woman" ${usr.sex==false?'checked':''}>
+                        <input type="radio" name="sex" value="false" id="woman" ${usr.sex==false?'checked':''}>
                     </div>
                 </div>
             </div>
             <div class="syn clearfloat" id="areasyn">
                 <h4>读书宣言：</h4>
-                <s:textarea name="" value="%{#session.usr.motto}" class="form-control" placeholder="读书宣言" id="area"/>
+                <s:textarea name="motto" value="%{#session.usr.motto}" class="form-control" placeholder="读书宣言" id="area"/>
             </div>
             <%--提交--%>
             <span class="button-wrap">

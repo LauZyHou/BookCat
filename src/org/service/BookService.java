@@ -9,4 +9,6 @@ public interface BookService {
     List<Book> getHotBook();
     //用户请求查看某一本书,提供了确切的id号
     Book getBookById(int id);
+    //添加图书
+    Book add(Book bk);
 }

@@ -35,7 +35,7 @@
                 <a class="dropdown-item" href="selfmsg">个人资料</a>
                 <a class="dropdown-item" href="../setting/cardsale.jsp">优惠卡券</a>
                 <a class="dropdown-item" href="hisorders">购买记录</a>
-                <a class="dropdown-item" href="../other/leave.jsp">我的留言</a>
+                <a class="dropdown-item" href="leave">我的留言</a>
             </div>
         </li>
     </ul>

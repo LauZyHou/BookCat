@@ -11,4 +11,6 @@ public interface BookDAO {
     List<Book> findBookByName(String name);
     //根据id查找书籍
     Book findBookById(int id);
+    //持久化Book,返回脱管Book
+    Book createBook(Book bk);
 }

@@ -22,6 +22,13 @@ public class BookServiceImp implements BookService {
         return book_d.findBookById(id);
     }
 
+    //添加图书
+    @Override
+    public Book add(Book bk) {
+        //运行至此,要对书籍进行添加
+        return book_d.createBook(bk);
+    }
+
     public void setBook_d(BookDAO book_d) {
         this.book_d = book_d;
     }

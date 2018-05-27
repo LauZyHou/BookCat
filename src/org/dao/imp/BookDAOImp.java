@@ -9,6 +9,8 @@ import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 
@@ -80,6 +82,23 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
         List<Book> ls_book = (List<Book>) ht.find(hql, id);
         // 返回查询结果
         return (null == ls_book || ls_book.isEmpty()) ? null : ls_book.get(0);
+    }
+
+
+    //持久化书籍
+    @Override
+    public Book createBook(Book bk) {
+        //建立对象
+        Date date=new Date();
+        int hot=10;
+        Timestamp df = new Timestamp(date.getTime());
+        bk.setTime(df);
+        bk.setHotnum(hot);
+        //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
+        HibernateTemplate ht = this.getHibernateTemplate();
+        //保存持久化对象到数据库
+        ht.save(bk);
+        return bk;
     }
 
 

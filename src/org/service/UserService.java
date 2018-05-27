@@ -8,4 +8,6 @@ public interface UserService {
     User login(String name, String password);
     //用户使用用户名的密码进行注册,如注册成功将返回User对象
     User regist(String name,String password);
+    //用户个人信息更新
+    User update(User relusr);
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,39 +28,46 @@
 <article id="article">
     <!--[1]新书入库-->
     <div class="tabdiv" style="display: block">
-        <s:form>
-        <div class="leftdiv">
-            <h2>刚刚入库的书籍</h2>
-            <div class="picbox">
-
+        <s:form action="addbook" method="post" enctype="multipart/form-data">
+            <div class="leftdiv">
+                <h2>刚刚入库的书籍</h2>
+<%
+        String id=request.getParameter("id");
+        System.out.println(id);
+%>
+                <div class="picbox" onclick="flushPage()"><img src="../WEB-PIC/Exhibition/<%=id%>.jpg">
+                </div>
+                <s:file name="upload" label="上传的文件"/>
             </div>
-            <s:file name="upload" label="上传的文件"/>
-        </div>
-        <div class="rightdiv">
-            <div>
-                <div class="lft">
-                    <h2>图书名:</h2>
-                    <s:textfield name="name" class="form-control"/>
+            <div class="rightdiv">
+                <div>
+                    <div class="lft">
+                        <h2>图书名:</h2>
+                        <s:textfield name="name" class="form-control"/>
+                    </div>
+                    <div class="rgt">
+                        <h2>分类:</h2>
+                        <select  name="category">
+                        <option value=0 selected="selected">请选择</option>
+                        <option value=1>计算机</option>
+                        <option value=2>物理学</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="rgt">
-                    <h2>分类:</h2>
-                    <s:select list="#{'1':'计算机','2':'物理学'}"/>
+                <div>
+                    <div class="lft">
+                        <h2>库存数目:</h2>
+                        <s:textfield name="num" class="form-control" onkeyup="check(this);"/>
+                    </div>
+                    <div class="rgt">
+                        <h2>定价:</h2>
+                        <s:textfield name="price" class="form-control" onkeyup="check(this);"/>
+                    </div>
                 </div>
+                <h2>图书简介:</h2>
+                <s:textarea name="msg"/>
             </div>
-            <div>
-                <div class="lft">
-                    <h2>库存数目:</h2>
-                    <s:textfield name="num" class="form-control" onkeyup="check(this);"/>
-                </div>
-                <div class="rgt">
-                    <h2>定价:</h2>
-                    <s:textfield name="num" class="form-control" onkeyup="check(this);"/>
-                </div>
-            </div>
-            <h2>图书简介:</h2>
-            <s:textarea name="msg"/>
-        </div>
-        <s:submit class="btn btn-primary" id="sub1" value="入库"/>
+            <s:submit class="btn btn-primary" onclick="flushPage()" id="sub1" value="入库"/>
         </s:form>
     </div>
     <!--[2]信息更改-->
@@ -162,25 +169,28 @@
                     <th>用户名</th>
                     <th>充值程度</th>
                 </tr>
-<%
-            int[] userid={4,1,6,9,8,7,-1,-2};
-            String[] username={"吴瑟晞","刘知昊","马家俊","李喆雯","蔡坤","辛翌菲","虚拟猫咪1","虚拟猫咪2"};
-            int[] userval={82,62,51,40,32,20,10,2};
-            for(int i=0;i<userid.length;i++){
-%>
+                <%
+                    int[] userid = {4, 1, 6, 9, 8, 7, -1, -2};
+                    String[] username = {"吴瑟晞", "刘知昊", "马家俊", "李喆雯", "蔡坤", "辛翌菲", "虚拟猫咪1", "虚拟猫咪2"};
+                    int[] userval = {82, 62, 51, 40, 32, 20, 10, 2};
+                    for (int i = 0; i < userid.length; i++) {
+                %>
                 <tr>
-                    <td><%=userid[i]%></td>
-                    <td><%=username[i]%></td>
+                    <td><%=userid[i]%>
+                    </td>
+                    <td><%=username[i]%>
+                    </td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=userval[i]>80?"success":userval[i]>50?"primary":userval[i]>30?"warning":"danger"%>" style="width:<%=userval[i]%>%">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=userval[i]>80?"success":userval[i]>50?"primary":userval[i]>30?"warning":"danger"%>"
+                                 style="width:<%=userval[i]%>%">
                             </div>
                         </div>
                     </td>
                 </tr>
-<%
-            }
-%>
+                <%
+                    }
+                %>
             </table>
         </div>
         <%--书--%>
@@ -191,25 +201,28 @@
                     <th>图书名</th>
                     <th>热度</th>
                 </tr>
-<%
-            int[] bookid={1,8,2,9,8,7,-1,-2};
-            String[] bookname={"Redis开发与运维","c++ primer","RabbitMQ实战指南","Kafka入门与实践","算法竞赛入门经典","道德情操论","MongoDB权威指南","Spring Boot实战"};
-            int[] bookval={90,62,51,40,32,20,10,2};
-            for(int i=0;i<bookid.length;i++){
-%>
+                <%
+                    int[] bookid = {1, 8, 2, 9, 8, 7, -1, -2};
+                    String[] bookname = {"Redis开发与运维", "c++ primer", "RabbitMQ实战指南", "Kafka入门与实践", "算法竞赛入门经典", "道德情操论", "MongoDB权威指南", "Spring Boot实战"};
+                    int[] bookval = {90, 62, 51, 40, 32, 20, 10, 2};
+                    for (int i = 0; i < bookid.length; i++) {
+                %>
                 <tr>
-                    <td><%=bookid[i]%></td>
-                    <td><%=bookname[i]%></td>
+                    <td><%=bookid[i]%>
+                    </td>
+                    <td><%=bookname[i]%>
+                    </td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=bookval[i]>80?"success":bookval[i]>50?"primary":bookval[i]>30?"warning":"danger"%>" style="width:<%=bookval[i]%>%">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=bookval[i]>80?"success":bookval[i]>50?"primary":bookval[i]>30?"warning":"danger"%>"
+                                 style="width:<%=bookval[i]%>%">
                             </div>
                         </div>
                     </td>
                 </tr>
-<%
-            }
-%>
+                <%
+                    }
+                %>
             </table>
         </div>
     </div>
@@ -228,40 +241,44 @@
     <a href="../admin/login.jsp">我要辞职</a>
 </footer>
 <script>
-    window.onload=function () {
+    window.onload = function () {
         // 获取tab头的列表
-        var tab_ttl=document.getElementById("header");
+        var tab_ttl = document.getElementById("header");
         //获取列表中的h1项数组
-        var tab_lst=tab_ttl.getElementsByTagName("h1");
+        var tab_lst = tab_ttl.getElementsByTagName("h1");
         //获取内容切换大盒子(就是中央区域)
-        var tabBox=document.getElementById("article");
+        var tabBox = document.getElementById("article");
         //获取大盒子中的子盒子数组
-        var tabdiv=tabBox.getElementsByClassName("tabdiv");
+        var tabdiv = tabBox.getElementsByClassName("tabdiv");
         //对于ta头列表的每一项
-        for(var i=0;i<tab_lst.length;i++){
+        for (var i = 0; i < tab_lst.length; i++) {
             // 为其添加下标
-            tab_lst[i].index=i;
+            tab_lst[i].index = i;
             //为其添加点击事件
-            tab_lst[i].onclick=function () {
+            tab_lst[i].onclick = function () {
                 // 先将所有的都隐藏
-                for(var j=0;j<tab_lst.length;j++){
-                    tab_lst[j].className="";
-                    tabdiv[j].style.display="none";
+                for (var j = 0; j < tab_lst.length; j++) {
+                    tab_lst[j].className = "";
+                    tabdiv[j].style.display = "none";
                 }
                 //再将自己激活
-                this.className="active";
-                tabdiv[this.index].style.display="block";
+                this.className = "active";
+                tabdiv[this.index].style.display = "block";
             };
         }
     };
 
     //有些栏目必须是数字
-    function check(obj){
-        if (isNaN(obj.value))
-        {
+    function check(obj) {
+        if (isNaN(obj.value)) {
             alert("这一项必须是数字！");
-            obj.value="";
+            obj.value = "";
         }
+    }
+
+    //刷新当前页面 TODO
+    function flushPage() {
+        window.location.reload();
     }
 </script>
 </body>

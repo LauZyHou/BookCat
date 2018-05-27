@@ -38,6 +38,19 @@ public class UserServiceImp implements UserService {
         return usr_d.findUserByName(name);
     }
 
+    //更新业务
+    @Override
+    public User update(User relusr){
+        //按传入的用户名查询Login对象,判断重名
+        Login lgn=usr_d.findLoginByName(relusr.getName());
+        //如果查询结果不为空,说明该用户名已经被占用
+        if(null!=lgn)
+            return null;//返回的本User就是null
+        usr_d.updateUser(relusr);
+        //调用Service层的方法尝试登录以获取User对象
+        return relusr;
+    }
+
 
     public UserDAO getUsr_d() {
         return usr_d;

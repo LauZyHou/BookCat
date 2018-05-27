@@ -12,7 +12,6 @@
         </interceptors>
         <default-interceptor-ref name=""/>
 
-
         <!-- 这里的class需要去写Spring所配置的bean的id,而不是实现类 -->
         <!--[用户登录]-->
         <action name="login" class="golog">
@@ -69,6 +68,26 @@
         <!--[查看历史订单]-->
         <action name="hisorders" class="gohisorders">
             <result name="success">/other/history.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <!--[修改个人资料]-->
+        <action name="update" class="updselfmsg">
+            <result name="success">/setting/selfmsg.jsp</result>
+            <result name="error">/other/failed.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <!--[添加书籍]-->
+        <action name="addbook" class="goaddbk">
+            <result name="success" type="redirect">${respVal}</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <!--[用户留言查询]-->
+        <action name="leave" class="leave">
+            <result name="success">/other/leave.jsp</result>
             <result name="error">/other/failed.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>

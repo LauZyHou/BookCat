@@ -65,8 +65,8 @@ function msgOk()
 
 // [2]优惠券确认
 function saleOk() {
-    document.getElementById("step2").style.backgroundColor="#b9e563";
-    document.getElementById("step2").style.color="#000000";
+    document.getElementById("stp2_1").style.backgroundColor="#b9e563";
+    document.getElementById("stp2_1").style.color="#000000";
     // 按钮不可用
     document.getElementById("btn2").disabled=true;
     document.getElementById("btn2").innerText="-已选择-";

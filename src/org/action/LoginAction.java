@@ -25,14 +25,16 @@ public class LoginAction extends ActionSupport implements ModelDriven<Login> {
     public String execute() throws Exception {
         //调用Service层的方法尝试登录以获取User对象
         User usr=us.login(lgnByForm.getName(),lgnByForm.getPassword());
+        Map sssn=ActionContext.getContext().getSession();
         //登录成功时
         if (null != usr){
             //将这个User存在Session里
-            Map sssn=ActionContext.getContext().getSession();
             sssn.put("usr", usr);
             sssn.put("sum",null==sssn.get("sum")?0:sssn.get("sum"));
             return SUCCESS;
         }
+        //登录失败时也要让当前用户(如有)下线
+        sssn.remove("usr");
         return ERROR;
     }
 

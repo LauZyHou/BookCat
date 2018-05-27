@@ -18,7 +18,7 @@
             <column name="orderid"/>
         </many-to-one>
         <!--可以多个该[订单-书]组合对应1本书-->
-        <many-to-one name="bookByBookid" class="org.model.Book">
+        <many-to-one name="bookByBookid" class="org.model.Book" lazy="false">
             <column name="bookid"/>
         </many-to-one>
     </class>

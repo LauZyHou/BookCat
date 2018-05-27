@@ -71,6 +71,10 @@
     <bean id="bookDAOImp" class="org.dao.imp.BookDAOImp">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    <!--订单DAO-->
+    <bean id="ordersDAOImp" class="org.dao.imp.OrdersDAOImp">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 
     <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
     <!--服务用户-->
@@ -85,6 +89,10 @@
     <!--书籍查询服务-->
     <bean id="searchServiceImp" class="org.service.imp.SearchServiceImp">
         <property name="book_d" ref="bookDAOImp"/>
+    </bean>
+    <!--历史订单服务查询-->
+    <bean id="historyServiceImp" class="org.service.imp.HistoryServiceImp">
+        <property name="order_d" ref="ordersDAOImp"/>
     </bean>
 
     <!-- 这本是Struts2负责创建的Action(控制器层),现在由Spring来创建,用户需使用[原型模式] -->
@@ -113,6 +121,10 @@
     <!--[获取特定id的书籍信息]-->
     <bean id="bookmsg" class="org.action.BookMsgAction" scope="prototype">
         <property name="bs" ref="bookServiceImp"/>
+    </bean>
+    <!--[进入历史订单]-->
+    <bean id="gohisorders" class="org.action.HistoryAction" scope="prototype">
+        <property name="hs" ref="historyServiceImp"/>
     </bean>
 
     <!-- 配置声明式事务 -->

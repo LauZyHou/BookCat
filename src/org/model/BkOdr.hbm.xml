@@ -7,18 +7,18 @@
     <class name="org.model.BkOdr" table="bk_odr" schema="bookcatdb">
         <!--因为1本书可以出现在多个订单,1个订单可以出现多本书,故有了该关系模式-->
         <!--使用订单号和书号建立联合主键-->
-        <composite-id mapped="true" class="org.model.BkOdrPK">
+        <composite-id name="bkodr" class="org.model.BkOdrPK">
             <key-property name="orderid" column="orderid"/>
             <key-property name="bookid" column="bookid"/>
         </composite-id>
         <!--指定订单中指定书的数目-->
         <property name="num" column="num"/>
         <!--可以多个该[订单-书]组合对应1个订单-->
-        <many-to-one name="ordersByOrderid" class="org.model.Orders">
+        <many-to-one name="ordersByOrderid" class="org.model.Orders" insert="false" update="false">
             <column name="orderid"/>
         </many-to-one>
         <!--可以多个该[订单-书]组合对应1本书-->
-        <many-to-one name="bookByBookid" class="org.model.Book" lazy="false">
+        <many-to-one name="bookByBookid" class="org.model.Book" lazy="false" insert="false" update="false">
             <column name="bookid"/>
         </many-to-one>
     </class>

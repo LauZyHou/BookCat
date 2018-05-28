@@ -1,28 +1,12 @@
 package org.model;
 
-import java.util.Objects;
-
 public class BkOdr {
-    private int orderid;
-    private int bookid;
     private short num;
     private Orders ordersByOrderid;
     private Book bookByBookid;
+    private BkOdr bkodr;
 
-    public int getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(int orderid) {
-        this.orderid = orderid;
-    }
-
-    public int getBookid() {
-        return bookid;
-    }
-
-    public void setBookid(int bookid) {
-        this.bookid = bookid;
+    public BkOdr() {
     }
 
     public short getNum() {
@@ -31,22 +15,6 @@ public class BkOdr {
 
     public void setNum(short num) {
         this.num = num;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BkOdr bkOdr = (BkOdr) o;
-        return orderid == bkOdr.orderid &&
-                bookid == bkOdr.bookid &&
-                num == bkOdr.num;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(orderid, bookid, num);
     }
 
     public Orders getOrdersByOrderid() {
@@ -63,5 +31,13 @@ public class BkOdr {
 
     public void setBookByBookid(Book bookByBookid) {
         this.bookByBookid = bookByBookid;
+    }
+
+    public BkOdr getBkodr() {
+        return bkodr;
+    }
+
+    public void setBkodr(BkOdr bkodr) {
+        this.bkodr = bkodr;
     }
 }

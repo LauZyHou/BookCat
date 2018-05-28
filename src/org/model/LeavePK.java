@@ -9,6 +9,16 @@ public class LeavePK implements Serializable {
     private int bookid;
     private Timestamp time;
 
+    LeavePK(){
+
+    }
+
+    public LeavePK(int userid, int bookid, Timestamp time) {
+        this.userid = userid;
+        this.bookid = bookid;
+        this.time = time;
+    }
+
     public int getUserid() {
         return userid;
     }

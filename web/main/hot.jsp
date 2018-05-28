@@ -76,9 +76,17 @@
 <%
         i++;
 %>
-        </div>
-            <p><s:property value="#book.msg"/></p>
-        </div>
+            </div>
+                <p>
+                    <s:if test="#book.msg.length()>130">
+                        <s:property value="#book.msg.substring(0,130)" />
+                        <a href="#" >...</a>
+                    </s:if>
+                    <s:else>
+                        <s:property value="#book.msg" />
+                    </s:else>
+                </p>
+            </div>
         </div>
     </s:iterator>
 <%

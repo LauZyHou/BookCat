@@ -119,7 +119,10 @@
     <bean id="adminServiceImp" class="org.service.imp.AdminServiceImp">
         <property name="ad_d" ref="adminDAOImp"/>
     </bean>
-
+    <!--测试Service,当DAO用-->
+    <bean id="testServiceImp" class="org.service.imp.TestServiceImp">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
@@ -183,7 +186,11 @@
     <bean id="choice" class="org.action.ChoiceAction">
         <property name="bs" ref="bookServiceImp"/>
     </bean>
-
+    <!--[测试Action]-->
+    <bean id="testac" class="org.mytools.TestAction">
+        <property name="ts" ref="testServiceImp"/>
+    </bean>
+    
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置声明式事务 -->

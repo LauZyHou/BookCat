@@ -119,6 +119,11 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
-
+        <!--[测试]-->
+        <action name="testac" class="testac">
+            <result name="success">/other/testok.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
     </package>
 </struts>

@@ -30,6 +30,9 @@
         <li class="nav-item">
             <a class="nav-link" href="goodbye">注销</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="testac">[!]测试</a>
+        </li>
         <!--下拉组-->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

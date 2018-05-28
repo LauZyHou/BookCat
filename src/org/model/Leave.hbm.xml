@@ -6,7 +6,8 @@
 
     <class name="org.model.Leave" table="leave" schema="bookcatdb">
         <!--使用User和Book的主键建立联合主键-->
-        <composite-id mapped="true" class="org.model.LeavePK">
+        <!--注释了:mapped="true"-->
+        <composite-id name="lvpk" class="org.model.LeavePK">
             <key-property name="userid" column="userid"/>
             <key-property name="bookid" column="bookid"/>
             <key-property name="time" column="time"/>
@@ -14,11 +15,11 @@
         <!--留言内容-->
         <property name="comments" column="comments"/>
         <!--多个留言可对应同一个用户-->
-        <many-to-one name="userByUserid" class="org.model.User">
+        <many-to-one name="userByUserid" class="org.model.User" insert="false" update="false">
             <column name="userid"/>
         </many-to-one>
         <!--多个留言可对应同一本书-->
-        <many-to-one name="bookByBookid" class="org.model.Book">
+        <many-to-one name="bookByBookid" class="org.model.Book" insert="false" update="false">
             <column name="bookid"/>
         </many-to-one>
     </class>

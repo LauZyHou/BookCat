@@ -34,7 +34,6 @@ ${sessionScope.sum}
 
     //按下
     function showmd() {
-        $('#body_shpCrMdl').text('啊啊啊');
         //用EL表达式向ajax后端传值
         loadXMLDoc("/getCar.servlet",gottenCarProcessor);
         console.log("结束");

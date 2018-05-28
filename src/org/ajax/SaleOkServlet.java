@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static java.lang.Short.parseShort;
 
 //确认(保存收货信息)
 @SuppressWarnings("all")
@@ -32,7 +31,7 @@ public class SaleOkServlet extends HttpServlet {
 
         //获取Session对象
         HttpSession sssn=req.getSession();
-        //尝试从Session对象中获取这个用户,如果为空,说明用户还没有登录
+        //尝试从Session对象中获取这个用户,如果为空,说明用户 还没有登录
 
         if(null==sssn.getAttribute("usr")){
             //返回状态码为-1
@@ -50,6 +49,8 @@ public class SaleOkServlet extends HttpServlet {
 
         Short salenumber=(Short)us.getSalenumber(usr,card);
         System.out.println(salenumber);
+
+
         if(salenumber<=0){
             System.out.println("卡片数量为0");
             out.print(-2);
@@ -57,7 +58,10 @@ public class SaleOkServlet extends HttpServlet {
             out.close();
             return ;
         }else if(card==3){
-            us.updateSales3(usr);
+            User user=us.updateSales3(usr);
+            // TODO
+            sssn.setAttribute("usr",user);
+            sssn.setAttribute("card",card);
             //返回一个正值状态码
             out.print(1);
             out.flush();
@@ -65,9 +69,11 @@ public class SaleOkServlet extends HttpServlet {
         }
         else{
             //返回一个正值状态码
+            sssn.setAttribute("card",card);
             out.print(1);
             out.flush();
             out.close();
+            System.out.println(sssn.getAttribute("card"));
         }
 
     }

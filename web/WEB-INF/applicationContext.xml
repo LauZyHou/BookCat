@@ -155,6 +155,7 @@
     <!--[获取特定id的书籍信息]-->
     <bean id="bookmsg" class="org.action.BookMsgAction" scope="prototype">
         <property name="bs" ref="bookServiceImp"/>
+        <property name="ls" ref="leaveServiceImp"/>
     </bean>
     <!--[进入历史订单]-->
     <bean id="gohisorders" class="org.action.HistoryAction" scope="prototype">
@@ -190,7 +191,13 @@
     <bean id="testac" class="org.mytools.TestAction">
         <property name="ts" ref="testServiceImp"/>
     </bean>
-    
+    <!--[处理购物车(DMI)]-->
+    <bean id="dealshopcar" class="org.action.DealShopCarAction"/>
+    <!--[添加评论]-->
+    <bean id="addcomment" class="org.action.AddCommentAction">
+        <property name="ls" ref="leaveServiceImp"/>
+        <property name="bs" ref="bookServiceImp"/>
+    </bean>
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置声明式事务 -->

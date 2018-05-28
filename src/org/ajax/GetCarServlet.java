@@ -77,11 +77,11 @@ public class GetCarServlet extends HttpServlet {
             //书号,书名,数目
             out.print("<td>"+key+"</td><td>书名</td><td>"+usr_hs.get(key)+"</td>");
             //加
-            out.print("<td><a href=\"#\">+</a><td>");
+            out.print("<td><a href=\"increaseCar?id="+key+"\">+</a></td>");
             //减
-            out.print("<td><a href=\"#\">-</a><td>");
+            out.print("<td><a href=\"decreaseCar?id="+key+"\">-</a></td>");
             //删
-            out.print("<td><a href=\"#\">x</a><td>");
+            out.print("<td><a href=\"removeCar?id="+key+"\">x</a></td>");
             out.print("</tr>");
         }
         //闭合

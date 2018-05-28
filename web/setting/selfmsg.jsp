@@ -28,11 +28,11 @@
 <div class="container clearfloat">
     <!--卡片-->
     <div class="card">
-        <img class="card-img-top" src="http://static.runoob.com/images/mix/img_avatar.png" alt="Card image">
+        <img id="head_img" class="card-img-top" src="../WEB-PIC/User/<s:property value="#session.usr.id"/>.jpg" alt="Card image">
         <div class="card-body">
             <h4 class="card-title">${sessionScope.usr.name}</h4>
             <p class="card-text">作为一只小猫咪就只会喵喵喵喵喵，喵喵喵喵喵，喵喵喵。</p>
-            <a href="#" class="button button-3d button-primary button-rounded">修改头像</a>
+            <a href="#" class="button button-3d button-primary button-rounded" onclick="showChangeHead()">修改头像</a>
         </div>
     </div>
     <!--bs4的超大屏幕-->
@@ -91,5 +91,7 @@
         </s:form>
     </div>
 </div>
+<%--修改头像的modal--%>
+<s:include value="../setting/selfmsgmodal.jsp"/>
 </body>
 </html>

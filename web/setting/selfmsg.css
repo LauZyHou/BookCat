@@ -99,3 +99,9 @@ body {
 #sex > #womangrp {
     float: right;
 }
+
+/*头像*/
+#head_img{
+    width: 100%;
+    height: 100%;
+}

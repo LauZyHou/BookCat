@@ -1,0 +1,3 @@
+function showChangeHead() {
+    $('#updatehead').modal();
+}

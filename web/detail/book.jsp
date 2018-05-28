@@ -1,3 +1,8 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
+<%@ page import="org.model.Book" %>
+<%@ page import="org.model.Leave" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
@@ -44,36 +49,63 @@
         <s:include value="../temporary/catalog.jsp"/>
     </div>
     <!--已经存在的留言-->
+    <%
+        int i=0;
+        //获取request(而不是Session)
+        Map rqst= (Map) ActionContext.getContext().get("request");
+        Book nbook=(Book)rqst.get("nowbook");
+        i=nbook.getId();
+        System.out.print(i);
+        List<Leave> leaves=(List<Leave>) rqst.get("nowcomments");
+        List<String> name=(List<String>)rqst.get("nowusernames");
+        //counts用来计数偶数用exist-A，奇数用exist-B
+        int counts=0;
+        if (leaves!=null){
+            for(Leave leave:leaves){
+                if (counts%2==0){
+    %>
     <div class="exist exist-A">
         <div class="namebox">
-            刘知昊
+            <%=name.get(counts)%>
         </div>
         <div class="usrpicbox">
-            <img src="../WEB-PIC/User/1.jpg"/>
+            <img src="../WEB-PIC/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
         </div>
         <div class="lybox">
-            <span>“</span>这本书很好看的喵<span>”</span>
+            <span>“</span><%=leave.getComments()%>的喵<span>”</span>
         </div>
     </div>
+    <%
+    }
+    else{
+    %>
     <div class="exist exist-B">
         <div class="namebox">
-            蔡坤
+            <%=name.get(counts)%>
         </div>
         <div class="usrpicbox">
-            <img src="../WEB-PIC/User/8.jpg"/>
+            <img src="../WEB-PIC/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
         </div>
         <div class="lybox">
-            <span>“</span>喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵喵<span>”</span>
+            <span>“</span><%=leave.getComments()%>的喵<span>”</span>
         </div>
     </div>
+    <%
+                }
+                counts++;
+            }
+        }
+    %>
     <!--留言相关-->
     <div id="leave">
         <!--提交留言表单-->
-        <s:form>
-            <s:textarea placeholder="在这里添加您的评论..."/>
+
+        <s:form action="addcomment" method="GET">
+            <s:hidden name="bokid" value="%{#request.nowbook.id}"/>
+            <s:textarea placeholder="在这里添加您的评论..." name="comments" id="comts" onkeyup="check(this);"/>
             <div>
-                <s:reset class="btn btn-secondary" name="" value="重置"/>
-                <s:submit class="btn btn-primary" name="ok" value="提交"/>
+                <s:reset class="btn btn-secondary" name=""  value="重置"/>
+                <s:submit class="btn btn-primary" name="ok"  value="提交"/>
             </div>
         </s:form>
     </div>
@@ -113,6 +145,15 @@ function addToCar() {
     //用EL表达式向ajax后端传值
     loadXMLDoc("/addToCar.servlet?bookid=${requestScope.nowbook.id}",addCarProcessor);
     console.log("结束");
+}
+
+//判定输入的评论字长，如果超过20报错
+function check(obj) {
+    //有些栏目必须是数字
+        if (obj.value.length>30) {
+            alert("字符长度小于30！");
+        }
+        obj.value=obj.value.substr(0,30);
 }
 
 //[!]添加到购物车的处理函数,用于绑定给状态触发器

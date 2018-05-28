@@ -5,5 +5,9 @@ import org.model.Leave;
 import java.util.List;
 
 public interface LeaveService{
-    public List<Leave> getUserLeaves(int userid);
+    List<Leave> getUserLeaves(int userid);
+    //添加评论
+    void addComments(int userid, int bookid, String comments) ;
+    //根据书id获得留言
+    List<Leave> findComments(int bookid);
 }

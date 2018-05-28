@@ -21,6 +21,7 @@ public class AddToCarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //响应类型
         resp.setContentType("text/html");
+        resp.setCharacterEncoding("utf-8");
         //输出(返回)流
         PrintWriter out=resp.getWriter();
 

@@ -195,23 +195,46 @@ function msgOKProcessor() {
 }
 
 
-// [2]优惠券确认按下时
+//[2]优惠券确认按下时
 function saleOk() {
-    document.getElementById("stp2_1").style.backgroundColor="#b9e563";
-    document.getElementById("stp2_1").style.color="#000000";
-    // 按钮不可用
-    document.getElementById("btn2").disabled=true;
-    document.getElementById("btn2").innerText="-已选择-";
-    // 超链接移除
-    var a2=document.getElementById("a2");
-    a2.parentNode.removeChild(a2);
-    document.getElementById("ttl2").innerText="2.选择优惠券(已选择)";
-    // 屏幕缓动
-    var h=$('header').height()+$('#addressbox').height();
-    $('html,body').animate({scrollTop: h}, 800);
-    // 购物车确认可用
-    $('#btn3').attr('disabled',false);
+    console.log('按下');
+    //用EL表达式向ajax后端传值
+    loadXMLDoc("/saleOk.servlet?card="+$('input:radio:checked').val(), saleOKProcessor);
+    console.log("结束");
 }
+
+function saleOKProcessor() {
+    var responseContext;
+    console.log('状态改变为' + xmlhttp.readyState + ',' + xmlhttp.status);
+    //如果返回成功并取得了响应内容
+    if (4 === xmlhttp.readyState && 200 === xmlhttp.status) {
+        console.log('完毕');
+        responseContext = xmlhttp.responseText;
+        if (responseContext == '-1') {
+            window.alert('请先登录');
+        }
+        else if(responseContext == '-2'){
+            window.alert('该卡片数量为0');
+        }
+        else {
+            document.getElementById("stp2_1").style.backgroundColor = "#b9e563";
+            document.getElementById("stp2_1").style.color = "#000000";
+            // 按钮不可用
+            document.getElementById("btn2").disabled = true;
+            document.getElementById("btn2").innerText = "-已选择-";
+            // 超链接移除
+            var a2 = document.getElementById("a2");
+            a2.parentNode.removeChild(a2);
+            document.getElementById("ttl2").innerText = "2.选择优惠券(已选择)";
+            // 屏幕缓动
+            var h = $('header').height() + $('#addressbox').height();
+            $('html,body').animate({scrollTop: h}, 800);
+            // 购物车确认可用
+            $('#btn3').attr('disabled', false);
+        }
+    }
+}
+
 </script>
 </body>
 </html>

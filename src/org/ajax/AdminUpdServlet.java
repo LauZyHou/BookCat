@@ -22,6 +22,7 @@ public class AdminUpdServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException
     {
+        super.init(config);
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
     //通过ID查找用户信息
@@ -29,6 +30,7 @@ public class AdminUpdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //响应类型
         resp.setContentType("text/html");
+        resp.setCharacterEncoding("utf-8");
         //输出(返回)流
         PrintWriter out=resp.getWriter();
         //从请求中取出id号

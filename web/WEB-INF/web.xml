@@ -125,4 +125,23 @@
         <servlet-name>adUpdBk</servlet-name>
         <url-pattern>/adUpdBk.servlet</url-pattern>
     </servlet-mapping>
+    <!--获取购物车中的详细信息-->
+    <servlet>
+        <servlet-name>getCar</servlet-name>
+        <servlet-class>org.ajax.GetCarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getCar</servlet-name>
+        <url-pattern>/getCar.servlet</url-pattern>
+    </servlet-mapping>
+    <!--用户使用优惠券-->
+    <servlet>
+        <servlet-name>saleOk</servlet-name>
+        <servlet-class>org.ajax.SaleOkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>saleOk</servlet-name>
+        <url-pattern>/saleOk.servlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

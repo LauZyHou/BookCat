@@ -18,4 +18,8 @@ public interface UserService {
     void updPsw(int id);
     //李喆雯
     List<User> findall();
+    //根据卡片类型获取用户优惠卡数量
+    Short getSalenumber(User usr,Short sale);
+    //使用优惠卡3用户更新自己的优惠卡数量
+    User updateSales3(User usr);
 }

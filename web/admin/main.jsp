@@ -101,17 +101,17 @@
                     </tr>
                     <tr>
                         <td>低级卡券</td>
-                        <td><s:textfield class="form-control" id="sale1" value="%{#session.usr.sale1}" onkeyup="check(this);">${sessionScope.sale1}</s:textfield></td>
+                        <td><s:textarea rows="1" class="form-control" id="sale1" value="%{#session.usr.sale1}" onkeyup="check(this);"/></td>
                         <td><a class="btn btn-primary" onclick="UpdS1()" >修改</a></td>
                     </tr>
                     <tr>
                         <td>中级卡券</td>
-                        <td><s:textfield class="form-control" id="sale2"  value="%{#session.usr.sale2}" onkeyup="check(this);"/></td>
+                        <td><s:textarea rows="1" class="form-control" id="sale2"  value="%{#session.usr.sale2}" onkeyup="check(this);"/></td>
                         <td><a class="btn btn-primary" onclick="UpdS2()">修改</a></td>
                     </tr>
                     <tr>
                         <td>高级卡券</td>
-                        <td><s:textfield class="form-control" id="sale3"  value="%{#session.usr.sale3}" onkeyup="check(this);"/></td>
+                        <td><s:textarea rows="1" class="form-control" id="sale3"  value="%{#session.usr.sale3}" onkeyup="check(this);"/></td>
                         <td><a class="btn btn-primary" onclick="UpdS3()">修改</a></td>
                     </tr>
                 </table>
@@ -138,17 +138,17 @@
                     </tr>
                     <tr>
                         <td>库存数</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);" id="booknum"/></td>
+                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="booknum"/></td>
                         <td><a class="btn btn-primary" onclick="UpdNum()">更新</a></td>
                     </tr>
                     <tr>
                         <td>热度</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);" id="hotnum"/></td>
+                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="hotnum"/></td>
                         <td><a class="btn btn-primary" onclick="UpdHotnum()">修改</a></td>
                     </tr>
                     <tr>
                         <td>定价</td>
-                        <td><s:textfield class="form-control" onkeyup="check(this);" id="price"/></td>
+                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="price"/></td>
                         <td><a class="btn btn-primary" onclick="UpdPri()">修改</a></td>
                     </tr>
                     <tr>

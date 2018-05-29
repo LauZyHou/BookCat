@@ -53,22 +53,33 @@
 <div class="container clearfloat" id="jum_but">
     <!--超大屏幕:提示登入/用户欢迎信息-->
     <div class="jumbotron">
+<%
+    if(null==session.getAttribute("usr")){
+%>
         <h1>现在加入BookCat！</h1>
         <h5>加入BookCat，和更多读书爱好者交流，获取最新的书籍动态，享受可靠实惠的购书渠道。</h5>
         <br>
         <a class="button button-glow button-border button-rounded button-royal" role="button"
             href="../join/login.jsp">立即登入</a>
+<%
+    }else{
+%>
+        <h1><s:property value="#session.usr.name"/>,欢迎你！</h1>
+        <h5>今天也是不错的一天，身为一只小猫咪，要做点什么呢。</h5>
+<%
+    }
+%>
     </div>
-    <!--书籍排名-->
-    <div class="ranking">
-        这里是书籍排名
-    </div>
+    <%--<!--书籍排名-->--%>
+    <%--<div class="ranking">--%>
+        <%--这里是书籍排名--%>
+    <%--</div>--%>
 </div>
 <!--主页上的一些书-->
 <div class="container" id="#bookbox">
     <div class="rowbox clearfloat">
 <%
-    for(int i=1;i<=14;i++){
+    for(int i=1;i<=19;i++){
 %>
         <a class="imgbox" href="bkmsg?id=<%=i%>" target="_blank"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
 <%

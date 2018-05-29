@@ -37,8 +37,8 @@ body {
 
 /*超大屏幕:欢迎信息/提示登入*/
 .jumbotron {
-    float: left;
-    width: 60%;
+    /*float: left;*/
+    /*width: 60%;*/
     height: 100%;
 }
 

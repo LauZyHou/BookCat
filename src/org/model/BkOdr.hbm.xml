@@ -7,7 +7,7 @@
     <class name="org.model.BkOdr" table="bk_odr" schema="bookcatdb">
         <!--因为1本书可以出现在多个订单,1个订单可以出现多本书,故有了该关系模式-->
         <!--使用订单号和书号建立联合主键-->
-        <composite-id name="bkodr" class="org.model.BkOdrPK">
+        <composite-id name="bkodrpk" class="org.model.BkOdrPK">
             <key-property name="orderid" column="orderid"/>
             <key-property name="bookid" column="bookid"/>
         </composite-id>

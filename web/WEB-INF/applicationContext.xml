@@ -196,6 +196,8 @@
         <property name="ls" ref="leaveServiceImp"/>
         <property name="bs" ref="bookServiceImp"/>
     </bean>
+    <!--[修改头像]-->
+    <bean id="changeimg" class="org.action.ChangeImgAction"/>
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置声明式事务 -->

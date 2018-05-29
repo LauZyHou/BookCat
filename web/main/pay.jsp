@@ -52,8 +52,8 @@
             <h4 id="ttl1">1.确认收货信息</h4>
             <a href="javascript:void(0);" onclick="getModal1()" id="a1"><h5>修改收货信息</h5></a>
         </div>
-        <h4 class="step1" id="stp1_1">上海市 宝山区 聚丰园路88号 上海大学(宝山校区) 刘知昊收</h4>
-        <h4 class="step1" id="stp1_2">18800201312</h4>
+        <h4 class="step1" id="stp1_1"><s:property value="#session.usr.address"/></h4>
+        <h4 class="step1" id="stp1_2"><s:property value="#session.usr.tel"/></h4>
         <button class="btn btn-primary" id="btn1" onclick="msgOk()">信息无误</button>
     </div>
     <!--(2)使用优惠券-->

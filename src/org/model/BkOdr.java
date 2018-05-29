@@ -4,7 +4,7 @@ public class BkOdr {
     private short num;
     private Orders ordersByOrderid;
     private Book bookByBookid;
-    private BkOdr bkodr;
+    private BkOdrPK bkodrpk;
 
     public BkOdr() {
     }
@@ -33,11 +33,11 @@ public class BkOdr {
         this.bookByBookid = bookByBookid;
     }
 
-    public BkOdr getBkodr() {
-        return bkodr;
+    public BkOdrPK getBkodrpk() {
+        return bkodrpk;
     }
 
-    public void setBkodr(BkOdr bkodr) {
-        this.bkodr = bkodr;
+    public void setBkodrpk(BkOdrPK bkodrpk) {
+        this.bkodrpk = bkodrpk;
     }
 }

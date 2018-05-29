@@ -12,7 +12,7 @@
             </div>
             <!-- 模态框主体 -->
             <div class="modal-body">
-                <s:form id="updtHeadForm" action="" method="post" enctype="multipart/form-data">
+                <s:form id="updtHeadForm" action="changeimg" method="post" enctype="multipart/form-data">
                     <s:file name="upload" label="上传的头像"/>
                 </s:form>
             </div>

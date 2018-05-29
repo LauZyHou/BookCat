@@ -55,7 +55,7 @@
         <!--[进入个人资料]-->
         <action name="selfmsg" class="goselfmsg">
             <result name="success">/setting/selfmsg.jsp</result>
-            <result name="error">/other/failed.jsp</result>
+            <result name="error">/join/login.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
@@ -88,7 +88,7 @@
         <!--[用户留言查询]-->
         <action name="leave" class="leave">
             <result name="success">/other/leave.jsp</result>
-            <result name="error">/other/failed.jsp</result>
+            <result name="error">/join/login.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
@@ -128,7 +128,13 @@
         <!--[添加评论]-->
         <action name="addcomment" class="addcomment">
             <result name="success">/detail/book.jsp</result>
-            <result name="error">/other/failed.jsp</result>
+            <result name="error">/join/login.jsp</result>
+            <!--使用系统默认拦截器栈-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <!--[修改用户头像]-->
+        <action name="changeimg" class="changeimg">
+            <result name="success" type="redirect">${respVal}</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>

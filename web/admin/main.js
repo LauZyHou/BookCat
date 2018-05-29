@@ -121,11 +121,11 @@ function adminBookProcessor() {
             //如果取session,取到的总是页面加载时的
             //FIXME
             $("#bookId").text(words[0]);
-            $("#bookname").text(words[1]);
-            $("#booknum").text(words[2]);
-            $("#hotnum").text(words[3]);
-            $("#price").text(words[4]);
-            $("#catagory").text(words[4]);
+            $('#bookname').text(words[1]);
+            document.getElementById('booknum').value=words[2];
+            document.getElementById('hotnum').value=words[3];
+            document.getElementById('price').value=words[4];
+            document.getElementById('category').value=parseInt(words[5]);
         }
     }
 }

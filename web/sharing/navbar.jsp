@@ -12,7 +12,7 @@
             <!--在输入框前添加小标签-->
             <span class="input-group-addon">搜索</span>
             <!--输入框-->
-            <input type="text" class="form-control" placeholder="用户/书籍/文章" name="name">
+            <input type="text" class="form-control" placeholder="用户/书籍/文章" name="name"/>
             <a class="btn btn-primary" href="#" onclick="tosubmit()"><i class="fa fa-search" aria-hidden="true"></i></a>
         </div>
     </s:form>
@@ -51,11 +51,11 @@
 <%
     if(null==session.getAttribute("usr")){
 %>
-        <img src="../WEB-PIC/User/0.jpg">
+        <img src="/pic/User/0.jpg">
 <%
     }else{
 %>
-        <img src="../WEB-PIC/User/<s:property value="#session.usr.id"/>.jpg">
+        <img src="/pic/User/<s:property value="#session.usr.id"/>.jpg">
 <%
     }
 %>

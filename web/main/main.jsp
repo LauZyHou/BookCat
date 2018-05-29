@@ -79,18 +79,28 @@
 <div class="container" id="#bookbox">
     <div class="rowbox clearfloat">
 <%
-    for(int i=1;i<=19;i++){
+    int max=14,i;
+    for(i=1;i<=max;i++){
 %>
         <a class="imgbox" href="bkmsg?id=<%=i%>" target="_blank"><img src="../WEB-PIC/Exhibition/<%=i%>.jpg"></a>
 <%
         if(i%5==0){
 %>
-            </div><div class="rowbox clearfloat">
+            </div>
 <%
+        if(i!=max || max%5!=0){
+%>
+            <div class="rowbox clearfloat">
+<%
+            }
         }
     }
+    if(i!=max || max%5!=0){
 %>
     </div>
+<%
+    }
+%>
 </div>
 <!--页脚-->
 <footer>

@@ -15,7 +15,7 @@ import java.util.List;
 @SuppressWarnings("all")
 public class LeaveDAOImp extends HibernateDaoSupport implements LeaveDAO {
     public List<Leave> getUserLeaves(int userid){
-        String hql="from Leave where lvpk.userid=?1";
+        String hql="from Leave where lvpk.userid=?1 order by lvpk.time";
         HibernateTemplate ht = this.getHibernateTemplate();
         // 执行execute方法,传入HibernateCallback<T>接口
         List<Leave> ls_leave = (List<Leave>) ht

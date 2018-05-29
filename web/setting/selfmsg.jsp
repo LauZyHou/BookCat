@@ -93,5 +93,18 @@
 </div>
 <%--修改头像的modal--%>
 <s:include value="../setting/selfmsgmodal.jsp"/>
+<script>
+    //页面加载时判断参数以提示信息
+    window.onload=function () {
+        var value = '<%=request.getParameter("status")%>';
+        if("-1"==value){
+            window.alert("用户名长度不符合要求");
+        }else if("-2"==value){
+            window.alert("读书宣言长度不符合要求");
+        }else if("-3"==value){
+            window.alert("该名字已被其他人占用");
+        }
+    };
+</script>
 </body>
 </html>

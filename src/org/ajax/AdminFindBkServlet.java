@@ -25,7 +25,7 @@ public class AdminFindBkServlet extends HttpServlet {
         super.init(config);
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
-    //通过ID查找用户信息
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //响应类型
@@ -45,30 +45,16 @@ public class AdminFindBkServlet extends HttpServlet {
         }
         //获取Session对象
         HttpSession sssn=req.getSession();
-//        System.out.println("here");
-//        //尝试从Session对象中获取这个用户,如果为空,说明用户还没有登录
-//        if(null==sssn.getAttribute("admin")){
-//            //返回状态码为-2
-//            out.print(-2);
-//            out.flush();
-//            out.close();
-//            return;
-//        }
         //将请求中获取的id解析成整数
         int id_i=Integer.parseInt(id_s);
-//        System.out.println(id_i);
         //调用service层的方法获得用户Us
         Book bk=as.findBook(id_i);
-
-//        ssn.put("usr",us);
         sssn.setAttribute("bk",bk);
         String s=String.valueOf(bk.getId())+" "+String.valueOf(bk.getName())+" "+String.valueOf(bk.getNum())+" "+String.valueOf(bk.getHotnum())+" "+String.valueOf(bk.getPrice()+" "+String.valueOf(bk.getCategory()));
-        System.out.println(s);
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();
         out.close();
-
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

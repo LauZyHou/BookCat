@@ -48,8 +48,6 @@ public class SaleOkServlet extends HttpServlet {
         Short card=new Short(scard);
 
         Short salenumber=(Short)us.getSalenumber(usr,card);
-        System.out.println(salenumber);
-
 
         if(salenumber<=0){
             System.out.println("卡片数量为0");
@@ -59,7 +57,6 @@ public class SaleOkServlet extends HttpServlet {
             return ;
         }else if(card==3){
             User user=us.updateSales3(usr);
-            // TODO
             sssn.setAttribute("usr",user);
             sssn.setAttribute("card",card);
             //返回一个正值状态码
@@ -73,7 +70,6 @@ public class SaleOkServlet extends HttpServlet {
             out.print(1);
             out.flush();
             out.close();
-            System.out.println(sssn.getAttribute("card"));
         }
 
     }
@@ -85,10 +81,8 @@ public class SaleOkServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException
-
     {
         super.init(config);
-
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 

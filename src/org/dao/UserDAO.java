@@ -26,4 +26,7 @@ public interface UserDAO {
 
     //李喆雯
     List<User> findAllUser();
+
+    //检查某id使用某name是否合法
+    boolean checkUserNameById(String name,Integer id);
 }

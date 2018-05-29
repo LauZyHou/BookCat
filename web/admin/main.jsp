@@ -91,8 +91,8 @@
                     </tr>
                     <tr>
                         <td>用户名</td>
-                        <td><h4 value="%{#username}" id="username"></h4></td>
-                        <td><a class="btn btn-danger"  onclick="delUsr()">移除</a></td>
+                        <td><h4 id="username"></h4></td>
+                        <td><a class="btn btn-danger" onclick="delUsr()">移除</a></td>
                     </tr>
                     <tr>
                         <td>密码</td>
@@ -101,17 +101,17 @@
                     </tr>
                     <tr>
                         <td>低级卡券</td>
-                        <td><s:textarea rows="1" class="form-control" id="sale1" value="%{#session.usr.sale1}" onkeyup="check(this);"/></td>
-                        <td><a class="btn btn-primary" onclick="UpdS1()" >修改</a></td>
+                        <td><s:textfield class="form-control" id="sale1" value="%{#session.usr.sale1}" onkeyup="check(this);"/></td>
+                        <td><a class="btn btn-primary" onclick="UpdS1()">修改</a></td>
                     </tr>
                     <tr>
                         <td>中级卡券</td>
-                        <td><s:textarea rows="1" class="form-control" id="sale2"  value="%{#session.usr.sale2}" onkeyup="check(this);"/></td>
+                        <td><s:textfield class="form-control" id="sale2" value="%{#session.usr.sale2}" onkeyup="check(this);"/></td>
                         <td><a class="btn btn-primary" onclick="UpdS2()">修改</a></td>
                     </tr>
                     <tr>
                         <td>高级卡券</td>
-                        <td><s:textarea rows="1" class="form-control" id="sale3"  value="%{#session.usr.sale3}" onkeyup="check(this);"/></td>
+                        <td><s:textfield class="form-control" id="sale3" value="%{#session.usr.sale3}" onkeyup="check(this);"/></td>
                         <td><a class="btn btn-primary" onclick="UpdS3()">修改</a></td>
                     </tr>
                 </table>
@@ -133,22 +133,22 @@
                     </tr>
                     <tr>
                         <td>图书名</td>
-                        <td><h4 value="%{#bookname}" id="bookname"></h4></td>
+                        <td><h4 id="bookname"></h4></td>
                         <td><a class="btn btn-danger" onclick="delBk()">下架</a></td>
                     </tr>
                     <tr>
                         <td>库存数</td>
-                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="booknum"/></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="booknum"/></td>
                         <td><a class="btn btn-primary" onclick="UpdNum()">更新</a></td>
                     </tr>
                     <tr>
                         <td>热度</td>
-                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="hotnum"/></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="hotnum"/></td>
                         <td><a class="btn btn-primary" onclick="UpdHotnum()">修改</a></td>
                     </tr>
                     <tr>
                         <td>定价</td>
-                        <td><s:textarea rows="1" class="form-control" onkeyup="check(this);" id="price"/></td>
+                        <td><s:textfield class="form-control" onkeyup="check(this);" id="price"/></td>
                         <td><a class="btn btn-primary" onclick="UpdPri()">修改</a></td>
                     </tr>
                     <tr>
@@ -318,12 +318,10 @@
                 var words = responseContext.split(' ');
                 console.log(words);
                 //如果取session,取到的总是页面加载时的
-                //FIXME
-                $("#userId").text(words[0]);
-                $("#username").text(words[1]);
-                $("#sale1").text(words[2]);
-                $("#sale2").text(words[3]);
-                $("#sale3").text(words[4]);
+                $('#username').text(words[1]);
+                document.getElementById('sale1').value=words[2];
+                document.getElementById('sale2').value=words[3];
+                document.getElementById('sale3').value=words[4];
             }
         }
     }
@@ -331,7 +329,6 @@
     //根据ID查找用户信息
     function findUsr() {
         var usrId=$("#userId").val();
-        console.log(usrId);
         loadXMLDoc("/adFind.servlet?userid="+usrId,adminUserProcessor);
     }
 </script>

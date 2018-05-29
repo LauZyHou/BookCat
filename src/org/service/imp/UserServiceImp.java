@@ -49,7 +49,6 @@ public class UserServiceImp implements UserService {
         if (null != lgn)
             return null;//返回的本User就是null
         usr_d.updateUser(relusr);
-        //调用Service层的方法尝试登录以获取User对象
         return relusr;
     }
 
@@ -61,7 +60,9 @@ public class UserServiceImp implements UserService {
         return usr_d.updateUser(usr);
     }
 
+
     //重置用户密码为123456
+    @Override
     public void updPsw(int id) {
         usr_d.updatePsw(id);
     }
@@ -73,6 +74,7 @@ public class UserServiceImp implements UserService {
     }
 
     //根据卡片类型获取用户优惠卡数量
+    @Override
     public Short getSalenumber(User usr, Short sale) {
         if (1 == sale) {
             return usr.getSale1();
@@ -84,6 +86,7 @@ public class UserServiceImp implements UserService {
     }
 
     //使用优惠卡3用户更新自己的优惠卡数量
+    @Override
     public User updateSales3(User usr) {
         //优惠券1数量加2
         int nsale1 = usr.getSale1() + 2;
@@ -100,6 +103,17 @@ public class UserServiceImp implements UserService {
         return usr;
     }
 
+    //检查某id使用某name是否合法
+    @Override
+    public boolean checkUserNameById(String name, Integer id) {
+        return usr_d.checkUserNameById(name, id);
+    }
+
+    //无检查更新
+    @Override
+    public User updateNoCheck(User usr) {
+        return usr_d.updateUser(usr);
+    }
 
     public UserDAO getUsr_d() {
         return usr_d;

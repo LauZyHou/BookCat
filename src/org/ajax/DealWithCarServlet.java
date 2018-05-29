@@ -130,7 +130,6 @@ public class DealWithCarServlet extends HttpServlet {
 
         out.flush();
         out.close();
-
     }
 
     @Override

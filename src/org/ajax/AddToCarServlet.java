@@ -90,7 +90,6 @@ public class AddToCarServlet extends HttpServlet {
         out.print(sum);
         out.flush();
         out.close();
-        //System.out.println("添加购物车完成,sum="+sum);
     }
 
     @Override

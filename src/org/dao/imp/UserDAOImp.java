@@ -120,6 +120,7 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         return (null == ls_lgn || ls_lgn.isEmpty()) ? null : ls_lgn.get(0);
     }
 
+    //查询所有用户按充值程度排序
     @Override
     public List<User> findAllUser() {
         // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
@@ -152,4 +153,18 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
             return ls_htk;
         }
     }
+
+    //检查某id使用某name是否合法
+    @Override
+    public boolean checkUserNameById(String name, Integer id) {
+        // 书写hql语句
+        String hql = "from User where name=? and id!=?";
+        // 获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
+        HibernateTemplate ht = this.getHibernateTemplate();
+        // 传入hql语句和'?'代换列表以做查询
+        List<User> ls_usr = (List<User>) ht.find(hql, name, id);
+        return null == ls_usr || ls_usr.isEmpty() ? true : false;
+    }
+
+
 }

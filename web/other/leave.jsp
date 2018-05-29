@@ -1,5 +1,10 @@
-<%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
+<%@ page import="org.model.Leave" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
@@ -34,26 +39,76 @@
             </tr>
 
             <%
-                Date day=new Date();
+                //取session中的留言
+                Map sssn=ActionContext.getContext().getSession();
+                List<Leave> leaves=new ArrayList<Leave>();
+                leaves=(List<Leave>)sssn.get("uleaves");
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                for(int i=1;i<10;i++){
-                int i=0;
+                if (leaves!=null){
+                    for(int i=0;i<leaves.size();i++){
+                        String str = new DecimalFormat("000").format(i+1);
+                        Leave le=leaves.get(i);
+
             %>
-            <s:iterator value="#session.uleaves" id="leave" status="st">
             <tr>
-                <td>00<%=i+1%></td>
+                <td><%=str%></td>
+                <%
+                    String strs=le.getComments();
+                    int sum = 0;
+                    String finalStr = "";
+                    if (null == strs || strs.getBytes().length <= 15) {
+                        finalStr = (strs==null?"":strs);
+                    } else {
+                        for (int j = 0; j < strs.length(); j++) {
+                            String str1 = strs.substring(j, j + 1);
+                            // 累加单个字符字节数
+                            sum += str1.getBytes().length;
+                            if (sum > 15) {
+                                finalStr = strs.substring(0, j) + "...";
+                                break;
+                            }
+                        }
+                    }
+
+                %>
+                <td><%=finalStr%></td>
+                <td><%=df.format(le.getLvpk().getTime()).toString()%></td>
                 <td>
-                    <s:property value="#leave.comments"/>
+                        <%--按钮触发模态框--%>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%=i%>" >
+                        明细
+                    </button>
                 </td>
-                <td><s:property value="#leave.time"/></td>
-                <td><a class="btn btn-primary" href="#">明细</a></td>
             </tr>
 
+                <%--明细模态框：留言内容--%>
+            <div class="modal fade" id="<%=i%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">留言明细</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                                    <%=le.getComments()%>
+
+                            <%System.out.println(i);%>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <%
-                i++;
-//                }
+                    }
+                }
             %>
-            </s:iterator>
         </table>
 
     </s:form>

@@ -4,6 +4,8 @@ import org.model.User;
 import org.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+import org.tools.BookCatTools;
+import org.tools.ConstObj;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -26,7 +28,6 @@ public class AdminDelBkServlet  extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
-    //通过ID查找用户信息
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //响应类型
@@ -45,24 +46,13 @@ public class AdminDelBkServlet  extends HttpServlet {
             return;
         }
         //获取Session对象
-//        Map ssn=ActionContext.getContext().getSession();
         HttpSession sssn=req.getSession();
-//        System.out.println("here");
-//        //尝试从Session对象中获取这个用户,如果为空,说明用户还没有登录
-//        if(null==sssn.getAttribute("admin")){
-//            //返回状态码为-2
-//            out.print(-2);
-//            out.flush();
-//            out.close();
-//            return;
-//        }
         //将请求中获取的id解析成整数
         int id_i=Integer.parseInt(id_s);
-//        System.out.println(id_i);
-        //调用service层的方法获得用户Us
+        //删除书籍
         as.delBook(id_i);
-        //Id栏变为空？
-
+        //将对应的图片移动到回收站
+        BookCatTools.moveTotherFolders(ConstObj.picUri+"Exhibition",id_s+".jpg",ConstObj.picUri+"BookRecy");
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

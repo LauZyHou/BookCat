@@ -128,15 +128,13 @@
                 if (pagenumber > (bksize / maxp) + 1) {
                     pagenumber = (bksize / maxp) + 1;
                 }
-
-
                 if (bkclist != null) {
                     for (int j = 0; j < maxp; j++) {
                         if ((pagenumber - 1) * maxp + j < bksize) {
+                            int nowid=bkclist.get((pagenumber-1)*maxp+j).getId();
             %>
-
-            <a class="imgbox" href="#">
-                <img src="../WEB-PIC/Exhibition/<%=bkclist.get((pagenumber-1)*maxp+j).getId()%>.jpg"/>
+            <a class="imgbox" href="bkmsg?id=<%=nowid%>">
+                <img src="../WEB-PIC/Exhibition/<%=nowid%>.jpg"/>
             </a>
             <%
                     }

@@ -74,8 +74,8 @@
         </action>
         <!--[修改个人资料]-->
         <action name="update" class="updselfmsg">
-            <result name="success">/setting/selfmsg.jsp</result>
-            <result name="error">/other/failed.jsp</result>
+            <result name="success" type="redirect">${respVal}</result>
+            <result name="error" type="redirect">${respVal}</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
@@ -100,7 +100,7 @@
         </action>
         <!--[请求付款]-->
         <action name="pay" class="pay">
-            <result name="success">/main/pay.jsp</result>
+            <result name="success" type="redirect">/main/pay.jsp</result>
             <result name="error" type="redirect">${valPage}</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>

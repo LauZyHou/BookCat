@@ -22,4 +22,8 @@ public interface UserService {
     Short getSalenumber(User usr,Short sale);
     //使用优惠卡3用户更新自己的优惠卡数量
     User updateSales3(User usr);
+    //检查某id使用某name是否合法
+    boolean checkUserNameById(String name,Integer id);
+    //无检查更新
+    User updateNoCheck(User usr);
 }

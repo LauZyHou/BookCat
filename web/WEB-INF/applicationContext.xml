@@ -191,8 +191,6 @@
     <bean id="testac" class="org.mytools.TestAction">
         <property name="ts" ref="testServiceImp"/>
     </bean>
-    <!--[处理购物车(DMI)]-->
-    <bean id="dealshopcar" class="org.action.DealShopCarAction"/>
     <!--[添加评论]-->
     <bean id="addcomment" class="org.action.AddCommentAction">
         <property name="ls" ref="leaveServiceImp"/>

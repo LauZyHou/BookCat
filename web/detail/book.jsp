@@ -55,7 +55,6 @@
         Map rqst= (Map) ActionContext.getContext().get("request");
         Book nbook=(Book)rqst.get("nowbook");
         i=nbook.getId();
-        System.out.print(i);
         List<Leave> leaves=(List<Leave>) rqst.get("nowcomments");
         List<String> name=(List<String>)rqst.get("nowusernames");
         //counts用来计数偶数用exist-A，奇数用exist-B

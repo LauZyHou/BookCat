@@ -125,12 +125,6 @@
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>
-        <!--[处理购物车(DMI)]-->
-        <action name="" class="dealshopcar">
-            <result name="success">/other/testok.jsp</result>
-            <!--使用系统默认拦截器栈-->
-            <interceptor-ref name="defaultStack"/>
-        </action>
         <!--[添加评论]-->
         <action name="addcomment" class="addcomment">
             <result name="success">/detail/book.jsp</result>

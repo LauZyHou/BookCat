@@ -34,8 +34,8 @@ public class GetCarServlet extends HttpServlet {
 
         //判断Session中用户是否为空
         if(null==sssn.getAttribute("usr")){
-            //返回状态码为-1
-            out.print("-1");
+            //返回字符串提示先登录
+            out.print("请先登录");
             out.flush();
             out.close();
             return ;
@@ -73,15 +73,15 @@ public class GetCarServlet extends HttpServlet {
         out.print("</tr>");
         //循环输出表格每一项 FIXME
         for(Integer key:usr_hs.keySet()){
-            out.print("<tr style=\"text-align: center;\">");
+            out.print("<tr id=\"tr_"+key+"\" style=\"text-align: center;\">");
             //书号,书名,数目
-            out.print("<td>"+key+"</td><td>书名</td><td>"+usr_hs.get(key)+"</td>");
+            out.print("<td>"+key+"</td><td>书名</td><td id=\"td_num_"+key+"\">"+usr_hs.get(key)+"</td>");
             //加
-            out.print("<td><a href=\"increaseCar?id="+key+"\">+</a></td>");
+            out.print("<td><a href=\"javascript:void(0)\" onclick=\"clkDeal('inc',"+key+")\">+</a></td>");
             //减
-            out.print("<td><a href=\"decreaseCar?id="+key+"\">-</a></td>");
+            out.print("<td><a href=\"javascript:void(0)\" onclick=\"clkDeal('dec',"+key+")\">-</a></td>");
             //删
-            out.print("<td><a href=\"removeCar?id="+key+"\">x</a></td>");
+            out.print("<td><a href=\"javascript:void(0)\" onclick=\"clkDeal('rmv',"+key+")\">x</a></td>");
             out.print("</tr>");
         }
         //闭合
@@ -102,3 +102,4 @@ public class GetCarServlet extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 }
+

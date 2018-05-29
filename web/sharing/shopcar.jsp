@@ -39,10 +39,9 @@ ${sessionScope.sum}
         console.log("结束");
     }
     
-    //处理获取购物车状态改变
+    //当<获取购物车>状态改变时
     function gottenCarProcessor() {
         var responseContext;
-        console.log(xmlhttp.readyState,xmlhttp.status);
         //如果返回成功并取得了响应内容
         if(4===xmlhttp.readyState && 200===xmlhttp.status){
             responseContext=xmlhttp.responseText;

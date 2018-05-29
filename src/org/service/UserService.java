@@ -16,8 +16,8 @@ public interface UserService {
     User updateAddressAndTel(User usr,String address,String tel);
     //重置用户密码为123456
     void updPsw(int id);
-    //李喆雯
-    List<User> findall();
+    //根据充值价格顺序查询用户
+    List<User> findallusersByMoney();
     //根据卡片类型获取用户优惠卡数量
     Short getSalenumber(User usr,Short sale);
     //使用优惠卡3用户更新自己的优惠卡数量
@@ -26,4 +26,8 @@ public interface UserService {
     boolean checkUserNameById(String name,Integer id);
     //无检查更新
     User updateNoCheck(User usr);
+    //1合成2
+    boolean oneToTwo(User usr);
+    //2合成3
+    boolean twoToThree(User usr);
 }

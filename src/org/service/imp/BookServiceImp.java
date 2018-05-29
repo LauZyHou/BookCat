@@ -10,8 +10,7 @@ public class BookServiceImp implements BookService {
     private BookDAO book_d;
     //热门排序业务
     public List<Book> getHotBook(){
-        //查询热门书籍并返回一个按热度从高到低的List<book>，大小为14.
-        System.out.print("测试service");
+        //查询热门书籍并返回一个按热度从高到低的List<book>,大小为14.
         List<Book> hot_b=book_d.getHotBook();
         return hot_b;
     }
@@ -30,17 +29,8 @@ public class BookServiceImp implements BookService {
     }
 
     @Override
-    public List<Book> getHotnumBook() {
-        System.out.print("测试service");
-        List<Book> hotnum_b=book_d.getHotnumBook();
-        return hotnum_b;
-    }
-
-    @Override
     public List<Book> getCategoryBook(short category) {
-        System.out.print("测试service");
         List<Book> cate_b=book_d.getCategoryBook(category);
-        System.out.println(category);
         return cate_b;
     }
 

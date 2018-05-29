@@ -55,7 +55,7 @@ public class AdminFindServlet extends HttpServlet {
         User us=as.findUser(id_i);
 
         sssn.setAttribute("usr",us);
-        String s=String.valueOf(us.getId())+" "+String.valueOf(us.getName())+" "+String.valueOf(us.getSale1())+" "+String.valueOf(us.getSale2())+" "+String.valueOf(us.getSale3());
+        String s=us.getId()+"$"+us.getName()+"$"+us.getSale1()+"$"+us.getSale2()+"$"+us.getSale3();
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();

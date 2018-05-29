@@ -55,7 +55,7 @@ public class AdminUpdBkServlet extends HttpServlet {
         //调用service层的方法获得用户Us
         Book bk=as.updBook(name_i,id_i,number_i);
         sssn.setAttribute("bk",bk);
-        String s=String.valueOf(bk.getId())+" "+String.valueOf(bk.getName())+" "+String.valueOf(bk.getNum())+" "+String.valueOf(bk.getHotnum())+" "+String.valueOf(bk.getPrice()+" "+String.valueOf(bk.getCategory()));
+        String s=String.valueOf(bk.getId())+"@"+String.valueOf(bk.getName())+"@"+String.valueOf(bk.getNum())+"@"+String.valueOf(bk.getHotnum())+"@"+String.valueOf(bk.getPrice()+"@"+String.valueOf(bk.getCategory()));
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();

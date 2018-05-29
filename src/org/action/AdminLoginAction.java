@@ -49,13 +49,12 @@ public class AdminLoginAction extends ActionSupport implements ModelDriven<Login
         if(0==lgn.getName().length() && 0==lgn.getPassword().length()){
             List<Book> bkhlist=null;
             List<User> userslist=null;
-            bkhlist=bs.getHotnumBook();
-            userslist=us.findall();
+            bkhlist=bs.getHotBook();
+            userslist=us.findallusersByMoney();
             if (null != bkhlist && null != userslist) {
-                Map sssn1 = ActionContext.getContext().getSession();
-                sssn1.put("bkhlist", bkhlist);
-                Map sssn2 = ActionContext.getContext().getSession();
-                sssn2.put("userslist", userslist);
+                Map sssn = ActionContext.getContext().getSession();
+                sssn.put("bkhlist", bkhlist);
+                sssn.put("userslist", userslist);
                 return SUCCESS;
             }
             return ERROR;

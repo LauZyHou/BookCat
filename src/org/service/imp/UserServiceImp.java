@@ -68,8 +68,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public List<User> findall() {
-        List<User> allusers = usr_d.findAllUser();
+    public List<User> findallusersByMoney() {
+        List<User> allusers=usr_d.findAllUserByMoney();
         return allusers;
     }
 
@@ -101,6 +101,16 @@ public class UserServiceImp implements UserService {
         usr.setSale3(n3);
         usr_d.updateUser(usr);
         return usr;
+    }
+
+    @Override
+    public boolean oneToTwo(User usr) {
+        return usr_d.oneToTwo(usr);
+    }
+
+    @Override
+    public boolean twoToThree(User usr) {
+        return usr_d.twoToThree(usr);
     }
 
     //检查某id使用某name是否合法

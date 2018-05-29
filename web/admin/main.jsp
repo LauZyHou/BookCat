@@ -315,7 +315,7 @@
             }
             else {
                 console.log(responseContext);
-                var words = responseContext.split(' ');
+                var words = responseContext.split("\$");
                 console.log(words);
                 //如果取session,取到的总是页面加载时的
                 $('#username').text(words[1]);

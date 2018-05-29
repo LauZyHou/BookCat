@@ -175,4 +175,13 @@
         <servlet-name>gnrtOrdr</servlet-name>
         <url-pattern>/gnrtOrdr.servlet</url-pattern>
     </servlet-mapping>
+    <!--卡牌合成-->
+    <servlet>
+        <servlet-name>cardcom</servlet-name>
+        <servlet-class>org.ajax.CardComServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cardcom</servlet-name>
+        <url-pattern>/cardcom.servlet</url-pattern>
+    </servlet-mapping>
 </web-app>

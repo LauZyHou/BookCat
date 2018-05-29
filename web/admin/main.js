@@ -116,12 +116,13 @@ function adminBookProcessor() {
         }
         else {
             console.log(responseContext);
-            var words = responseContext.split(' ');
+            var words = responseContext.split('\$');
             console.log(words);
             //如果取session,取到的总是页面加载时的
             //FIXME
             $("#bookId").text(words[0]);
             $('#bookname').text(words[1]);
+            console.log(words[3]);
             document.getElementById('booknum').value=words[2];
             document.getElementById('hotnum').value=words[3];
             document.getElementById('price').value=words[4];

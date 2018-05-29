@@ -50,7 +50,7 @@
                     <h4>卡牌获取</h4>
                     可以通过签到、活动获取风吹草动卡。
                     <br>
-                    您目前拥有48张风吹草动卡。
+                    您目前拥有<s:property value="#session.usr.sale1"/>张风吹草动卡。
                 </div>
             </div>
             <div class="tabdiv">
@@ -67,7 +67,7 @@
                     <h4>卡牌获取</h4>
                     可以通过合成、活动获取排山倒海卡。
                     <br>
-                    您目前拥有0张排山倒海卡。
+                    您目前拥有<s:property value="#session.usr.sale2"/>张排山倒海卡。
                 </div>
             </div>
             <div class="tabdiv">
@@ -84,16 +84,84 @@
                     <h4>卡牌获取</h4>
                     可以通过合成、活动获取宇宙星河卡。
                     <br>
-                    您目前拥有0张宇宙星河卡。
+                    您目前拥有<s:property value="#session.usr.sale3"/>张宇宙星河卡。
                 </div>
             </div>
-            <div class="tabdiv">卡牌合成</div>
+            <%--<div class="tabdiv">卡牌合成</div>--%>
+            <div class="tabdiv">
+                <div class="picdiv">
+                        <button class="btn btn-primary" onclick="oneToTwo()" >四张风吹草动卡合成一张排山倒海卡</button>
+                        <button class="btn btn-primary" onclick="twoToThree()" >四张排山倒海卡合成一张宇宙星河卡</button>
+                </div>
+                <div class="describe">
+                    <h4>风吹草动卡：现拥有<h3 id="card1"><s:property value="#session.usr.sale1" /></h3>张</h4>
+                    <hr>
+                    <h4>排山倒海卡：现拥有<h3 id="card2"><s:property value="#session.usr.sale2" /></h3>张</h4>
+                    <hr>
+                    <h4>宇宙星河卡：现拥有<h3 id="card3"><s:property value="#session.usr.sale3" /></h3>张</h4>
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
 </article>
 
 </body>
 <script>
+    // AJAX回调函数
+    var xmlhttp;
+    function loadXMLDoc(url, cfunc) {
+        console.log("load开始");
+        if (window.XMLHttpRequest) {
+            // IE7+,Firefox,Chrome,Opera,Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6,IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 将状态触发器绑定到指定的处理函数
+        xmlhttp.onreadystatechange = cfunc;
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        console.log("load结束");
+    }
+
+    function oneToTwo() {
+        loadXMLDoc("/cardcom.servlet?flag=1", cardComProcessor);
+    }
+
+    function twoToThree() {
+        loadXMLDoc("/cardcom.servlet?flag=2", cardComProcessor);
+    }
+
+    //卡牌合成的处理函数,用于绑定给触发器
+    function cardComProcessor() {
+        var responseContext;
+        console.log('状态改变为' + xmlhttp.readyState + ',' + xmlhttp.status);
+        //如果返回成功并取得了响应内容
+        if (4 === xmlhttp.readyState && 200 === xmlhttp.status) {
+            console.log('完毕');
+            responseContext = xmlhttp.responseText;
+            var arry_cardcom=responseContext.split(" ");
+            if (responseContext == '-1') {
+                window.alert('请先登录');
+            }else if('-2'==responseContext){
+                window.alert("卡片不足");
+            }else if('-3'==arry_cardcom[0]){
+                window.alert("合成失败");
+                $('#card1').text(arry_cardcom[1]);
+                $('#card2').text(arry_cardcom[2]);
+                $('#card3').text(arry_cardcom[3]);
+            }else if('1'==arry_cardcom[0]){
+                window.alert("合成成功");
+                $('#card1').text(arry_cardcom[1]);
+                $('#card2').text(arry_cardcom[2]);
+                $('#card3').text(arry_cardcom[3]);
+            }
+
+        }
+    }
     window.onload=function () {
         // 获取tab头的列表
         var tab_ttl=document.getElementById("tab");

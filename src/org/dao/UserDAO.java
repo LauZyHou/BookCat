@@ -24,9 +24,15 @@ public interface UserDAO {
     //根据给定的ID查询用户Login对象
     Login findLoginById(int id);
 
-    //李喆雯
-    List<User> findAllUser();
+    //根据充值价格顺序查询用户
+    List<User> findAllUserByMoney();
 
     //检查某id使用某name是否合法
     boolean checkUserNameById(String name,Integer id);
+
+    //1合成2
+    boolean oneToTwo(User usr);
+
+    //2合成3
+    boolean twoToThree(User usr);
 }

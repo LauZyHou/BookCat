@@ -54,7 +54,7 @@ public class AdminUpdServlet extends HttpServlet {
         //调用service层的方法获得用户Us
         User us=as.updSale(name_i,id_i,number_i);
         sssn.setAttribute("usr",us);
-        String s=String.valueOf(us.getId())+" "+String.valueOf(us.getName())+" "+String.valueOf(us.getSale1())+" "+String.valueOf(us.getSale2())+" "+String.valueOf(us.getSale3());
+        String s=String.valueOf(us.getId())+"@"+String.valueOf(us.getName())+"@"+String.valueOf(us.getSale1())+"@"+String.valueOf(us.getSale2())+"@"+String.valueOf(us.getSale3());
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();

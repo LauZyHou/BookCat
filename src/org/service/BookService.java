@@ -12,6 +12,5 @@ public interface BookService {
     //添加图书
     Book add(Book bk);
     //李喆雯
-    List<Book> getHotnumBook();
     List<Book> getCategoryBook(short category);
 }

@@ -1,20 +1,22 @@
 package org.service.imp;
 
-import org.model.Book;
-import org.model.Leave;
-import org.model.LeavePK;
-import org.model.User;
+import org.dao.OrdersDAO;
+import org.model.*;
 import org.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 //测试Service,请把它直接当做DAO用!
 public class TestServiceImp extends HibernateDaoSupport implements TestService {
+    @Autowired
+    OrdersDAO odr_d;
     //添加指定名称的书籍
     @Override
     public void addBook(String name) {
@@ -59,5 +61,42 @@ public class TestServiceImp extends HibernateDaoSupport implements TestService {
 
         ht.save(lv);
         System.out.println("--持久化完毕--");
+    }
+
+    //持久化订单
+    @Override
+    public Orders saveOrder(User usr) {
+        Orders odr=new Orders();
+        odr.setUserByUserid(usr);
+        Date date=new Date();
+        Timestamp timestamp=new Timestamp(date.getTime());
+        odr.setTime(timestamp);
+        odr.setSum((short) 99);
+
+//        bkOdr1.setOrdersByOrderid(odr);
+
+//        bkOdr2.setOrdersByOrderid(odr);
+//        Set<BkOdr> st=new HashSet<BkOdr>();
+//        st.add(bkOdr1);
+//        st.add(bkOdr2);
+//        odr.setBkOdrsById(st);
+        //----
+
+        HibernateTemplate ht=this.getHibernateTemplate();
+        ht.save(odr);
+
+        BkOdr bkOdr1=new BkOdr();
+        bkOdr1.setBkodrpk(new BkOdrPK(odr.getId(),1));
+        bkOdr1.setNum((short) 99);
+
+        BkOdr bkOdr2=new BkOdr();
+        bkOdr2.setBkodrpk(new BkOdrPK(odr.getId(),8));
+        bkOdr2.setNum((short) 66);
+
+        ht.save(bkOdr1);
+        ht.save(bkOdr2);
+
+        ht.flush();
+        return odr;
     }
 }

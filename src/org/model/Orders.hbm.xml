@@ -19,7 +19,8 @@
         </many-to-one>
         <!--1个Order对应N个BkOdr,反转由BkOdr来维护两者关联-->
         <!--(使用BkOdr的setOrderByOrderid方法并持久化BkOdr)-->
-        <set name="bkOdrsById" inverse="true" lazy="false">
+        <!--去掉了:inverse="true"-->
+        <set name="bkOdrsById" lazy="false">
             <!--指出N方表中外键的字段名-->
             <key>
                 <column name="orderid"/>

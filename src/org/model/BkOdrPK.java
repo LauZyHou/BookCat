@@ -23,6 +23,14 @@ public class BkOdrPK implements Serializable {
         this.bookid = bookid;
     }
 
+    public BkOdrPK() {
+    }
+
+    public BkOdrPK(int orderid, int bookid) {
+        this.orderid = orderid;
+        this.bookid = bookid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

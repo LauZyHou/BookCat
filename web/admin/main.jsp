@@ -38,7 +38,7 @@
         String id=request.getParameter("id");
         System.out.println(id);
 %>
-                <div class="picbox" onclick="flushPage()"><img src="../WEB-PIC/Exhibition/<%=id%>.jpg">
+                <div class="picbox"><img src="/pic/Exhibition/<%=id%>.jpg">
                 </div>
                 <s:file name="upload" label="上传的文件"/>
             </div>
@@ -296,11 +296,6 @@
             alert("这一项必须是数字！");
             obj.value = "";
         }
-    }
-
-    //刷新当前页面 TODO
-    function flushPage() {
-        window.location.reload();
     }
 
     //+++

@@ -13,7 +13,7 @@
 <!--Buttons CSS按钮样式库-->
 <link href="../WEB-RELY/button.css" rel="stylesheet" type="text/css">
 <!--BootStrap依赖-->
-<link rel="stylesheet" href="../WEB-RELY/bootstrap.min.css">
+<link rel="stylesheet" href="../WEB-RELY/bootstrap/bootstrap.min.css">
 <script src="../WEB-RELY/jquery.min.js"></script>
 <script src="../WEB-RELY/popper.min.js"></script>
 <script src="../WEB-RELY/bootstrap.min.js"></script>

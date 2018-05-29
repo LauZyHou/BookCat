@@ -28,7 +28,7 @@
 <div class="container clearfloat">
     <!--卡片-->
     <div class="card">
-        <img id="head_img" class="card-img-top" src="../WEB-PIC/User/<s:property value="#session.usr.id"/>.jpg" alt="Card image">
+        <img id="head_img" class="card-img-top" src="/pic/User/<s:property value="#session.usr.id"/>.jpg" alt="Card image">
         <div class="card-body">
             <h4 class="card-title">${sessionScope.usr.name}</h4>
             <p class="card-text">作为一只小猫咪就只会喵喵喵喵喵，喵喵喵喵喵，喵喵喵。</p>

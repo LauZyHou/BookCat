@@ -54,7 +54,7 @@
         </action>
         <!--[进入个人资料]-->
         <action name="selfmsg" class="goselfmsg">
-            <result name="success">/setting/selfmsg.jsp</result>
+            <result name="success" type="redirect">/setting/selfmsg.jsp</result>
             <result name="error">/join/login.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>

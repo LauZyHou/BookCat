@@ -37,14 +37,17 @@
         i++;
     }
 %>
-<div class="result table" >
-    <form class="form-inline" action="search">
-        <table border="1">
+<form class="form-inline" action="search">
+    <div class="result container" >
+        <table class="table table-dark table-hover">
+            <thead>
             <tr>
                 <th>id</th>
-                <th>name</th>
-                <th>msg</th>
+                <th>书名</th>
+                <th>信息</th>
             </tr>
+            </thead>
+            <tbody>
 <%
         for(k=0;k<i;k++){
 %>
@@ -56,9 +59,10 @@
 <%
         }
 %>
+            </tbody>
         </table>
-    </form>
-</div>
+    </div>
+</form>
 
 </body>
 </html>

@@ -49,7 +49,6 @@ public class AdminServiceImp implements AdminService {
         return bk;
     }
 
-
     public AdminDAO getAd_d() {
         return ad_d;
     }
@@ -57,6 +56,5 @@ public class AdminServiceImp implements AdminService {
     public void setAd_d(AdminDAO ad_d) {
         this.ad_d = ad_d;
     }
-
 
 }

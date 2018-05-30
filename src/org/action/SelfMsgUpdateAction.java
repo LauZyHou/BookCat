@@ -8,6 +8,7 @@ import org.service.UserService;
 
 import java.util.Map;
 
+//更新个人信息
 public class SelfMsgUpdateAction extends ActionSupport implements ModelDriven<User> {
     private UserService us;
     private User user=null;
@@ -72,4 +73,3 @@ public class SelfMsgUpdateAction extends ActionSupport implements ModelDriven<Us
         this.respVal = respVal;
     }
 }
-

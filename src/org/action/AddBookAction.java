@@ -1,16 +1,12 @@
 package org.action;
 
-import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import org.apache.struts2.ServletActionContext;
 import org.model.Book;
 import org.service.BookService;
 import org.tools.ConstObj;
 
 import java.io.*;
-import java.util.Map;
 
 @SuppressWarnings("all")
 public class AddBookAction extends ActionSupport implements ModelDriven<Book> {

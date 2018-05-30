@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-//确认(保存收货信息)
+//卡牌合成
 @SuppressWarnings("all")
 public class CardComServlet extends HttpServlet {
     @Autowired
@@ -47,9 +47,6 @@ public class CardComServlet extends HttpServlet {
         String flag= req.getParameter("flag");
         if("0".equals(flag)){
             sssn.setAttribute("usr",usr);
-            System.out.println(usr.getSale1());
-            System.out.println(usr.getSale2());
-            System.out.println(usr.getSale3());
         }
         else if("1".equals(flag)){
             if(usr.getSale1()<4){
@@ -86,7 +83,6 @@ public class CardComServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException
-
     {
         super.init(config);
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());

@@ -2,13 +2,7 @@ package org.dao.imp;
 
 import org.dao.AdminDAO;
 import org.model.Book;
-import org.model.Login;
 import org.model.User;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.model.User;
-import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 

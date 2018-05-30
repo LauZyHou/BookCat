@@ -36,7 +36,7 @@
                 <h2>刚刚入库的书籍</h2>
 <%
         String id=request.getParameter("id");
-        System.out.println(id);
+        System.out.println("在/admin/main.jsp中request的id="+id);
 %>
                 <div class="picbox"><img src="/pic/Exhibition/<%=id%>.jpg">
                 </div>
@@ -154,7 +154,7 @@
                     <tr>
                         <td>图书分类</td>
                         <td>
-                            <s:select class="ComboType" list="#{'1':'WiFi','2':'移动网络','3':'无网络','24':'生活情感'}" id="category"/>
+                            <s:select class="ComboType" list="#{'1':'计算机','2':'物理学','3':'生命科学','24':'生活情感'}" id="category"/>
                         </td>
                         <td><a class="btn btn-primary" onclick="UpdCate()">修改</a></td>
                     </tr>
@@ -172,26 +172,26 @@
                     <th>用户名</th>
                     <th>充值程度</th>
                 </tr>
-                <%
-                    @SuppressWarnings("unchecked")
+<%
                     List<User> userslist=(List<User>) session.getAttribute("userslist");
                     if(userslist!=null){
-                        for(User ur : userslist){
-                %>
+                        for(int i=0;i<8 && i<userslist.size();i++){
+                            User ur=userslist.get(i);
+                            int money=ur.getMoney();
+%>
                 <tr>
                     <td><%=ur.getId()%></td>
                     <td><%=ur.getName()%></td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=ur.getMoney()>1000?"success":ur.getMoney()>400?"primary":ur.getMoney()>30?"warning":"danger"%>" style="width:<%=ur.getMoney()%>%">
-                            </div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<%=money>1000?"success":money>400?"primary":money>30?"warning":"danger"%>" style="width:<%=money/60%>%"></div>
                         </div>
                     </td>
                 </tr>
-                <%
+<%
                         }
                     }
-                %>
+%>
             </table>
         </div>
         <%--书--%>
@@ -202,12 +202,13 @@
                     <th>图书名</th>
                     <th>热度</th>
                 </tr>
-                <%
+<%
                     @SuppressWarnings("unchecked")
                     List<Book> bkhlist=(List<Book>)session.getAttribute("bkhlist");
                     if(bkhlist!=null){
-                        for(Book b:bkhlist){
-                %>
+                        for(int i=0;i<8 && i<bkhlist.size();i++){
+                            Book b=bkhlist.get(i);
+%>
                 <tr>
                     <td><%=b.getId()%></td>
                     <td><%=b.getName()%></td>
@@ -218,10 +219,10 @@
                         </div>
                     </td>
                 </tr>
-                <%
+<%
                         }
                     }
-                %>
+%>
             </table>
         </div>
     </div>

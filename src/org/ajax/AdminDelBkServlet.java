@@ -1,6 +1,5 @@
 package org.ajax;
 
-import org.model.User;
 import org.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;

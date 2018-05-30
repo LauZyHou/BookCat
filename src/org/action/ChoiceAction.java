@@ -68,4 +68,3 @@ public class ChoiceAction extends ActionSupport {
         }
     }
 }
-

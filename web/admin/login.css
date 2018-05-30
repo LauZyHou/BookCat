@@ -2,6 +2,10 @@ html,body{
     height: 100%;
     width: 100%;
 }
+body{
+    background-image: url("../WEB-PIC/01.jpg");
+    padding-top: 70px;
+}
 header,article,footer{
     width: 100%;
 }
@@ -10,13 +14,15 @@ header,footer{
     text-align: center;
 }
 article{
-    background-color: #ffeeba;
     height: 80%;
     padding-top: 8%;
 }
 header{
-    background-color: #CCCCCC;
+    /*background-color: #CCCCCC;*/
 }
 footer{
-    background-color: #f8d7da;
+    /*background-color: #f8d7da;*/
+}
+h1,h4{
+    color: white;
 }

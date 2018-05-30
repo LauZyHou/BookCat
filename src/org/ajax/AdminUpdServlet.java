@@ -50,11 +50,10 @@ public class AdminUpdServlet extends HttpServlet {
         //将请求中获取的id解析成整数
         int id_i=Integer.parseInt(id_s);
         Short number_i=Short.parseShort(number_s);
-        String name_i=name_s;
         //调用service层的方法获得用户Us
-        User us=as.updSale(name_i,id_i,number_i);
+        User us=as.updSale(name_s,id_i,number_i);
         sssn.setAttribute("usr",us);
-        String s=String.valueOf(us.getId())+"@"+String.valueOf(us.getName())+"@"+String.valueOf(us.getSale1())+"@"+String.valueOf(us.getSale2())+"@"+String.valueOf(us.getSale3());
+        String s=us.getId()+"$"+us.getName()+"$"+us.getSale1()+"$"+us.getSale2()+"$"+us.getSale3();
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();

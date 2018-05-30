@@ -172,6 +172,4 @@ public class BookDAOImp extends HibernateDaoSupport implements BookDAO {
             return ls_htk;
         }
     }
-
-
 }

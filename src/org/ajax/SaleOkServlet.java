@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-//确认(保存收货信息)
+//确认(选定优惠券)
 @SuppressWarnings("all")
 public class SaleOkServlet extends HttpServlet {
     @Autowired

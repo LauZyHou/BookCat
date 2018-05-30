@@ -9,9 +9,10 @@ import java.util.List;
 @SuppressWarnings("all")
 public class LeaveServiceImp implements LeaveService {
     private LeaveDAO leave_d;
-    //根据用户姓名查询用户留言
-    public List<Leave> getUserLeaves(int userid){
-        List<Leave> user_l=leave_d.getUserLeaves(userid);
+
+    //根据用户id查询用户留言
+    public List<Leave> getUserLeaves(int userid) {
+        List<Leave> user_l = leave_d.getUserLeaves(userid);
         return user_l;
     }
 
@@ -22,8 +23,8 @@ public class LeaveServiceImp implements LeaveService {
 
     @Override
     public List<Leave> findComments(int bookid) {
-        List<Leave> leave_l=leave_d.findLeavesByBookId(bookid);
-        if(null==leave_l)
+        List<Leave> leave_l = leave_d.findLeavesByBookId(bookid);
+        if (null == leave_l)
             return null;
         return leave_l;
     }

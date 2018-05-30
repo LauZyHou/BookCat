@@ -28,6 +28,7 @@ public class BookServiceImp implements BookService {
         return book_d.createBook(bk);
     }
 
+    //获取书的留言
     @Override
     public List<Book> getCategoryBook(short category) {
         List<Book> cate_b=book_d.getCategoryBook(category);

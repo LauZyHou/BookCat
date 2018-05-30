@@ -5,10 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.model.Book;
 import org.service.BookService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.*;
 import java.lang.*;
 
 //根据分类获取
@@ -25,7 +23,6 @@ public class ClassifyAction extends ActionSupport {
 
     private short category;
 
-
     public String execute() throws Exception {
         //调用Service层的方法获取热门书籍对象列表
         System.out.println(category);
@@ -39,7 +36,6 @@ public class ClassifyAction extends ActionSupport {
         return ERROR;
 
     }
-
 
     public void setBs(BookService bs) {
         this.bs = bs;

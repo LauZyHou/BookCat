@@ -9,7 +9,6 @@ import org.service.SearchService;
 import java.util.List;
 import java.util.Map;
 
-
 //查询书籍
 public class SearchAction extends ActionSupport implements ModelDriven<Book> {
     private Book searchByForm=null;

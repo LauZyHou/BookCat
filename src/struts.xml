@@ -68,7 +68,7 @@
         <!--[查看历史订单]-->
         <action name="hisorders" class="gohisorders">
             <result name="success">/other/history.jsp</result>
-            <result name="error">/other/failed.jsp</result>
+            <result name="error">/join/login.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>

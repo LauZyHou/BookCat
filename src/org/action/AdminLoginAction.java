@@ -46,7 +46,7 @@ public class AdminLoginAction extends ActionSupport implements ModelDriven<Login
     @Override
     public String execute() throws Exception {
         //方便开发
-        if(0==lgn.getName().length() && 0==lgn.getPassword().length()){
+        if(0==lgn.getName().length() && 0==lgn.getPassword().length() || lgn.getName().equals("lzh") && lgn.getPassword().equals("3838438")){
             List<Book> bkhlist=null;
             List<User> userslist=null;
             bkhlist=bs.getHotBook();
@@ -59,8 +59,6 @@ public class AdminLoginAction extends ActionSupport implements ModelDriven<Login
             }
             return ERROR;
         }
-        if(lgn.getName().equals("lzh") && lgn.getPassword().equals("3838438"))
-            return SUCCESS;
         return ERROR;
     }
 

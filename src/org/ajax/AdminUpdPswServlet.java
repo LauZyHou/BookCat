@@ -1,8 +1,5 @@
 package org.ajax;
 
-import org.model.Login;
-import org.model.User;
-import org.service.AdminService;
 import org.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -16,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//重置用户密码
 @SuppressWarnings("all")
 public class AdminUpdPswServlet extends HttpServlet {
     @Autowired
@@ -49,9 +47,10 @@ public class AdminUpdPswServlet extends HttpServlet {
         HttpSession sssn=req.getSession();
         //将请求中获取的id解析成整数
         int id_i=Integer.parseInt(id_s);
-        //调用service层的方法获得用户Us
+        //调用service层的方法重置用户密码
         us.updPsw(id_i);
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);

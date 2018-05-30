@@ -1,7 +1,6 @@
 package org.ajax;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
-import com.opensymphony.xwork2.ActionContext;
 import org.model.User;
 import org.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;

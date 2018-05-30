@@ -1,7 +1,6 @@
 package org.ajax;
 
 import org.model.Book;
-import org.model.User;
 import org.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -50,12 +49,10 @@ public class AdminUpdBkServlet extends HttpServlet {
         HttpSession sssn=req.getSession();
         //将请求中获取的id解析成整数
         int id_i=Integer.parseInt(id_s);
-        String number_i=number_s;
-        String name_i=name_s;
-        //调用service层的方法获得用户Us
-        Book bk=as.updBook(name_i,id_i,number_i);
+        //调用service层的方法更新图书
+        Book bk=as.updBook(name_s,id_i,number_s);
         sssn.setAttribute("bk",bk);
-        String s=String.valueOf(bk.getId())+"@"+String.valueOf(bk.getName())+"@"+String.valueOf(bk.getNum())+"@"+String.valueOf(bk.getHotnum())+"@"+String.valueOf(bk.getPrice()+"@"+String.valueOf(bk.getCategory()));
+        String s=bk.getId()+"$"+bk.getName()+"$"+bk.getNum()+"$"+bk.getHotnum()+"$"+bk.getPrice()+"$"+bk.getCategory();
         //成功执行,返回给客户端状态码
         out.print(s);
         out.flush();

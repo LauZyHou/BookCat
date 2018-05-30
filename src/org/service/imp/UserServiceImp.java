@@ -69,8 +69,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public List<User> findallusersByMoney() {
-        List<User> allusers=usr_d.findAllUserByMoney();
-        return allusers;
+        return usr_d.findAllUserByMoney();
     }
 
     //根据卡片类型获取用户优惠卡数量

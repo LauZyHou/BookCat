@@ -14,6 +14,7 @@ import java.util.List;
 
 @SuppressWarnings("all")
 public class LeaveDAOImp extends HibernateDaoSupport implements LeaveDAO {
+    //获取用户留言
     public List<Leave> getUserLeaves(int userid){
         String hql="from Leave where lvpk.userid=?1 order by lvpk.time";
         HibernateTemplate ht = this.getHibernateTemplate();
@@ -26,11 +27,7 @@ public class LeaveDAOImp extends HibernateDaoSupport implements LeaveDAO {
                             throws HibernateException {
                         // 用hql建立Query对象
                         Query qry = sssn.createQuery(hql);
-                        // 设定?参数值(JPA方式设定参数要给数字加双引号)
-                        //qry.setParameter("1", name);
-                        //qry.setFirstResult(0);
                         qry.setParameter("1", userid);
-
                         // 查询并返回结果,不用考虑Session的开关
                         return qry.list();
                     }
@@ -39,6 +36,7 @@ public class LeaveDAOImp extends HibernateDaoSupport implements LeaveDAO {
         else {System.out.print("查询不为空");return ls_leave;}
     }
 
+    //添加留言
     @Override
     public void addLeave(int userid, int bookid, String comments) {
         Leave leave=new Leave();
@@ -52,6 +50,7 @@ public class LeaveDAOImp extends HibernateDaoSupport implements LeaveDAO {
         ht.save(leave);
     }
 
+    //查询某书籍所有留言
     @Override
     public List<Leave> findLeavesByBookId(int bookid) {
         // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)

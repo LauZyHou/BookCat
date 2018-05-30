@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import org.model.Login;
 import java.util.Map;
 
-//个人信息
+//获取个人信息
 public class SelfMsgAction extends ActionSupport implements ModelDriven<Login> {
 
     @Override

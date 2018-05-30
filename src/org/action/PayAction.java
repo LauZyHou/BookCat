@@ -14,18 +14,16 @@ public class PayAction extends ActionSupport {
     private String valPage;
 
     public String execute() throws Exception {
-        //调用Service层的方法获取当前用户的购物车书籍对象hashmap
         Map session = (Map) ActionContext.getContext().get("session");
-
-        //通过userid从application获取购物车中的书籍
         Map application = (Map) ActionContext.getContext().get("application");
-        //获取当前用户ID（为了获取application的map对象usrid+用户id的value值（map对象（bookid，num））
         User user = (User) session.get("usr");
+        //用户没登录
         if(null==user){
             setValPage("/join/login.jsp?status=please");
             return ERROR;
         }
         Map book_m = (Map) application.get("usrid" + user.getId());
+        //没有购物车
         if(null==book_m){
             setValPage("/main/hot.jsp?status=please");
             return ERROR;

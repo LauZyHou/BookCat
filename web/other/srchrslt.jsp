@@ -39,7 +39,7 @@
 %>
 <form class="form-inline" action="search">
     <div class="result container" >
-        <table class="table table-dark table-hover">
+        <table class="table table-success table-striped table-hover">
             <thead>
             <tr>
                 <th>id</th>
@@ -53,7 +53,7 @@
 %>
             <tr>
                 <td><%=id[k]%></td>
-                <td><%=name[k]%></td>
+                <td><a href="bkmsg?id=<%=id[k]%>"><%=name[k]%></a></td>
                 <td><%=message[k]%></td>
             </tr>
 <%

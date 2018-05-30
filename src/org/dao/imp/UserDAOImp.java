@@ -166,6 +166,7 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         }
     }
 
+    //1合成2
     @Override
     public boolean oneToTwo(User usr) {
         HibernateTemplate ht = this.getHibernateTemplate();
@@ -180,6 +181,7 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         return true;
     }
 
+    //2合成3
     @Override
     public boolean twoToThree(User usr) {
         HibernateTemplate ht = this.getHibernateTemplate();

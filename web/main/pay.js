@@ -10,20 +10,6 @@ function chckall() {
 
 // 反选 TODO
 function chckrsrv() {
-//     $('.chckbx').each(function () {
-//         if($(this).parent().hasClass('checked')){
-//             $(this).iCheck('check');
-//         }else{
-//             $(this).iCheck('uncheck');
-//         }
-// });
-
-    // $('.chckbx').on('ifChecked',{
-    //     $(this).iCheck('uncheck');
-    // });
-    // $('.chckbx').on('ifUnchecked', function(event){
-    //     $(this).iCheck('check');
-    // });
 }
 
 // [管理收货信息]

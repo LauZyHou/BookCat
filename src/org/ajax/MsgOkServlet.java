@@ -1,10 +1,8 @@
 package org.ajax;
 
-import org.dao.imp.UserDAOImp;
 import org.model.User;
 import org.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletConfig;

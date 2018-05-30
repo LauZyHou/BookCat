@@ -2,6 +2,7 @@ package org.ajax;
 
 import org.model.Orders;
 import org.model.User;
+import org.service.BookService;
 import org.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -21,6 +22,8 @@ import java.util.HashMap;
 public class GenerateOrderServlet extends HttpServlet {
     @Autowired
     OrdersService odr_s;
+    @Autowired
+    BookService bk_s;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,7 +51,7 @@ public class GenerateOrderServlet extends HttpServlet {
         //获得传来的要购买的书的id
         String ids_str=req.getParameter("ids_str");
         //参数没获得
-        if(null==ids_str){
+        if(null==ids_str || ids_str.length()<=0){
             out.print("-4");
             out.flush();
             out.close();
@@ -95,6 +98,15 @@ public class GenerateOrderServlet extends HttpServlet {
         for(int i:ids_arrys_int){
 //            System.out.println(i+"~"+usr_hs.get(i));
             toGnrOdr_hs.put(i,usr_hs.get(i).shortValue());
+        }
+        //检查会不会库存不足
+        boolean ok=bk_s.checkBooksNumSufficient(toGnrOdr_hs);
+        //如果有书库存不足
+        if(!ok){
+            out.print("-5");
+            out.flush();
+            out.close();
+            return ;
         }
 
         //获取选择的是哪个优惠券

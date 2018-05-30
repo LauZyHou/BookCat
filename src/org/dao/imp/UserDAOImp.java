@@ -57,7 +57,7 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
 
     //根据给定的用户名和密码建立User实体和相应的Login实体
     @Override
-    public void createUserAndLogin(String name, String password) {
+    public User createUserAndLogin(String name, String password) {
         //建立对象
         Login lgn = new Login();
         lgn.setName(name);
@@ -65,12 +65,20 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
         User usr = new User();
         usr.setSex(false);
         usr.setName(name);
+        usr.setMoney(0);
+        usr.setSale1((short) 20);
+        usr.setSale2((short) 10);
+        usr.setSale3((short) 2);
         //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
         HibernateTemplate ht = this.getHibernateTemplate();
         //设置关联
         lgn.setUserById(usr);
         //保存持久化对象到数据库
         ht.save(lgn);
+        String hql="from User where id=?";
+        usr= ((List<User>)  ht.find(hql,lgn.getId())).get(0);
+        System.out.println("在注册DAO结束后id="+usr.getId());
+        return usr;
     }
 
     //修改用户信息
@@ -78,10 +86,12 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
     public User updateUser(User relusr) {
         //获取HibernateTemplate对象,该对象具有操作数据库的常用方法,无需考虑Session
         HibernateTemplate ht = this.getHibernateTemplate();
+        System.out.println("更新DAO获得的id="+relusr.getId());
         //保存持久化对象到数据库
-        ht.update(relusr);
-        Login lgn = relusr.getLoginById();
+        ht.saveOrUpdate(relusr);
+        Login lgn = this.findLoginById(relusr.getId());
         lgn.setName(relusr.getName());
+        ht.saveOrUpdate(lgn);
         ht.flush();
         return relusr;
     }
@@ -136,7 +146,7 @@ public class UserDAOImp extends HibernateDaoSupport implements UserDAO {
     @Override
     public List<User> findAllUserByMoney() {
         // 书写hql语句(hibernate 4.1之后需使用命名参数或JPA方式占位符才不报警告)
-        final String hql = "from User order by money desc";
+        final String hql = "from User where money!=null order by money desc ";
         // 获取HibernateTemplate对象
         HibernateTemplate ht = this.getHibernateTemplate();
         // 执行execute方法,传入HibernateCallback<T>接口

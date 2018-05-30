@@ -35,9 +35,10 @@ public class UserServiceImp implements UserService {
         if (null != lgn)
             return null;//返回的本User就是null
         //运行至此,要对用户进行注册
-        usr_d.createUserAndLogin(name, password);
+        User usr=usr_d.createUserAndLogin(name, password);
         //返回注册完的User对象
-        return usr_d.findUserByName(name);
+//        return usr_d.findUserByName(name);
+        return usr;
     }
 
     //更新业务

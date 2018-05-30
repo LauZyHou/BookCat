@@ -5,6 +5,7 @@ import org.model.Book;
 import org.service.BookService;
 
 import java.util.List;
+import java.util.Map;
 
 public class BookServiceImp implements BookService {
     private BookDAO book_d;
@@ -33,6 +34,19 @@ public class BookServiceImp implements BookService {
     public List<Book> getCategoryBook(short category) {
         List<Book> cate_b=book_d.getCategoryBook(category);
         return cate_b;
+    }
+
+    //检查某书库存不足
+    @Override
+    public boolean checkBooksNumSufficient(Map<Integer, Short> mp) {
+        //对于其中的每本书
+        for(Integer key:mp.keySet()){
+            Book bk=book_d.findBookById(key);
+            if(null==bk.getNum() || mp.get(key)>bk.getNum()){
+                return false;
+            }
+        }
+        return true;
     }
 
     public void setBook_d(BookDAO book_d) {

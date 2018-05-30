@@ -13,7 +13,7 @@ public interface UserDAO {
     User findUserByName(String name);
 
     //根据给定的用户名和密码建立User实体和相应的Login实体
-    void createUserAndLogin(String name,String password);
+    User createUserAndLogin(String name, String password);
 
     //更新数据库中的表
     User updateUser(User relusr);

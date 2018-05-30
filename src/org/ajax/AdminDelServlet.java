@@ -53,6 +53,8 @@ public class AdminDelServlet  extends HttpServlet {
         as.delUser(id_i);
         //将对应的用户头像移到回收站
         BookCatTools.moveTotherFolders(ConstObj.picUri+"User",id_s+".jpg",ConstObj.picUri+"UserRecy");
+        //从Session中移除,避免影响用户
+        sssn.removeAttribute("usr");
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

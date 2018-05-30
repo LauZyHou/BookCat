@@ -331,6 +331,8 @@ function bookOkProcessor() {
             window.alert("啊哦,购物车是空的,请刷新页面后重新添加~");
         } else if ("-4" == responseContext) {
             window.alert("[!]参数ids_str未能获得");
+        }else if("-5"==responseContext){
+            window.alert("存在库存不足的书籍");
         } else {
             // 设置不可选
             $('.chckbx').iCheck('disable');

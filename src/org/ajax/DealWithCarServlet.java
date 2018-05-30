@@ -98,14 +98,17 @@ public class DealWithCarServlet extends HttpServlet {
         }
         //减少操作
         else if("dec".equals(deal)){
-            if(0==bknum){
-                //0本书不能再减少
-            }else{
-                bknum-=1;
-                sum-=1;
-                usr_hs.put(bkid,bknum);
+            bknum-=1;
+            sum-=1;
+            usr_hs.put(bkid,bknum);
+            //减少后
+            if(bknum<=0){
+                usr_hs.remove(bkid);
+                //将-1拼接给id,以表示要删除该id所在tr标签
+                out.print(id+" -1");
+            }else {
+                out.print(id + " " + bknum);
             }
-            out.print(id+" "+bknum);
         }
         //删除操作
         else if("rmv".equals(deal)){

@@ -166,7 +166,7 @@
         <servlet-name>dealCar</servlet-name>
         <url-pattern>/dealCar.servlet</url-pattern>
     </servlet-mapping>
-    <!--用户确认订单-->
+    <!--用户确认订单后生成订单-->
     <servlet>
         <servlet-name>gnrtOrdr</servlet-name>
         <servlet-class>org.ajax.GenerateOrderServlet</servlet-class>

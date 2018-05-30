@@ -65,7 +65,7 @@
 
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
-    <!-- 配置HibernateDaoSupport子类(DAO层),可以用[单例模式] -->
+    <!--配置HibernateDaoSupport子类(DAO层),可以用[单例模式]-->
     <!--用户DAO-->
     <bean id="userDAOImp" class="org.dao.imp.UserDAOImp">
         <!--HibernateDaoSupport总是需要注入前面的LocalSessionFactoryBean-->
@@ -93,35 +93,40 @@
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
 
     <!-- 配置业务逻辑的类(业务逻辑层),可以用[单例模式] -->
-    <!--服务用户-->
+    <!--用户Service-->
     <bean id="userServiceImp" class="org.service.imp.UserServiceImp">
         <!--注入相应的DAO-->
         <property name="usr_d" ref="userDAOImp"/>
     </bean>
-    <!--服务书籍-->
+    <!--书籍Service-->
     <bean id="bookServiceImp" class="org.service.imp.BookServiceImp">
         <property name="book_d" ref="bookDAOImp"/>
     </bean>
-    <!--书籍查询服务-->
+    <!--书籍查询Service-->
     <bean id="searchServiceImp" class="org.service.imp.SearchServiceImp">
         <property name="book_d" ref="bookDAOImp"/>
     </bean>
-    <!--历史订单服务查询-->
+    <!--历史订单查询Service-->
     <bean id="historyServiceImp" class="org.service.imp.HistoryServiceImp">
         <property name="order_d" ref="ordersDAOImp"/>
     </bean>
-    <!--留言服务查询-->
+    <!--留言查询Service-->
     <bean id="leaveServiceImp" class="org.service.imp.LeaveServiceImp">
         <!--注入相应的DAO-->
         <property name="leave_d" ref="leaveDAOImp"/>
     </bean>
-    <!--管理员服务-->
+    <!--管理员Service-->
     <bean id="adminServiceImp" class="org.service.imp.AdminServiceImp">
         <property name="ad_d" ref="adminDAOImp"/>
     </bean>
     <!--测试Service,当DAO用-->
     <bean id="testServiceImp" class="org.service.imp.TestServiceImp">
         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--订单Service-->
+    <bean id="odrServiceImp" class="org.service.imp.OrdersServiceImp">
+        <property name="bk_d" ref="bookDAOImp"/>
+        <property name="odr_d" ref="ordersDAOImp"/>
     </bean>
 
     <!--00000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->

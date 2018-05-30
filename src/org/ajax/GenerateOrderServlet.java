@@ -1,7 +1,12 @@
 package org.ajax;
 
+import org.model.Orders;
 import org.model.User;
+import org.service.OrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +19,8 @@ import java.util.HashMap;
 
 @SuppressWarnings("all")
 public class GenerateOrderServlet extends HttpServlet {
+    @Autowired
+    OrdersService odr_s;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -83,20 +90,20 @@ public class GenerateOrderServlet extends HttpServlet {
         //-------------------------------------------------
 
         //要生成订单的HashMap
-        HashMap<Integer,Integer> toGnrOdr_hs=new HashMap<>();
+        HashMap<Integer,Short> toGnrOdr_hs=new HashMap<>();
         //遍历存进去
         for(int i:ids_arrys_int){
 //            System.out.println(i+"~"+usr_hs.get(i));
-            toGnrOdr_hs.put(i,usr_hs.get(i));
+            toGnrOdr_hs.put(i,usr_hs.get(i).shortValue());
         }
-
 
         //获取选择的是哪个优惠券
         Short cardType= (Short) sssn.getAttribute("card");
 
-        // TODO 调用Service保存
+        //调用Service保存
+        Orders odr=odr_s.gnrtOrder(usr,toGnrOdr_hs,cardType);
 
-        out.print("订单号");
+        out.print(odr.getId()+",折后总价:"+odr.getSum());
         out.flush();
         out.close();
     }
@@ -104,5 +111,12 @@ public class GenerateOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doGet(req,resp);
+    }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException
+    {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 }

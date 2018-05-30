@@ -1,5 +1,3 @@
-//---
-
 //根据ID删除用户
 function delUsr() {
     var usrId=$("#userId").val();

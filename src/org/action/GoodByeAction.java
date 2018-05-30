@@ -13,6 +13,7 @@ public class GoodByeAction extends ActionSupport {
         Map sssn=ActionContext.getContext().getSession();
         if(sssn.containsKey("usr")){
             sssn.remove("usr");
+            sssn.remove("sum");
         }
         return SUCCESS;
     }

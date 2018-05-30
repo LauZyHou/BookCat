@@ -90,15 +90,17 @@
             <%--<div class="tabdiv">卡牌合成</div>--%>
             <div class="tabdiv">
                 <div class="picdiv">
-                        <button class="btn btn-primary" onclick="oneToTwo()" >四张风吹草动卡合成一张排山倒海卡</button>
-                        <button class="btn btn-primary" onclick="twoToThree()" >四张排山倒海卡合成一张宇宙星河卡</button>
+                    <br><br><br>
+                    <button class="btn btn-primary" onclick="oneToTwo()" >四张风吹草动卡合成一张排山倒海卡</button>
+                    <br><br><br><br>
+                    <button class="btn btn-primary" onclick="twoToThree()" >四张排山倒海卡合成一张宇宙星河卡</button>
                 </div>
                 <div class="describe">
-                    <h4>风吹草动卡：现拥有<h3 id="card1"><s:property value="#session.usr.sale1" /></h3>张</h4>
+                    <h4>风吹草动卡：现拥有<h3 id="card1"><s:property value="#session.usr.sale1" /></h3></h4>
                     <hr>
-                    <h4>排山倒海卡：现拥有<h3 id="card2"><s:property value="#session.usr.sale2" /></h3>张</h4>
+                    <h4>排山倒海卡：现拥有<h3 id="card2"><s:property value="#session.usr.sale2" /></h3></h4>
                     <hr>
-                    <h4>宇宙星河卡：现拥有<h3 id="card3"><s:property value="#session.usr.sale3" /></h3>张</h4>
+                    <h4>宇宙星河卡：现拥有<h3 id="card3"><s:property value="#session.usr.sale3" /></h3></h4>
                     <br>
                 </div>
             </div>

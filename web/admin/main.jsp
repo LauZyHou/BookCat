@@ -263,33 +263,6 @@
         console.log("load结束");
     }
 
-    window.onload = function () {
-        // 获取tab头的列表
-        var tab_ttl = document.getElementById("header");
-        //获取列表中的h1项数组
-        var tab_lst = tab_ttl.getElementsByTagName("h1");
-        //获取内容切换大盒子(就是中央区域)
-        var tabBox = document.getElementById("article");
-        //获取大盒子中的子盒子数组
-        var tabdiv = tabBox.getElementsByClassName("tabdiv");
-        //对于ta头列表的每一项
-        for (var i = 0; i < tab_lst.length; i++) {
-            // 为其添加下标
-            tab_lst[i].index = i;
-            //为其添加点击事件
-            tab_lst[i].onclick = function () {
-                // 先将所有的都隐藏
-                for (var j = 0; j < tab_lst.length; j++) {
-                    tab_lst[j].className = "";
-                    tabdiv[j].style.display = "none";
-                }
-                //再将自己激活
-                this.className = "active";
-                tabdiv[this.index].style.display = "block";
-            };
-        }
-    };
-
     //有些栏目必须是数字
     function check(obj) {
         if (isNaN(obj.value)) {
@@ -331,6 +304,33 @@
         var usrId=$("#userId").val();
         loadXMLDoc("/adFind.servlet?userid="+usrId,adminUserProcessor);
     }
+
+    window.onload = function () {
+        // 获取tab头的列表
+        var tab_ttl = document.getElementById("header");
+        //获取列表中的h1项数组
+        var tab_lst = tab_ttl.getElementsByTagName("h1");
+        //获取内容切换大盒子(就是中央区域)
+        var tabBox = document.getElementById("article");
+        //获取大盒子中的子盒子数组
+        var tabdiv = tabBox.getElementsByClassName("tabdiv");
+        //对于ta头列表的每一项
+        for (var i = 0; i < tab_lst.length; i++) {
+            // 为其添加下标
+            tab_lst[i].index = i;
+            //为其添加点击事件
+            tab_lst[i].onclick = function () {
+                // 先将所有的都隐藏
+                for (var j = 0; j < tab_lst.length; j++) {
+                    tab_lst[j].className = "";
+                    tabdiv[j].style.display = "none";
+                }
+                //再将自己激活
+                this.className = "active";
+                tabdiv[this.index].style.display = "block";
+            };
+        }
+    };
 </script>
 </body>
 </html>

@@ -34,8 +34,8 @@
         </action>
         <!--[管理员登录]-->
         <action name="adminlogin" class="adlog">
-            <result name="success">/admin/main.jsp</result>
-            <result name="error">/admin/login.jsp</result>
+            <result name="success" type="redirect">/admin/main.jsp</result>
+            <result name="error" type="redirect">/admin/login.jsp</result>
             <!--使用系统默认拦截器栈-->
             <interceptor-ref name="defaultStack"/>
         </action>

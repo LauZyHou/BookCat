@@ -68,7 +68,7 @@
             <%=name.get(counts)%>
         </div>
         <div class="usrpicbox">
-            <img src="../WEB-PIC/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
+            <img src="/pic/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
         </div>
         <div class="lybox">
             <span>“</span><%=leave.getComments()%>的喵<span>”</span>
@@ -83,7 +83,7 @@
             <%=name.get(counts)%>
         </div>
         <div class="usrpicbox">
-            <img src="../WEB-PIC/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
+            <img src="/pic/User/<%=leave.getLvpk().getUserid()%>.jpg"/>
         </div>
         <div class="lybox">
             <span>“</span><%=leave.getComments()%>的喵<span>”</span>

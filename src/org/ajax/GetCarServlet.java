@@ -1,5 +1,6 @@
 package org.ajax;
 
+import org.model.Book;
 import org.model.User;
 import org.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,8 +75,9 @@ public class GetCarServlet extends HttpServlet {
         //循环输出表格每一项 FIXME
         for(Integer key:usr_hs.keySet()){
             out.print("<tr id=\"tr_"+key+"\" style=\"text-align: center;\">");
+            Book nowbk=bs.getBookById(key);
             //书号,书名,数目
-            out.print("<td>"+key+"</td><td>书名</td><td id=\"td_num_"+key+"\">"+usr_hs.get(key)+"</td>");
+            out.print("<td>"+key+"</td><td>"+nowbk.getName()+"</td><td id=\"td_num_"+key+"\">"+usr_hs.get(key)+"</td>");
             //加
             out.print("<td><a href=\"javascript:void(0)\" onclick=\"clkDeal('inc',"+key+")\">+</a></td>");
             //减

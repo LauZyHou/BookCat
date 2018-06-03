@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-05-30 21:36:11
+Date: 2018-06-03 18:14:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,6 +43,9 @@ INSERT INTO `bk_odr` VALUES ('10', '12', '2');
 INSERT INTO `bk_odr` VALUES ('11', '3', '1');
 INSERT INTO `bk_odr` VALUES ('11', '13', '1');
 INSERT INTO `bk_odr` VALUES ('11', '14', '1');
+INSERT INTO `bk_odr` VALUES ('12', '8', '1');
+INSERT INTO `bk_odr` VALUES ('12', '10', '1');
+INSERT INTO `bk_odr` VALUES ('12', '12', '2');
 
 -- ----------------------------
 -- Table structure for book
@@ -58,7 +61,7 @@ CREATE TABLE `book` (
   `time` datetime DEFAULT NULL,
   `hotnum` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of book
@@ -86,7 +89,7 @@ INSERT INTO `book` VALUES ('21', '物理是什么', '本书为日本著名物理
 INSERT INTO `book` VALUES ('22', '固体物理学', '本书是在黄昆教授原著本书的基础上改编而成的.原书概念准确、讲解透彻，在改写过程中力图保持原书的特点.对固体物理学中的一些基础部分：如晶体结构、晶格振动、固体能带论.半导体电子论和固体磁性等部分在内容上都做了必要的补充，内容更加丰富。', '32', '2', '7', '2018-05-27 14:56:59', '10');
 INSERT INTO `book` VALUES ('24', 'Redis设计与实现', '黄健宏著的《Redis设计与实现》全面而完整地讲解了Redis的内部机制与实现方式，对Redis的大多数单机功能以及所有多机功能的实现原理进行了介绍，展示了这些功能的核心数据结构以及关键的算法思想,图示丰富，描述清晰，并给出大量参考信息。', '59', '1', '40', '2018-05-27 15:15:03', '10');
 INSERT INTO `book` VALUES ('27', '物理', '买了很多次书了，质量好发货快，也推荐给其他家长了。买了很多次书了，质量好发货快，也推荐给其他家长了。买了很多次书了，质量好发货快，也推荐给其他家长了。', '18', '2', '20', '2018-05-28 02:06:59', '10');
-INSERT INTO `book` VALUES ('28', '蔡坤之书', '111111111111111', '11', '2', '11', '2018-05-30 01:58:45', '10');
+INSERT INTO `book` VALUES ('28', 'kafka技术内幕', '测试入库，测试入库，测试入库！', '83', '1', '30', '2018-06-03 17:15:28', '10');
 
 -- ----------------------------
 -- Table structure for leave
@@ -106,13 +109,14 @@ CREATE TABLE `leave` (
 -- ----------------------------
 -- Records of leave
 -- ----------------------------
-INSERT INTO `leave` VALUES ('1', '1', '啊啊啊', '2018-05-28 16:36:32');
-INSERT INTO `leave` VALUES ('1', '1', '啊啊啊啊啊啊啊啊啊', '2018-05-29 02:58:17');
-INSERT INTO `leave` VALUES ('1', '9', '啊啊啊啊啊', '2018-05-29 02:58:29');
-INSERT INTO `leave` VALUES ('1', '14', '啊啊啊啊啊', '2018-05-29 14:01:18');
-INSERT INTO `leave` VALUES ('1', '14', '额鹅鹅鹅呃呃呃', '2018-05-29 14:01:40');
+INSERT INTO `leave` VALUES ('1', '1', '板凳', '2018-05-28 16:36:32');
+INSERT INTO `leave` VALUES ('1', '1', '这本书挺好', '2018-05-29 02:58:17');
+INSERT INTO `leave` VALUES ('1', '8', '十五字十五字十五字十五字十五字', '2018-05-31 00:48:20');
+INSERT INTO `leave` VALUES ('1', '9', '是不可或缺的参考书', '2018-05-29 02:58:29');
+INSERT INTO `leave` VALUES ('1', '14', '学习一下Spring boot', '2018-05-29 14:01:18');
+INSERT INTO `leave` VALUES ('1', '14', '留言留言留言', '2018-05-29 14:01:40');
 INSERT INTO `leave` VALUES ('1', '14', '额鹅鹅鹅呃呃呃', '2018-05-29 14:02:04');
-INSERT INTO `leave` VALUES ('7', '1', '呃呃呃', '2018-05-15 02:53:41');
+INSERT INTO `leave` VALUES ('4', '1', '呃呃呃沙发沙发', '2018-05-15 02:53:41');
 
 -- ----------------------------
 -- Table structure for login
@@ -149,7 +153,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
@@ -160,6 +164,7 @@ INSERT INTO `orders` VALUES ('3', '4', '140', '2018-05-14 09:27:03');
 INSERT INTO `orders` VALUES ('9', '1', '99', '2018-05-30 03:32:00');
 INSERT INTO `orders` VALUES ('10', '1', '160', '2018-05-30 11:29:19');
 INSERT INTO `orders` VALUES ('11', '1', '149', '2018-05-30 11:39:23');
+INSERT INTO `orders` VALUES ('12', '1', '256', '2018-06-03 17:07:52');
 
 -- ----------------------------
 -- Table structure for user
@@ -178,12 +183,12 @@ CREATE TABLE `user` (
   `sale3` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '刘知昊小猫咪', '\0', '18800201312', '江苏省 盐城市 射阳县 啊啊啊啊', '50', '小猫咪啊啊啊啊啊啊啊', '2', '0', '4');
+INSERT INTO `user` VALUES ('1', '刘知昊小猫咪', '', '18800201312', '上海 上海市 宝山区 上海大学 刘知昊收', '3400', '小猫咪啊啊啊啊啊啊啊', '2', '0', '4');
 INSERT INTO `user` VALUES ('4', '吴瑟晞', '\0', null, '上海大学', '5432', '小猫咪4', '300', '200', '70');
 INSERT INTO `user` VALUES ('6', '马家俊', '', null, '上海大学', '700', '小猫咪6', '140', '40', '0');
 INSERT INTO `user` VALUES ('7', '辛翌菲', '\0', null, '上海大学', '400', '小猫咪7', '60', '8', '0');

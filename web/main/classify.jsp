@@ -100,7 +100,7 @@
 
     <!--分类头-->
     <div id="taglist_hd">
-        <h2>Advertising space! Call 18800201312.</h2>
+        <%--<h2>Advertising space! Call 18800201312.</h2>--%>
         <a href="choice?choicevalue=0" class="button button-primary">按热度</a>
         <a href="choice?choicevalue=1" class="button">按价格</a>
     </div>

@@ -31,6 +31,7 @@ BookCat书籍社区，S2SH框架，J2EE课程项目。
 【2】数据库已经转储至"./资源备份/"目录下的bookcatdb.sql文件中，可以使用Navicat直接导入至MySQL。
 <br>
 【3】为了实现功能，缺少的数据请大家自己填补，并在最后转储且替换掉之前的"bookcatdb.sql"。
+<br>
 【4】进入IDEA配置Tomcat服务器时，在Run/Debug Configuration栏目配置好后，在右侧Deployment选项卡下的Application context处设定项目的根目录为"/"。
 <br>
 【5】启动时提示的log4j:WARN请先忽略。

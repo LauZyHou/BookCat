@@ -24,6 +24,10 @@ BookCat书籍社区，S2SH框架，J2EE课程项目。
 ![](https://i.imgur.com/4xgofnc.jpg)
 
 ![](https://i.imgur.com/9JPdftU.jpg)
+
+![](https://i.imgur.com/Uqv1etd.jpg)
+
+![](https://i.imgur.com/hzUAU1h.jpg)
 ## 开发与合作日志
 ### 2018年5月19日
 【1】请大家尽量规范编程，特别是类、接口、变量、函数、形参的命名，多写注释；尽量让自己的模块不与其它部分耦合。
@@ -57,7 +61,7 @@ BookCat书籍社区，S2SH框架，J2EE课程项目。
 ### 2018年7月3日
 近期从Gitee迁移到GitHub，提供本README文件中的界面展示。
 ### 2018年8月14日
-【1】今天有朋友问我匿名内部类使用非final外部变量的问题，请在IDEA中将Language Level设置成9。
+【1】今天有朋友问我匿名内部类使用非final外部变量的问题，请在IDEA中将Language Level设置成8。
 <br>
 【2】关于Tomcat虚拟路径，是在这个地方改的：
 ![](https://i.imgur.com/Hno3w6f.jpg)

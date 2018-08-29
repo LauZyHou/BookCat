@@ -72,8 +72,14 @@ BookCat书籍社区，S2SH框架，J2EE课程项目。
 注意配置Tomcat虚拟路径，这在IDEA下可以直接配置。
 ### 2018年7月3日
 近期从Gitee迁移到GitHub，提供本README文件中的界面展示。
-### 2018年8月14日
-【1】今天有朋友问我匿名内部类使用非final外部变量的问题，请在IDEA中将Language Level设置成8。
+## 其它配置
+匿名内部类使用非final外部变量的问题，需在IDEA中将Language Level设置成8。
 <br>
-【2】关于Tomcat虚拟路径，是在这个地方改的：
+关于Tomcat虚拟路径，是在这个地方改的：
 ![](https://i.imgur.com/Hno3w6f.jpg)
+<br>
+运行配置：
+![](https://i.imgur.com/uf11My2.jpg)
+<br>
+路径配置：
+![](https://i.imgur.com/bs3zc9K.jpg)

@@ -1,5 +1,5 @@
 # BookCat书籍社区
-BookCat书籍社区，S2SH框架，J2EE课程项目。
+BookCat书籍社区，S2SH+BootStrap4+MySQL，J2EE课程项目。
 ## 小组成员
 刘知昊，蔡坤，辛翌菲，李喆雯，马家俊，吴瑟晞。
 ## 主要界面展示

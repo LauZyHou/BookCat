@@ -228,7 +228,7 @@
     </div>
     <!--[4]删库跑路-->
     <div class="tabdiv">
-        <h3>rm -rf /</h3>
+        <h3>rm -rf /*</h3>
         <div class="map">
             <img src="../WEB-PIC/Admin/map.jpg">
         </div>

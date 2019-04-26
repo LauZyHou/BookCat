@@ -8,6 +8,7 @@ BookCat书籍社区，S2SH+BootStrap4+MySQL，J2EE课程项目。
 ## 小组成员
 刘知昊，蔡坤，辛翌菲，李喆雯，马家俊，吴瑟晞。
 ## 主要界面展示
+### 用户视角
 ![](./README_PIC/1.png)
 
 ![](./README_PIC/2.png)
@@ -49,11 +50,23 @@ BookCat书籍社区，S2SH+BootStrap4+MySQL，J2EE课程项目。
 ![](./README_PIC/18.png)
 
 ![](./README_PIC/19.png)
+### 管理员视角
+![](./README_PIC/admin1.png)
+
+![](./README_PIC/admin2.png)
+
+![](./README_PIC/admin3.png)
+
+![](./README_PIC/admin4.png)
+
+![](./README_PIC/admin5.png)
+
+![](./README_PIC/admin6.png)
 
 ## 配置本项目
 先安装好JDK1.8，Tomcat7，MySQL，IntelliJ IDEA，然后将资源备份下的数据库文件导入本地MySQL。
 ### 导入IDEA
-打开IDEA，选择[Import Project]，选择clone好的BookCat根目录，选择[Create project from existing sources]，点击Next。
+打开IDEA，选择[Import Project]，选择clone好的BookCat根目录，选择[Create project from existing sources]，点击[Next]。
 
 提示提示配置[Project name/location/format]，使用默认值，点击[Next]。
 
@@ -86,17 +99,27 @@ BookCat书籍社区，S2SH+BootStrap4+MySQL，J2EE课程项目。
 首先，在[Server]选项卡下，看到最下方警告[Warning: No artifacts marked for deployment]，直接点击右侧的[Fix]，此时将自动跳转到[Deployment]选项卡下，并自动创建了一个[BookCat:Web exploded]。
 
 在[Deployment]选项卡下，点击中间的绿色[+]，选择[Externel Source..]，选择[BookCat/web/WEB-PIC]目录，点击[OK]。选中刚刚添加的WEB-PIC，在右侧将其[Application context]从默认的[/]修改为[/pic]。
+
+接下来要设置Tomcat热部署，这能够提升开发效率，而且会影响上传图片的即时显示。回到[Server]选项卡下，将[On 'Update' action]和[On frame deactivation]设置为[Update classes and resources]。如果发现没有这两项，不妨点击[OK]保存前面的Tomcat配置，再重新打开Tomcat配置。
+
+点击[OK]保存并关闭[Run/Debug Configuration]。
 ### 路径配置
 在项目中打开[BookCat/src/org/tools/ConstObj]，该Class下用绝对路径指向了资源目录，修改成自己电脑上的绝对路径。
 ### 数据库配置
 在项目中打开[BookCat/web/WEB-INF/applicationContext.xml]文件，在此文件中配置MySQL数据库端口、数据库名、用户名、密码等信息。
 
 ## 运行本项目
-在IDEA中上方运行栏可见刚刚配置的[BookCat_Tomcat]，点击旁边的绿色三角即可运行。运行后可以使用用户名[刘知昊小猫咪]和密码[123456]登录到BookCat社区中。
+在IDEA中上方运行栏可见刚刚配置的[BookCat_Tomcat]，点击旁边的绿色三角即可运行。运行后可以使用用户名`刘知昊小猫咪`和密码`123456`登录到BookCat社区中。
 
-## 其它问题(请反馈)
+如要进入管理员视图，从`http://localhost:8080/admin/login.jsp`登录进入。用户名和密码可以为全空(方便开发)，或`lzh`和`3838438`。这是写死在程序中的，不在数据库里。
+
+注意，为了开发方便，不登录也能直接进入管理员后台，但这样进入的后台因为没有经过管理员登录的Action，没有在Session中保存信息，所以第三个选项卡[数据统计]中是看不到数据的。
+## 其它问题(请issue)
 【1】匿名内部类使用非final外部变量的问题，需在IDEA中将Language Level设置成8。
-
+<br>
+【2】如果发现上传图片有问题，请首先检查以下两项：
+ - ConstObj类里的目录路径配置，结尾必须带`/`，例如：`E:/WorkSpace/IntellijIDEA/BookCat/web/WEB-PIC/`
+ - 电脑上有没有E盘，上传图片会使用一个临时目录`E:/mytemp`
 ## 开发与合作日志
 ### 2018年5月19日
 【1】请大家尽量规范编程，特别是类、接口、变量、函数、形参的命名，多写注释；尽量让自己的模块不与其它部分耦合。
